@@ -248,7 +248,7 @@ Here is a list of all events that are fired:
             </td>
         </tr>
         <tr>
-            <td markdown="1">`LdapRecord\Models\Events\Saving`</td>
+            <td markdown="1">`LdapRecord\Models\Events\Saved`</td>
             <td>
                 When a model has been successfully saved via:
                 <ul>
