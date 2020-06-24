@@ -8,7 +8,7 @@ return [
             'Installation' => 'docs/installation',
             'Configuration' => 'docs/configuration',
             'Connections' => 'docs/connections',
-            'Searching '=> 'docs/searching',
+            'Searching' => 'docs/searching',
         ],
     ],
     'Models' => [
