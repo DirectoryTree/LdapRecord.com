@@ -373,16 +373,49 @@ public function boot()
 
 ### Selective / Bypassing Single-Sign-On {#selective-sigle-sign-on}
 
-Occasionally you may need to allow users who are not apart of the domain
+Occasionally you may need to allow users who are not a part of the domain
 to login  to your application, as well as allowing domain users to
 automatically sign in via Single-Sign-On.
 
-Unfortunately, NTLM / Windows authentication is all-or-nothing on your entire web application. This means,
-you cannot enable a single HTTP endpoint in your application to use Single-Sign-On or exempt a portion
-of your application. However, there is a workaround that is used frequently in the industry.
+Depending on your web servers OS, this process can be different.
 
-The goal is to have two URL's that point to the same Laravel application. One that
-has Windows authentication enabled, and another that does not. This is typically idendified by an `sso` sub-domain:
+#### Linux (HTTPD)
+
+If you're using the Apache `httpd` server with plugins enabling the sharing of a domain joined user's
+username via the `REMOTE_USER` server variable, you must update the `WindowsAuthenticate` middleware
+to use this variable, instead of the default `AUTH_USER`.
+
+To do this, call the `WindowsAuthenticate::serverKey()` method in your `AuthServiceProvider::booot()` method:
+
+```php
+// app/Providers/AuthServiceProvider.php
+
+/**
+ * Register any authentication / authorization services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this->registerPolicies();
+
+    WindowsAuthenticate::serverKey('REMOTE_USER');
+}
+```
+
+If a user is not on a domain joined computer, then the `REMOTE_USER` variable will
+be `null` and the `WindowsAuthenticate` middleware will be automatically bypassed,
+allowing regular web application users to sign in.
+
+#### Windows (IIS)
+
+A Windows hosted application with NTLM / Windows authentication enabled is unfortunately all-or-nothing
+on your entire web application instance. This means, you cannot enable a single HTTP endpoint in your
+application to use Single-Sign-On or exempt a portion of your application. However, there is a
+workaround that is used frequently in the industry.
+
+The goal is to have two URL's that point to the same Laravel application. One has Windows authentication
+enabled, and another does not. This is typically identified by an `sso` sub-domain:
 
 ```html
 <!-- Standard URL -->
@@ -392,8 +425,8 @@ my-app.com
 sso.my-app.com
 ```
 
-To do this, you must create a new IIS instance and point to the same Laravel application. Then, you simply 
-have Windows authentication enabled on one instance, and left disabled on another.
+To do this, you must create a new IIS application instance and point to the same Laravel application.
+Then, you simply have Windows authentication enabled on one instance, and left disabled on another.
 
 Nothing needs to be done in your Laravel application. The `WindowsAuthenticate` middleware
 will only attempt to authenticate users when the `AUTH_USER` server key is present,
