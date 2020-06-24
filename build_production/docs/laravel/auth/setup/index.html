@@ -31,7 +31,7 @@
         <meta name="theme-color" content="#ffffff">
 
         
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=a63e088ad20b43b2400c">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=031cc0aebf7e07826200">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </head>
@@ -741,16 +741,48 @@ public function boot()
 
 <h3 id="selective-sigle-sign-on">Selective / Bypassing Single-Sign-On</h3>
 
-<p>Occasionally you may need to allow users who are not apart of the domain
+<p>Occasionally you may need to allow users who are not a part of the domain
 to login  to your application, as well as allowing domain users to
 automatically sign in via Single-Sign-On.</p>
 
-<p>Unfortunately, NTLM / Windows authentication is all-or-nothing on your entire web application. This means,
-you cannot enable a single HTTP endpoint in your application to use Single-Sign-On or exempt a portion
-of your application. However, there is a workaround that is used frequently in the industry.</p>
+<p>Depending on your web servers OS, this process can be different.</p>
 
-<p>The goal is to have two URL's that point to the same Laravel application. One that
-has Windows authentication enabled, and another that does not. This is typically idendified by an <code>sso</code> sub-domain:</p>
+<h4>Linux (HTTPD)</h4>
+
+<p>If you're using the Apache <code>httpd</code> server with plugins enabling the sharing of a domain joined user's
+username via the <code>REMOTE_USER</code> server variable, you must update the <code>WindowsAuthenticate</code> middleware
+to use this variable, instead of the default <code>AUTH_USER</code>.</p>
+
+<p>To do this, call the <code>WindowsAuthenticate::serverKey()</code> method in your <code>AuthServiceProvider::booot()</code> method:</p>
+
+<pre><code class="language-php">// app/Providers/AuthServiceProvider.php
+
+/**
+ * Register any authentication / authorization services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;registerPolicies();
+
+    WindowsAuthenticate::serverKey('REMOTE_USER');
+}
+</code></pre>
+
+<p>If a user is not on a domain joined computer, then the <code>REMOTE_USER</code> variable will
+be <code>null</code> and the <code>WindowsAuthenticate</code> middleware will be automatically bypassed,
+allowing regular web application users to sign in.</p>
+
+<h4>Windows (IIS)</h4>
+
+<p>A Windows hosted application with NTLM / Windows authentication enabled is unfortunately all-or-nothing
+on your entire web application instance. This means, you cannot enable a single HTTP endpoint in your
+application to use Single-Sign-On or exempt a portion of your application. However, there is a
+workaround that is used frequently in the industry.</p>
+
+<p>The goal is to have two URL's that point to the same Laravel application. One has Windows authentication
+enabled, and another does not. This is typically identified by an <code>sso</code> sub-domain:</p>
 
 <pre><code class="language-html">&lt;!-- Standard URL --&gt;
 my-app.com
@@ -759,8 +791,8 @@ my-app.com
 sso.my-app.com
 </code></pre>
 
-<p>To do this, you must create a new IIS instance and point to the same Laravel application. Then, you simply 
-have Windows authentication enabled on one instance, and left disabled on another.</p>
+<p>To do this, you must create a new IIS application instance and point to the same Laravel application.
+Then, you simply have Windows authentication enabled on one instance, and left disabled on another.</p>
 
 <p>Nothing needs to be done in your Laravel application. The <code>WindowsAuthenticate</code> middleware
 will only attempt to authenticate users when the <code>AUTH_USER</code> server key is present,
@@ -886,7 +918,7 @@ class LoginController extends Controller
         </main>
 
         
-        <script src="/assets/build/js/main.js?id=f4770a7909c663b5fd4a"></script>
+        <script src="/assets/build/js/main.js?id=bcbc65921b92c4782f0d"></script>
 
         <script>
     const navMenu = {

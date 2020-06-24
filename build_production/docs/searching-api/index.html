@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="A guide to help developers migrate from Adldap2-Laravel to LdapRecord-Laravel">
+        <meta name="description" content="A list of all available LdapRecord query builder methods.">
 
         <meta property="og:site_name" content="LdapRecord"/>
-        <meta property="og:title" content="Adldap2-Laravel Migration | LdapRecord"/>
-        <meta property="og:description" content="A guide to help developers migrate from Adldap2-Laravel to LdapRecord-Laravel"/>
-        <meta property="og:url" content="https://ldaprecord.com/docs/laravel/adldap2-migration"/>
+        <meta property="og:title" content="Searching API | LdapRecord"/>
+        <meta property="og:description" content="A list of all available LdapRecord query builder methods."/>
+        <meta property="og:url" content="https://ldaprecord.com/docs/searching-api"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -18,7 +18,7 @@
 
                     <meta name="generator" content="tighten_jigsaw_doc">
         
-        <title>LdapRecord | Adldap2-Laravel Migration</title>
+        <title>LdapRecord | Searching API</title>
 
         <link rel="home" href="https://ldaprecord.com">
         <link rel="icon" href="/favicon.ico">
@@ -72,11 +72,12 @@
 </div>
 
                     
-                                            <a href="/docs/" class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" title="LdapRecord Documentation Link">
-                            Core Docs
+                                            
+                        <a href="/docs/laravel" class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" title="LdapRecord-Laravel Documentation Link">
+                            Laravel Docs
                         </a>
 
-                        <a href="https://github.com/DirectoryTree/LdapRecord-Laravel" class="hidden text-gray-800 hover:text-purple-700 sm:inline">
+                        <a href="https://github.com/DirectoryTree/LdapRecord" class="hidden sm:inline text-gray-800 hover:text-purple-700">
                             <svg class="fill-current w-8 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
                         </a>
                                     </div>
@@ -124,7 +125,7 @@
         <ul class="list-none my-0 border-l-4 border-purple-200">
             <li class="pl-4">
             
-        <a href="/docs/laravel/quickstart"
+        <a href="/docs/quickstart"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
             Quickstart
@@ -133,7 +134,7 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/laravel"
+        <a href="/docs"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
             Overview
@@ -142,7 +143,7 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/laravel/installation"
+        <a href="/docs/installation"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
             Installation
@@ -151,51 +152,7 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/laravel/usage"
-            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
-        >
-            Usage
-        </a>
-    
-    </li>
-    </ul>
-    </li>
-            <li class="pl-4">
-            
-        <p class="nav-menu__item text-gray-500 font-extrabold text-xs tracking-widest uppercase italic pt-2">Authentication</p>
-    
-            
-        <ul class="list-none my-0 border-l-4 border-purple-200">
-            <li class="pl-4">
-            
-        <a href="/docs/laravel/auth/quickstart"
-            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
-        >
-            Quickstart
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/laravel/auth"
-            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
-        >
-            Overview
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/laravel/auth/installation"
-            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
-        >
-            Installation
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/laravel/auth/configuration"
+        <a href="/docs/configuration"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
             Configuration
@@ -204,37 +161,89 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/laravel/auth/setup"
+        <a href="/docs/connections"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
-            Setup &amp; Features
+            Connections
         </a>
     
     </li>
             <li class="pl-4">
             
-        <a href="/docs/laravel/auth/multi-domain"
+        <a href="/docs/searching"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
-            Multi-Domain
+            Searching
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold text-xs tracking-widest uppercase italic pt-2">Models</p>
+    
+            
+        <ul class="list-none my-0 border-l-4 border-purple-200">
+            <li class="pl-4">
+            
+        <a href="/docs/models"
+            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
+        >
+            Getting Started
         </a>
     
     </li>
             <li class="pl-4">
             
-        <a href="/docs/laravel/auth/importing"
+        <a href="/docs/model-relationships"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
-            Importing Users
+            Relationships
         </a>
     
     </li>
             <li class="pl-4">
             
-        <a href="/docs/laravel/auth/testing"
+        <a href="/docs/model-mutators"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
-            Testing
+            Accessors &amp; Mutators
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/model-api"
+            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
+        >
+            API (Available Methods)
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold text-xs tracking-widest uppercase italic pt-2">Active Directory</p>
+    
+            
+        <ul class="list-none my-0 border-l-4 border-purple-200">
+            <li class="pl-4">
+            
+        <a href="/docs/active-directory/users"
+            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
+        >
+            Users
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/active-directory/groups"
+            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
+        >
+            Groups
         </a>
     
     </li>
@@ -248,16 +257,34 @@
         <ul class="list-none my-0 border-l-4 border-purple-200">
             <li class="pl-4">
             
-        <a href="/docs/laravel/lumen"
+        <a href="/docs/authentication"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
-            Lumen
+            Authentication
         </a>
     
     </li>
             <li class="pl-4">
             
-        <a href="/docs/laravel/events"
+        <a href="/docs/common-queries"
+            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
+        >
+            Common Queries
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/caching"
+            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
+        >
+            Caching
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/events"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
             Events
@@ -266,28 +293,19 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/laravel/testing"
+        <a href="/docs/logging"
+            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
+        >
+            Logging
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/testing"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
             Testing
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/laravel/debugging"
-            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
-        >
-            Debugging
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="/docs/laravel/importing"
-            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
-        >
-            Importing Objects
         </a>
     
     </li>
@@ -301,7 +319,7 @@
         <ul class="list-none my-0 border-l-4 border-purple-200">
             <li class="pl-4">
             
-        <a href="/docs/laravel/versioning"
+        <a href="/docs/versioning"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
             Versioning
@@ -310,7 +328,16 @@
     </li>
             <li class="pl-4">
             
-        <a href="/docs/laravel/license"
+        <a href="/docs/credits"
+            class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
+        >
+            Credits
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/license"
             class="lvl1  text-gray-700 nav-menu__item hover:text-purple-500"
         >
             License
@@ -321,20 +348,20 @@
     </li>
     </ul>
 
-    <div class="block sm:hidden">
+    <div class="block md:hidden">
         <hr class="my-4"/>
 
         <ul class="list-none my-0">
             <li class="pl-4">
-                <a href="/docs/"
+                <a href="/docs/laravel/"
                    class="nav-menu__item hover:text-blue-500"
                 >
-                    Core Documentation
+                    Laravel Documentation
                 </a>
             </li>
 
             <li class="pl-4">
-                <a href="https://github.com/DirectoryTree/LdapRecord-Laravel"
+                <a href="https://github.com/DirectoryTree/LdapRecord"
                    class="nav-menu__item hover:text-blue-500"
                 >
                     Source Code
@@ -345,11 +372,287 @@
             </nav>
 
             <div class="DocSearch-content content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-                <h2>Migrating from Adldap2-Laravel</h2>
+                <h1>Available Search Methods (API)</h1>
 
-<p>LdapRecord is the direct successor to Adldap2. This guide will attempt to help you migrate directly
-from Adlap2-Laravel to LdapRecord-Laravel. However, please be aware that this guide cannot cover
-every single use-case in your application.</p>
+<div class="api-method-list">
+<p>
+<a href="#addControl">addControl</a>
+<a href="#addFilter">addFilter</a>
+<a href="#addSelect">addSelect</a>
+<a href="#andFilter">andFilter</a>
+<a href="#cache">cache</a>
+<a href="#clearFilters">clearFilters</a>
+<a href="#delete">delete</a>
+<a href="#deleteAttributes">deleteAttributes</a>
+<a href="#dynamicWhere">dynamicWhere</a>
+<a href="#escape">escape</a>
+<a href="#find">find</a>
+<a href="#findBy">findBy</a>
+<a href="#findByOrFail">findByOrFail</a>
+<a href="#findManyBy">findManyBy</a>
+<a href="#findOrFail">findOrFail</a>
+<a href="#first">first</a>
+<a href="#firstOrFail">firstOrFail</a>
+<a href="#get">get</a>
+<a href="#getCache">getCache</a>
+<a href="#getConnection">getConnection</a>
+<a href="#getDn">getDn</a>
+<a href="#getFilters">getFilters</a>
+<a href="#getGrammar">getGrammar</a>
+<a href="#getQuery">getQuery</a>
+<a href="#getSelects">getSelects</a>
+<a href="#getType">getType</a>
+<a href="#getUnescapedQuery">getUnescapedQuery</a>
+<a href="#hasControl">hasControl</a>
+<a href="#hasSelects">hasSelects</a>
+<a href="#in">in</a>
+<a href="#insert">insert</a>
+<a href="#insertAttributes">insertAttributes</a>
+<a href="#isNested">isNested</a>
+<a href="#isPaginated">isPaginated</a>
+<a href="#limit">limit</a>
+<a href="#listing">listing</a>
+<a href="#model">model</a>
+<a href="#nested">nested</a>
+<a href="#newInstance">newInstance</a>
+<a href="#newNestedInstance">newNestedInstance</a>
+<a href="#notFilter">notFilter</a>
+<a href="#orFilter">orFilter</a>
+<a href="#orWhere">orWhere</a>
+<a href="#orWhereApproximatelyEquals">orWhereApproximatelyEquals</a>
+<a href="#orWhereContains">orWhereContains</a>
+<a href="#orWhereEndsWith">orWhereEndsWith</a>
+<a href="#orWhereEquals">orWhereEquals</a>
+<a href="#orWhereHas">orWhereHas</a>
+<a href="#orWhereNotContains">orWhereNotContains</a>
+<a href="#orWhereNotEndsWith">orWhereNotEndsWith</a>
+<a href="#orWhereNotEquals">orWhereNotEquals</a>
+<a href="#orWhereNotHas">orWhereNotHas</a>
+<a href="#orWhereNotStartsWith">orWhereNotStartsWith</a>
+<a href="#orWhereRaw">orWhereRaw</a>
+<a href="#orWhereStartsWith">orWhereStartsWith</a>
+<a href="#paginate">paginate</a>
+<a href="#query">query</a>
+<a href="#rawFilter">rawFilter</a>
+<a href="#read">read</a>
+<a href="#recursive">recursive</a>
+<a href="#rename">rename</a>
+<a href="#select">select</a>
+<a href="#setCache">setCache</a>
+<a href="#setConnection">setConnection</a>
+<a href="#setDn">setDn</a>
+<a href="#setGrammar">setGrammar</a>
+<a href="#update">update</a>
+<a href="#updateAttributes">updateAttributes</a>
+<a href="#where">where</a>
+<a href="#whereApproximatelyEquals">whereApproximatelyEquals</a>
+<a href="#whereBetween">whereBetween</a>
+<a href="#whereContains">whereContains</a>
+<a href="#whereDeleted">whereDeleted</a>
+<a href="#whereEndsWith">whereEndsWith</a>
+<a href="#whereEquals">whereEquals</a>
+<a href="#whereHas">whereHas</a>
+<a href="#whereIn">whereIn</a>
+<a href="#whereNotContains">whereNotContains</a>
+<a href="#whereNotEndsWith">whereNotEndsWith</a>
+<a href="#whereNotEquals">whereNotEquals</a>
+<a href="#whereNotHas">whereNotHas</a>
+<a href="#whereNotStartsWith">whereNotStartsWith</a>
+<a href="#whereRaw">whereRaw</a>
+<a href="#whereStartsWith">whereStartsWith</a>
+<a href="#withDeleted">withDeleted</a>
+</p>
+</div>
+
+<h2>Method Listing</h2>
+
+<h4 id="addControl"><code>addControl</code></h4>
+
+<p>Add a server control to be executed with the LDAP search query:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query-&gt;addControl(
+    $oid = '1.2.840.113556.1.4.417', $isCritical = true, $value = null
+);
+
+// array:1 [▼
+//  "1.2.840.113556.1.4.417" =&gt; array:3 [▼
+//    "oid" =&gt; "1.2.840.113556.1.4.417"
+//    "isCritical" =&gt; true
+//    "value" =&gt; null
+//  ]
+// ]
+var_dump($query-&gt;controls);
+</code></pre>
+
+<h4 id="addFilter"><code>addFilter</code></h4>
+
+<h4 id="addSelect"><code>addSelect</code></h4>
+
+<h4 id="addFilter"><code>andFilter</code></h4>
+
+<h4 id="cache"><code>cache</code></h4>
+
+<h4 id="clearFilters"><code>clearFilters</code></h4>
+
+<h4 id="delete"><code>delete</code></h4>
+
+<h4 id="deleteAttributes"><code>deleteAttributes</code></h4>
+
+<h4 id="dynamicWhere"><code>dynamicWhere</code></h4>
+
+<h4 id="escape"><code>escape</code></h4>
+
+<h4 id="find"><code>find</code></h4>
+
+<h4 id="findBy"><code>findBy</code></h4>
+
+<h4 id="findByOrFail"><code>findByOrFail</code></h4>
+
+<h4 id="findManyBy"><code>findManyBy</code></h4>
+
+<h4 id="findOrFail"><code>findOrFail</code></h4>
+
+<h4 id="first"><code>first</code></h4>
+
+<h4 id="firstOrFail"><code>firstOrFail</code></h4>
+
+<h4 id="get"><code>get</code></h4>
+
+<h4 id="getCache"><code>getCache</code></h4>
+
+<h4 id="getConnection"><code>getConnection</code></h4>
+
+<h4 id="getDn"><code>getDn</code></h4>
+
+<h4 id="getFilters"><code>getFilters</code></h4>
+
+<h4 id="getGrammar"><code>getGrammar</code></h4>
+
+<h4 id="getQuery"><code>getQuery</code></h4>
+
+<h4 id="getSelects"><code>getSelects</code></h4>
+
+<h4 id="getType"><code>getType</code></h4>
+
+<h4 id="getUnescapedQuery"><code>getUnescapedQuery</code></h4>
+
+<h4 id="hasControl"><code>hasControl</code></h4>
+
+<h4 id="hasSelects"><code>hasSelects</code></h4>
+
+<h4 id="in"><code>in</code></h4>
+
+<h4 id="insert"><code>insert</code></h4>
+
+<h4 id="insertAttributes"><code>insertAttributes</code></h4>
+
+<h4 id="isNested"><code>isNested</code></h4>
+
+<h4 id="isPaginated"><code>isPaginated</code></h4>
+
+<h4 id="limit"><code>limit</code></h4>
+
+<h4 id="listing"><code>listing</code></h4>
+
+<h4 id="model"><code>model</code></h4>
+
+<h4 id="nested"><code>nested</code></h4>
+
+<h4 id="newInstance"><code>newInstance</code></h4>
+
+<h4 id="newNestedInstance"><code>newNestedInstance</code></h4>
+
+<h4 id="notFilter"><code>notFilter</code></h4>
+
+<h4 id="orFilter"><code>orFilter</code></h4>
+
+<h4 id="orWhere"><code>orWhere</code></h4>
+
+<h4 id="orWhereApproximatelyEqual"><code>orWhereApproximatelyEquals</code></h4>
+
+<h4 id="orWhereContains"><code>orWhereContains</code></h4>
+
+<h4 id="orWhereEndsWith"><code>orWhereEndsWith</code></h4>
+
+<h4 id="orWhereEquals"><code>orWhereEquals</code></h4>
+
+<h4 id="orWhereHas"><code>orWhereHas</code></h4>
+
+<h4 id="orWhereNotContains"><code>orWhereNotContains</code></h4>
+
+<h4 id="orWhereNotEndsWith"><code>orWhereNotEndsWith</code></h4>
+
+<h4 id="orWhereNotEquals"><code>orWhereNotEquals</code></h4>
+
+<h4 id="orWhereNotHas"><code>orWhereNotHas</code></h4>
+
+<h4 id="orWhereNotStartsWith"><code>orWhereNotStartsWith</code></h4>
+
+<h4 id="orWhereRaw"><code>orWhereRaw</code></h4>
+
+<h4 id="orWhereStartsWith"><code>orWhereStartsWith</code></h4>
+
+<h4 id="paginate"><code>paginate</code></h4>
+
+<h4 id="query"><code>query</code></h4>
+
+<h4 id="rawFilter"><code>rawFilter</code></h4>
+
+<h4 id="read"><code>read</code></h4>
+
+<h4 id="recursive"><code>recursive</code></h4>
+
+<h4 id="rename"><code>rename</code></h4>
+
+<h4 id="select"><code>select</code></h4>
+
+<h4 id="setCache"><code>setCache</code></h4>
+
+<h4 id="setConnection"><code>setConnection</code></h4>
+
+<h4 id="setDn"><code>setDn</code></h4>
+
+<h4 id="setGrammar"><code>setGrammar</code></h4>
+
+<h4 id="update"><code>update</code></h4>
+
+<h4 id="updateAttributes"><code>updateAttributes</code></h4>
+
+<h4 id="where"><code>where</code></h4>
+
+<h4 id="whereApproximatelyEquals"><code>whereApproximatelyEquals</code></h4>
+
+<h4 id="whereBetween"><code>whereBetween</code></h4>
+
+<h4 id="whereContains"><code>whereContains</code></h4>
+
+<h4 id="whereDeleted"><code>whereDeleted</code></h4>
+
+<h4 id="whereEndsWith"><code>whereEndsWith</code></h4>
+
+<h4 id="whereEquals"><code>whereEquals</code></h4>
+
+<h4 id="whereHas"><code>whereHas</code></h4>
+
+<h4 id="whereIn"><code>whereIn</code></h4>
+
+<h4 id="whereNotContains"><code>whereNotContains</code></h4>
+
+<h4 id="whereNotEndsWith"><code>whereNotEndsWith</code></h4>
+
+<h4 id="whereNotEquals"><code>whereNotEquals</code></h4>
+
+<h4 id="whereNotHas"><code>whereNotHas</code></h4>
+
+<h4 id="whereNotStartsWith"><code>whereNotStartsWith</code></h4>
+
+<h4 id="whereRaw"><code>whereRaw</code></h4>
+
+<h4 id="whereStartsWith"><code>whereStartsWith</code></h4>
+
+<h4 id="withDeleted"><code>withDeleted</code></h4>
 
                 <div class="mt-12 pt-8 pb-6 border-t-2 border-purple-200">
                         <div class="flex flex-col-reverse md:flex-row justify-between items-center">
@@ -358,14 +661,14 @@ every single use-case in your application.</p>
     <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
                     <span class="font-black text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
             <h4 class="font-bold underline m-0 text-blue-700">
-                <a href="/docs/laravel">Overview</a>
+                <a href="/docs">Overview</a>
             </h4>
             </div>
 </div>
                 </div>
 
                 <div class="mt-8 text-center hidden md:block">
-                    <a class="font-black text-gray-500 text-sm tracking-wider uppercase" href="https://github.com/DirectoryTree/LdapRecord.com/blob/master/source/docs/laravel/adldap2-migration/index.md" target="_blank">
+                    <a class="font-black text-gray-500 text-sm tracking-wider uppercase" href="https://github.com/DirectoryTree/LdapRecord.com/blob/master/source/docs/searching-api.md" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6 inline-block fill-current mr-1">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
                         </svg>
