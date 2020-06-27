@@ -139,7 +139,7 @@ This class accepts your Eloquent model class as the first parameter, and your co
 ```php
 use App\Group as EloquentGroup;
 use LdapRecord\Laravel\LdapImporter;
-use LdapRecord\Laravel\ActiveDirectory\Group as LdapGroup;
+use LdapRecord\Models\ActiveDirectory\Group as LdapGroup;
 
 // Define the sync attributes.
 $config = [
