@@ -269,8 +269,8 @@ attribute to one of the below values:
 
 Value | Meaning |
 --- | --- |
-`0` | **Toggled off**. The user will not be required to change their password. |
-`-1` | **Toggled on**. The user will be required to change their password. |
+`0` | **Toggled on**. The user will be required to change their password. |
+`-1` | **Toggled off**. The user will not be required to change their password. |
 
 > **Important**:
 >
@@ -282,7 +282,7 @@ Value | Meaning |
 $user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
 
 // The user must change their password on next login.
-$user->pwdlastset = -1;
+$user->pwdlastset = 0;
 
 $user->save();
 ```
@@ -297,7 +297,7 @@ disablement, password expiry, the ability to change passwords, and more.
 
 For example, setting a users `userAccountControl` to `512` would mean that
 the user account is a default account type that represents a typical user.
-Setting it to `2`, would mean the account is disabled.
+Setting it to `2`, would mean the account has been disabled.
 
 Combining both to `514` (`512 + 2 = 514`) would mean the users
 account is a typical user account, that is also disabled.
