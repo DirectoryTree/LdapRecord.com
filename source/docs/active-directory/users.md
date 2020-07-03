@@ -17,7 +17,7 @@ section: content
   - [User Must Change Password at Next Logon](#password-reset-on-next-login)
 - [User Account Control](#uac)
   - [Usage](#uac-usage)
-  - [Available Contants](#uac-constants)
+  - [Available Constants](#uac-constants)
   - [Available Methods](#uac-methods)
 - [Group Management](#group-management)
   - [Getting Groups](#getting-groups)
