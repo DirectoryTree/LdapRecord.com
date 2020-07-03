@@ -16,6 +16,7 @@ section: content
 - [Single Users](#single-users)
 - [Command Options](#command-options)
  - [Filter](#option-filter)
+ - [Attributes](#option-attributes)
  - [Delete](#option-delete)
  - [Delete Missing](#option-delete-missing)
  - [Restore](#option-restore)
@@ -165,6 +166,7 @@ Artisan::call('ldap:import', [
     '--delete' => true,
     '--delete-missing' => true,
     '--filter' => '(cn=John Doe)',
+    '--attributes' => 'cn,mail,samaccountname',
 ]);
 ```
 
@@ -187,13 +189,27 @@ Would you like to display the user(s) to be imported / synchronized? (yes/no) [n
 
 ### Filter {#option-filter}
 
-The `--filter` (or `-f`) option allows you to enter in a raw filter to further narrow down the users who are imported:
+The `--filter` (or `-f`) option allows you to apply a raw filter to further narrow down the users who are imported:
 
 > **Important**: If your filter contains commas, or other types of "escape" level LDAP search filter characters,
 > you **must** escape the value with a backslash (`\`) before passing it into the search string. More on this below.
 
 ```text
 php artisan ldap:import ldap --filter "(cn=John Doe)"
+```
+
+### Attributes {#option-attributes}
+
+The `--attributes` (or `-a`) option allows you to specify the attributes that should be returned from your LDAP server.
+
+This option is great for reducing memory usage for large imports, since all attributes will be returned from your LDAP server otherwise.
+
+> **Important**: To use this option, you **must** comma separate each attribute in the
+> command and include the attributes you have configured in your
+> [authentication provider](/docs/laravel/auth/configuration/#database-sync-attributes).
+
+```text
+php artisan ldap:import ldap --attributes "cn,mail,sn,givenname,samaccountname"
 ```
 
 #### Escaping
