@@ -25,9 +25,8 @@
         </div>
 
         <div class="mt-4 max-w-md mx-auto sm:flex sm:justify-center">
-            <a href="https://github.com/sponsors/stevebauman" target="_blank" title="Support LdapRecord Link" class="group rounded-md lg:flex justify-center px-8 py-3 text-base leading-6 font-medium rounded-md text-black bg-gray-200 hover:bg-gray-300 shadow hover:shadow-none focus:outline-none md:py-4 md:text-lg md:px-10">
-                Sponsor LdapRecord
-                <span class="text-xl ml-1">❤️</span>
+            <a href="https://github.com/sponsors/stevebauman" target="_blank" title="Support LdapRecord Link" class="group rounded-md lg:flex justify-center px-8 py-3 text-base leading-6 font-medium rounded-md text-black bg-gray-200 hover:bg-gray-300 shadow hover:shadow-none md:py-4 md:text-lg md:px-10">
+                Sponsor LdapRecord <span class="text-xl ml-1">❤️</span>
             </a>
         </div>
     </div>

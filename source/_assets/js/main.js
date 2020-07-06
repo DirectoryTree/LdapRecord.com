@@ -1,7 +1,7 @@
 window.docsearch = require('docsearch.js');
 
+import Vue from 'vue';
 import Prism from 'prismjs'
-
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-clike';
@@ -11,6 +11,13 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight';
 Prism.highlightAll();
 
 window.$ = window.jQuery = require('jquery');
+window.axios = require('axios');
+
+Vue.component('version', require('./components/Version').default);
+
+const app = new Vue({
+    el: '#app',
+});
 
 $(document).ready(() => {
     // Wrap tables in content responsive container.
@@ -25,5 +32,4 @@ $(document).ready(() => {
             ).insertBefore(el);
         }
     });
-    
 });

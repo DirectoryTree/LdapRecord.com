@@ -1,6 +1,7 @@
 <?php
 
 use App\Listeners\BuildSiteMap;
+use App\Listeners\GetLatestVersions;
 use TightenCo\Jigsaw\Jigsaw;
 
 /** @var $container \Illuminate\Container\Container */
@@ -18,3 +19,4 @@ use TightenCo\Jigsaw\Jigsaw;
  */
 
 $events->afterBuild(BuildSiteMap::class);
+$events->afterBuild(GetLatestVersions::class);

@@ -12,9 +12,11 @@ return [
     'docsearchApiKey' => 'bc526397341486f980ca0b7ee7a0fa61',
     'docsearchIndexName' => 'ldaprecord',
 
+    // GitHub API token for getting new release versions
+    'githubApiToken' => '7b557ac1f9d00bca4b5e78bad0607c07916a5faf',
+
     // navigation menu
     'navigation' => require_once('navigation.php'),
-
     'laravelNavigation' => require_once('laravel.navigation.php'),
 
     // Thanks to: Caleb Porzio for these methods
@@ -62,6 +64,9 @@ return [
     },
     'isOnParent' => function ($page, $path) {
         return Str::startsWith(Str::start($page->getPath(), '/'), $path);
+    },
+    'isOnLaravel' => function ($page) {
+        return $page->isOnParent('/docs/laravel');
     },
     'pullRequestPath' => function ($page) {
         $uris = [
