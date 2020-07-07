@@ -12,10 +12,12 @@ section: content
 - [Using Usernames](#using-usernames)
 - [Fallback Authentication](#fallback-auth)
 - [Eloquent Model Binding](#model-binding)
-- [Pass-Through Authentication / SSO](#passthrough-authentication)
+- [Pass-Through Authentication / Single-Sign-On](#passthrough-authentication)
  - [Domain Verification](#sso-domain-verification)
  - [Changing the Server Key](#changing-the-sso-server-key)
- - [Selective / Bypassing Single-Sign-On](#selective-sigle-sign-on)
+ - [Remember Single-Sign-On users](#remember-sso-users)
+ - [Selective / Bypassing Single-Sign-On](#selective-single-sign-on)
+ - [Forcing logouts on non Single-Sign-On users](#forcing-non-sso-logouts)
 - [Displaying LDAP Error Messages (password expiry, account lockouts)](#displaying-ldap-error-messages)
 
 ## Authentication Guard {#guard}
@@ -324,14 +326,16 @@ cn=sbauman,ou=users,dc=acme,dc=com
 Then they will be allowed to authenticate, as their `ACME` domain is contained inside of
 their distinguished name domain components (`dc=acme`).
 
-> Comparison against each domain component is done in a **case-insensitive** manor.
+> Comparison against each domain component will be performed in a **case-insensitive** manor.
 
 If you would like to disable this check, you must call the static method `bypassDomainVerification`
 on the `WindowsAuthenticate` middleware inside of your `AuthServiceProvider`:
 
 > **Important**: If you only connect to one domain inside your application,
-> this is not a security issue. However, if you use multi-domain authentication
-> and disable this check, users who have the same `sAMAccountName` could login as eachother. **This is a security issue. You have been warned.**
+> this is not a security issue. However, if you use multi-domain
+> authentication and disable this check, users who have the
+> same `sAMAccountName` could sign in as each other.
+> **This is a security issue. You have been warned.**
 
 ```php
 // app/Providers/AuthServiceProvider.php
@@ -371,7 +375,32 @@ public function boot()
 }
 ```
 
-### Selective / Bypassing Single-Sign-On {#selective-sigle-sign-on}
+### Remember Single-Sign-On users {#remember-sso-users}
+
+As of LdapRecord-Laravel version `v1.9.0`, users signed in to your application via the
+`WindowsAuthenticate` middleware will no longer be automatically "remembered".
+
+This shouldn't have any effect on your application, but if you need to re-enable
+this feature, you must call the `rememberAuthenticatedUsers` method on the
+`WindowsAuthenticate` middleware inside of your `AuthServiceProvider`:
+
+```php
+// app/Providers/AuthServiceProvider.php
+
+/**
+ * Register any authentication / authorization services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this->registerPolicies();
+
+    WindowsAuthenticate::rememberAuthenticatedUsers();
+}
+```
+
+### Selective / Bypassing Single-Sign-On {#selective-single-sign-on}
 
 Occasionally you may need to allow users who are not a part of the domain
 to login  to your application, as well as allowing domain users to
@@ -385,7 +414,7 @@ If you're using the Apache `httpd` server with plugins enabling the sharing of a
 username via the `REMOTE_USER` server variable, you must update the `WindowsAuthenticate` middleware
 to use this variable, instead of the default `AUTH_USER`.
 
-To do this, call the `WindowsAuthenticate::serverKey()` method in your `AuthServiceProvider::booot()` method:
+To do this, call the `WindowsAuthenticate::serverKey()` method in your `AuthServiceProvider::boot()` method:
 
 ```php
 // app/Providers/AuthServiceProvider.php
@@ -431,6 +460,37 @@ Then, you simply have Windows authentication enabled on one instance, and left d
 Nothing needs to be done in your Laravel application. The `WindowsAuthenticate` middleware
 will only attempt to authenticate users when the `AUTH_USER` server key is present,
 so it can remain in the global middleware stack.
+
+### Forcing logouts on non Single-Sign-On users {#forcing-non-sso-logouts}
+
+If a user successfully authenticates to your Laravel application through single-sign-on,
+and their account happens to be deleted or disabled, the user will remain authenticated
+to your application for the duration of your Laravel application's session.
+
+If you would like all users in your application to be signed out automatically
+if SSO credentials are not available from your web server, call the
+`logoutUnauthenticatedUsers` method on the `WindowsAuthenticate`
+middleware in your `AuthServiceProvider::boot()` method:
+
+> **Important**: Only enable this feature if Single-Sign-On is the
+> only way you authenticate users. Enabling this otherwise will
+> cause all non-SSO users to be signed out of your application.
+
+```php
+// app/Providers/AuthServiceProvider.php
+
+/**
+ * Register any authentication / authorization services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this->registerPolicies();
+
+    WindowsAuthenticate::logoutUnauthenticatedUsers();
+}
+```
 
 ## Displaying LDAP Error Messages {#displaying-ldap-error-messages}
 
