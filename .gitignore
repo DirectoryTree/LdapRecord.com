@@ -1,5 +1,6 @@
 /build_local/
 /node_modules/
 /vendor/
+/source/docs/*
 /source/assets/build/
 /.idea
