@@ -13,7 +13,7 @@ return [
     'docsearchIndexName' => 'ldaprecord',
 
     // GitHub API token for getting new release versions
-    'githubApiToken' => '7b557ac1f9d00bca4b5e78bad0607c07916a5faf',
+    'githubApiToken' => '12622c742b29bfdd5ef03f59d4856bf51db773da',
 
     // navigation menu
     'navigation' => require_once('navigation.php'),
