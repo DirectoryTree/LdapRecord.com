@@ -495,7 +495,7 @@ public function boot()
 ## Displaying LDAP Error Messages {#displaying-ldap-error-messages}
 
 When a user fails LDAP authentication due to their password / account expiring, account
-lockout or their password requiring to be changed, specific error codes are sent
+lockout, or their password requiring to be changed, specific error codes will be sent
 back from your server. LdapRecord can interpret these for you and display
 helpful error messages to users upon failing authentication.
 

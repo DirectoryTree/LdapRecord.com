@@ -8,8 +8,8 @@ section: content
 # Events
 
 - [Introduction](#introduction)
-- [Create the Listener](#)
-- [Create the Service Provider](#)
+- [Create the Listener](#creating-listener)
+- [Create the Service Provider](#creating-service-provider)
 
 ## Introduction {#introduction}
 
@@ -19,10 +19,11 @@ events that occur, such as authentication and object creation / modification.
 For example, you may wish to send a notification when an LDAP object is modified.
 You can listen for the model `Saved` event and then send an email regarding the change.
 
-## Creating the Listener
+## Creating the Listener {#creating-listener}
 
 To get started, we will create an event listener in the `app/Ldap/Listeners`
-directory named `ObjectModified.php`, which will listen for the `Saved` model event.
+directory and create a new file named `ObjectModified.php`. This will
+contain a class that will listen for the `Saved` model event.
 
 > You will have to create the `Ldap` and `Listeners` sub directories.
 
@@ -40,6 +41,7 @@ class ObjectModified
     {
         $objectName = $event->getModel()->getName();
 
+        // Send an email when the object has been modified.
         Mail::raw("Object [$objectName] has been modified.", function ($message) {
             $message->from('notifier@company.com', 'LDAP Notifier');
             $message->to('it-support@company.com');
@@ -51,16 +53,16 @@ class ObjectModified
 
 For a list of all LdapRecord events, view the core [events documentation](/docs/events#list-of-events).
 
-## Creating the Service Provider
+## Creating the Service Provider {#creating-service-provider}
 
-Next, we will create a new Laravel service provider. This is where we will register our LDAP event listeners.
-We will call it `LdapEventServiceProvider`. Execute the bellow command to generate it:
+Next, we will create a new Laravel service provider. This is where we will register our LDAP event
+listeners. We will call it `LdapEventServiceProvider`. Execute the below command to generate it:
 
 ```bash
 php artisan make:provider LdapEventServiceProvider
 ```
 
-In the generated class, we'll update it to the following:
+In the generated class, we will update it to the following:
 
 ```php
 <?php
@@ -101,7 +103,7 @@ class LdapEventServiceProvider extends ServiceProvider
 }
 ```
 
-> We've removed the `register` method in the above class. We won't need it here.
+> We've removed the `register` method in the above generated class. We won't need it here.
 
-As you can see above, we can add LdapRecord events to the `$listen` property as the key, and the
-listeners as the value. This allows you to attach mulitple listeners to the same event.
+As you can see above, we can add LdapRecord events to the `$listen` property as the key, and
+the listeners as the value. This allows you to attach mulitple listeners to the same event.
