@@ -553,6 +553,21 @@ $query->in('ou=Users,dc=local,dc=com')->get();
 #### `insert` {#insert}
 #### `insertAttributes` {#insertAttributes}
 #### `isNested` {#isNested}
+
+Determine if a query builder is nested:
+
+```php
+$query = $connection->query();
+
+// Returns false:
+$query->isNested();
+
+$query->andFilter(function ($q) {
+    // Returns true:
+    $q->isNested();
+});
+```
+
 #### `isPaginated` {#isPaginated}
 #### `limit` {#limit}
 #### `listing` {#listing}
