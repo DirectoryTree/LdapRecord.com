@@ -8,14 +8,15 @@ return [
             'Installation' => 'docs/installation',
             'Configuration' => 'docs/configuration',
             'Connections' => 'docs/connections',
+            'Searching' => 'docs/searching',
         ],
     ],
-    'Searching' => [
-        'children' => [
-            'Query Builder'=> 'docs/searching',
-            'API (Available Methods)' => 'docs/searching-api',
-        ],
-    ],
+//    'Searching' => [
+//        'children' => [
+//            'Query Builder'=> 'docs/searching',
+//            'API (Available Methods)' => 'docs/searching-api',
+//        ],
+//    ],
     'Models' => [
         'children' => [
             'Getting Started' => 'docs/models',

@@ -31,21 +31,26 @@
         <meta name="theme-color" content="#ffffff">
 
         
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=031cc0aebf7e07826200">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=c5cda094e01febb744dc">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+        
+        <script src="/assets/build/js/main.js?id=e9adaf9da590177e17e2" defer></script>
             </head>
     <body class="antialiased font-sans">
-        <nav class="flex items-center h-24 py-12 z-20 border-gradient-l-purple-light " role="banner">
-            <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
-                <div class="flex items-center">
-                    <a href="/" title="LdapRecord home" class="inline-flex items-center">
-                        <img class="h-20 md:h-24 mr-3" src="/assets/img/logo.svg" alt="LdapRecord logo" />
-                    </a>
-                </div>
+        <main id="app" role="main">
+            <nav class="flex items-center h-24 py-12 z-20 border-gradient-l-purple-light " role="banner">
+                <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
+                    <div class="flex items-center">
+                        <a href="/" title="LdapRecord home" class="inline-flex items-center">
+                            <img class="h-20 md:h-24 mr-3" src="/assets/img/logo.svg" alt="LdapRecord logo" />
+                        </a>
 
-                <div class="flex flex-1 justify-end items-center text-right md:pl-10 text-gray-800">
-                                            <button
+                                                    <version repository="LdapRecord"/>
+                                            </div>
+
+                    <div class="flex flex-1 justify-end items-center text-right md:pl-10 text-gray-800">
+                                                    <button
     title="Start searching"
     type="button"
     class="flex md:hidden bg-gray-100 hover:bg-blue-100 justify-center items-center shadow rounded focus:outline-none h-10 px-3"
@@ -71,36 +76,36 @@
     >&times;</button>
 </div>
 
-                    
-                                                                        <a href="/docs/" class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" title="LdapRecord-Laravel Documentation Link">
-                                Docs
-                            </a>
                         
-                        <a href="/docs/laravel" class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" title="LdapRecord-Laravel Documentation Link">
-                            Laravel Docs
-                        </a>
+                                                                                    <a href="/docs/" class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" title="LdapRecord-Laravel Documentation Link">
+                                    Docs
+                                </a>
+                            
+                            <a href="/docs/laravel" class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" title="LdapRecord-Laravel Documentation Link">
+                                Laravel Docs
+                            </a>
 
-                        <a href="https://github.com/DirectoryTree/LdapRecord" class="hidden sm:inline text-gray-800 hover:text-purple-700">
-                            <svg class="fill-current w-8 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
-                        </a>
+                            <a href="https://github.com/DirectoryTree/LdapRecord" class="hidden sm:inline text-gray-800 hover:text-purple-700">
+                                <svg class="fill-current w-8 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
+                            </a>
+                                            </div>
+                </div>
+
+                            </nav>
+
+            <div class="w-full">
+                <div class="relative h-full max-w-screen-xl mx-auto">
+                                            <svg style="right:100%;" width="404" height="784" fill="none" viewBox="0 0 404 784" class="absolute hidden sm:block transform -translate-y-8 translate-x-1/4 lg:translate-x-1/2">
+                            <defs>
+                                <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <rect x="0" y="0" width="4" height="4" fill="currentColor" class="text-gray-200"></rect>
+                                </pattern>
+                            </defs>
+                            <rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"></rect>
+                        </svg>
                                     </div>
-            </div>
 
-                    </nav>
-
-        <main role="main" class="w-full">
-            <div class="relative h-full max-w-screen-xl mx-auto">
-                                    <svg style="right:100%;" width="404" height="784" fill="none" viewBox="0 0 404 784" class="absolute hidden sm:block transform -translate-y-8 translate-x-1/4 lg:translate-x-1/2">
-                        <defs>
-                            <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                <rect x="0" y="0" width="4" height="4" fill="currentColor" class="text-gray-200"></rect>
-                            </pattern>
-                        </defs>
-                        <rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"></rect>
-                    </svg>
-                            </div>
-
-            <div class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28 mb-12 sm:mb-16 md:mb-20 lg:mb-28 xl:mb-32">
+                <div class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28 mb-12 sm:mb-16 md:mb-20 lg:mb-28 xl:mb-32">
     <div class="text-center">
         <h2 class="text-3xl sm:text-5xl md:text-6xl tracking-tighter leading-tight sm:leading-normal font-semibold text-gray-900">
             <span class="font-light">A framework for </span>
@@ -124,9 +129,8 @@
         </div>
 
         <div class="mt-4 max-w-md mx-auto sm:flex sm:justify-center">
-            <a href="https://github.com/sponsors/stevebauman" target="_blank" title="Support LdapRecord Link" class="group rounded-md lg:flex justify-center px-8 py-3 text-base leading-6 font-medium rounded-md text-black bg-gray-200 hover:bg-gray-300 shadow hover:shadow-none focus:outline-none md:py-4 md:text-lg md:px-10">
-                Sponsor LdapRecord
-                <span class="text-xl ml-1">❤️</span>
+            <a href="https://github.com/sponsors/stevebauman" target="_blank" title="Support LdapRecord Link" class="group rounded-md lg:flex justify-center px-8 py-3 text-base leading-6 font-medium rounded-md text-black bg-gray-200 hover:bg-gray-300 shadow hover:shadow-none md:py-4 md:text-lg md:px-10">
+                Sponsor LdapRecord <span class="text-xl ml-1">❤️</span>
             </a>
         </div>
     </div>
@@ -196,39 +200,20 @@
     </div>
 </div>
 
-        </main>
+            </div>
 
-                    <footer class="text-center text-sm pt-24 mt-auto" role="contentinfo">
-                <ul class="flex flex-col md:flex-row justify-center list-none text-gray-600">
-                    <li class="md:mr-2">
-                        &copy; <a href="https://github.com/DirectoryTree" title="DirectoryTree GitHub" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">DirectoryTree</a> 2020.
-                    </li>
+                            <footer class="text-center text-sm pt-24 mt-auto" role="contentinfo">
+                    <ul class="flex flex-col md:flex-row justify-center list-none text-gray-600">
+                        <li class="md:mr-2">
+                            &copy; <a href="https://github.com/DirectoryTree" title="DirectoryTree GitHub" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">DirectoryTree</a> 2020.
+                        </li>
 
-                    <li class="md:mr-2">
-                        Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Jigsaw</a>
-                        and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Tailwind CSS</a>.
-                    </li>
-                </ul>
-            </footer>
-        
-        <script src="/assets/build/js/main.js?id=bcbc65921b92c4782f0d"></script>
-
-                    <script type="text/javascript">
-            docsearch({
-                apiKey: 'bc526397341486f980ca0b7ee7a0fa61',
-                indexName: 'ldaprecord',
-                inputSelector: '#docsearch-input',
-                debug: false // Set debug to true if you want to inspect the dropdown
-            });
-
-            const searchInput = {
-                toggle() {
-                    const menu = document.getElementById('js-search-input');
-                    menu.classList.toggle('hidden');
-                    menu.classList.toggle('md:block');
-                    document.getElementById('docsearch-input').focus();
-                },
-            }
-        </script>
-        </body>
+                        <li class="md:mr-2">
+                            Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Jigsaw</a>
+                            and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Tailwind CSS</a>.
+                        </li>
+                    </ul>
+                </footer>
+                    </main>
+    </body>
 </html>

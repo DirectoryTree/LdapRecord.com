@@ -31,21 +31,37 @@
         <meta name="theme-color" content="#ffffff">
 
         
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=031cc0aebf7e07826200">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=c5cda094e01febb744dc">
 
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
-            </head>
+        
+        <script src="/assets/build/js/main.js?id=e9adaf9da590177e17e2" defer></script>
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </head>
     <body class="antialiased font-sans">
-        <nav class="flex items-center h-24 py-12 z-20 border-gradient-l-purple-light border-b-8 mb-2" role="banner">
-            <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
-                <div class="flex items-center">
-                    <a href="/" title="LdapRecord home" class="inline-flex items-center">
-                        <img class="h-20 md:h-24 mr-3" src="/assets/img/logo.svg" alt="LdapRecord logo" />
-                    </a>
-                </div>
+        <main id="app" role="main">
+            <nav class="flex items-center h-24 py-12 z-20 border-gradient-l-purple-light border-b-8 mb-2" role="banner">
+                <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
+                    <div class="flex items-center">
+                        <a href="/" title="LdapRecord home" class="inline-flex items-center">
+                            <img class="h-20 md:h-24 mr-3" src="/assets/img/logo.svg" alt="LdapRecord logo" />
+                        </a>
 
-                <div class="flex flex-1 justify-end items-center text-right md:pl-10 text-gray-800">
-                                            <button
+                                                    <version repository="LdapRecord-Laravel"/>
+                                            </div>
+
+                    <div class="flex flex-1 justify-end items-center text-right md:pl-10 text-gray-800">
+                                                    <button
     title="Start searching"
     type="button"
     class="flex md:hidden bg-gray-100 hover:bg-blue-100 justify-center items-center shadow rounded focus:outline-none h-10 px-3"
@@ -71,18 +87,18 @@
     >&times;</button>
 </div>
 
-                    
-                                            <a href="/docs/" class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" title="LdapRecord Documentation Link">
-                            Core Docs
-                        </a>
+                        
+                                                    <a href="/docs/" class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" title="LdapRecord Documentation Link">
+                                Core Docs
+                            </a>
 
-                        <a href="https://github.com/DirectoryTree/LdapRecord-Laravel" class="hidden text-gray-800 hover:text-purple-700 sm:inline">
-                            <svg class="fill-current w-8 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
-                        </a>
-                                    </div>
-            </div>
+                            <a href="https://github.com/DirectoryTree/LdapRecord-Laravel" class="hidden text-gray-800 hover:text-purple-700 sm:inline">
+                                <svg class="fill-current w-8 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
+                            </a>
+                                            </div>
+                </div>
 
-                <button class="flex justify-center items-center bg-purple-500 shadow h-10 mr-4 px-5 rounded lg:hidden focus:outline-none"
+                    <button class="flex justify-center items-center bg-purple-500 shadow h-10 mr-4 px-5 rounded lg:hidden focus:outline-none"
     onclick="navMenu.toggle()"
 >
     <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
@@ -98,21 +114,21 @@
     </svg>
 </button>
 
-        </nav>
+            </nav>
 
-        <main role="main" class="w-full">
-            <div class="relative h-full max-w-screen-xl mx-auto">
-                                    <svg style="left:100%;" width="404" height="784" fill="none" viewBox="0 0 404 784" class="absolute hidden sm:block transform translate-y-64 -translate-x-64">
-                        <defs>
-                            <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                <rect x="0" y="0" width="4" height="4" fill="currentColor" class="text-gray-200"></rect>
-                            </pattern>
-                        </defs>
-                        <rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"></rect>
-                    </svg>
-                            </div>
+            <div class="w-full">
+                <div class="relative h-full max-w-screen-xl mx-auto">
+                                            <svg style="left:100%;" width="404" height="784" fill="none" viewBox="0 0 404 784" class="absolute hidden sm:block transform translate-y-64 -translate-x-64">
+                            <defs>
+                                <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <rect x="0" y="0" width="4" height="4" fill="currentColor" class="text-gray-200"></rect>
+                                </pattern>
+                            </defs>
+                            <rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"></rect>
+                        </svg>
+                                    </div>
 
-                <section class="container relative max-w-8xl mx-auto px-6 md:px-8 py-4">
+                    <section class="container relative max-w-8xl mx-auto px-6 md:px-8 py-4">
         <div class="flex flex-col lg:flex-row">
             <nav id="js-nav-menu" class="nav-menu hidden lg:block">
                     <ul class="list-none my-0 ">
@@ -811,7 +827,7 @@ LDAP authentication, they will need to be a member of the <code>Administrators</
                 </div>
 
                 <div class="mt-8 text-center hidden md:block">
-                    <a class="font-black text-gray-500 text-sm tracking-wider uppercase" href="https://github.com/DirectoryTree/LdapRecord.com/blob/master/source/docs/laravel/auth/configuration.md" target="_blank">
+                    <a class="font-black text-gray-500 text-sm tracking-wider uppercase" href="https://github.com/DirectoryTree/LdapRecord-Docs/blob/master/laravel/auth/configuration.md" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6 inline-block fill-current mr-1">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
                         </svg>
@@ -822,38 +838,8 @@ LDAP authentication, they will need to be a member of the <code>Administrators</
             </div>
         </div>
     </section>
-        </main>
+            </div>
 
-        
-        <script src="/assets/build/js/main.js?id=bcbc65921b92c4782f0d"></script>
-
-        <script>
-    const navMenu = {
-        toggle() {
-            const menu = document.getElementById('js-nav-menu');
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('lg:block');
-            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
-            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
-        },
-    }
-</script>
-            <script type="text/javascript">
-            docsearch({
-                apiKey: 'bc526397341486f980ca0b7ee7a0fa61',
-                indexName: 'ldaprecord',
-                inputSelector: '#docsearch-input',
-                debug: false // Set debug to true if you want to inspect the dropdown
-            });
-
-            const searchInput = {
-                toggle() {
-                    const menu = document.getElementById('js-search-input');
-                    menu.classList.toggle('hidden');
-                    menu.classList.toggle('md:block');
-                    document.getElementById('docsearch-input').focus();
-                },
-            }
-        </script>
-        </body>
+                    </main>
+    </body>
 </html>

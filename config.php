@@ -70,8 +70,8 @@ return [
     },
     'pullRequestPath' => function ($page) {
         $uris = [
-            'https://github.com/DirectoryTree/LdapRecord.com/blob/master/source',
-            trim(str_replace($page->getFilename(), '', $page->getPath()), '/'),
+            'https://github.com/DirectoryTree/LdapRecord-Docs/blob/master',
+            trim(str_replace($page->getFilename(), '', str_replace('docs/', '', $page->getPath())), '/'),
             $page->getFilename().".".$page->getExtension()
         ];
 
