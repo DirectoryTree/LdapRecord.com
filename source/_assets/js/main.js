@@ -13,6 +13,7 @@ Prism.highlightAll();
 window.$ = window.jQuery = require('jquery');
 window.axios = require('axios');
 
+Vue.component('search', require('./components/Search').default);
 Vue.component('version', require('./components/Version').default);
 
 const app = new Vue({

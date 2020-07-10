@@ -53,15 +53,17 @@
                         </a>
 
                         @if($page->isOnLaravel())
-                            <version repository="LdapRecord-Laravel"/>
+                            <version repository="LdapRecord-Laravel"></version>
                         @else
-                            <version repository="LdapRecord"/>
+                            <version repository="LdapRecord"></version>
                         @endif
                     </div>
 
                     <div class="flex flex-1 justify-end items-center text-right md:pl-10 text-gray-800">
-                        @if ($page->docsearchApiKey && $page->docsearchIndexName)
-                            @include('_nav.search-input')
+                        @if($page->docsearchApiKey && $page->docsearchIndexName)
+                            @if($page->docsearchApiKey && $page->docsearchIndexName)
+                                <search api-key="{{ $page->docsearchApiKey }}" index="{{ $page->docsearchIndexName }}"></search>
+                            @endif
                         @endif
 
                         @if($page->isOnLaravel())
