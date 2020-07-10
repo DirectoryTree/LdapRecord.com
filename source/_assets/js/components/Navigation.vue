@@ -1,10 +1,10 @@
 <template>
-    <div class="inline w-full">
+    <div class="flex flex-1 justify-end items-center text-right md:pl-10 text-gray-800">
         <button
                title="Start searching"
                type="button"
                class="flex md:hidden bg-gray-100 hover:bg-blue-100 justify-center items-center shadow rounded focus:outline-none h-10 px-3"
-               onclick="searchInput.toggle()"
+               v-on:click="this.toggle"
         >
            <img src="/assets/img/magnifying-glass.svg" alt="search icon" class="h-4 w-4 max-w-none">
         </button>
@@ -21,10 +21,12 @@
            >
 
            <button
-                   class="md:hidden absolute right-0 mr-8 h-full font-light text-3xl text-blue-500 hover:text-blue-600 focus:outline-none -mt-px"
-                   onclick="this.toggle()"
+                   class="md:hidden absolute right-0 top-0 mr-8 h-full font-light text-3xl text-blue-500 hover:text-blue-600 focus:outline-none -mt-px"
+                   v-on:click="this.toggle"
            >&times;</button>
         </div>
+
+        <slot></slot>
     </div>
 </template>
 
