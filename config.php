@@ -69,13 +69,13 @@ return [
         return $page->isOnParent('/docs/laravel');
     },
     'pullRequestPath' => function ($page) {
-        $uris = [
-            'https://github.com/DirectoryTree/LdapRecord-Docs/blob/master',
-            trim(str_replace($page->getFilename(), '', str_replace('docs/', '', $page->getPath())), '/'),
-            $page->getFilename().".".$page->getExtension()
-        ];
+        $uri = 'https://github.com/DirectoryTree/LdapRecord-Docs/blob/master';
 
-        return implode('/', $uris);
+        $path = str_replace($page->getFilename(), '', str_replace('docs/', '', $page->getPath()));
+
+        $file = $page->getFilename().".".$page->getExtension();
+
+        return implode([$uri, $path.$file]);
     },
     'url' => function ($page, $path) {
         return Str::startsWith($path, 'http') ? $path : '/' . trimPath($path);
