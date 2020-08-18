@@ -33,16 +33,6 @@
 }
 
 .content {
-  h1 {
-    @apply .border-b-2;
-    @apply .border-purple-200;
-  }
-
-  h2 {
-    @apply .border-b-2;
-    @apply .border-purple-200;
-  }
-
   h1+ul {
     @apply .ml-0;
     @apply .list-none;
