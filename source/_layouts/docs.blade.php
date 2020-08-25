@@ -11,10 +11,10 @@
                 @yield('nav')
             </nav>
 
-            <div class="DocSearch-content content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
+            <div class="DocSearch-content content w-full lg:w-3/5 break-words pb-16 lg:px-10 border-l-0 lg:border-l-2" v-pre>
                 @yield('content')
 
-                <div class="mt-12 pt-8 pb-6 border-t-2 border-purple-200">
+                <div class="mt-12 pt-8 pb-6">
                     @yield('footer')
                 </div>
 
