@@ -3,9 +3,7 @@
     @apply .-mx-8;
     @apply .bg-gray-200;
     @apply .mb-8;
-    @apply .pb-4;
-    @apply .pt-8;
-    @apply .px-4;
+    @apply .p-8;
     @apply .shadow;
     @apply .w-auto;
 
@@ -19,14 +17,13 @@
         @apply .pr-4;
         @apply .pt-0;
         @apply .shadow-none;
-        @apply .w-1/4;
+        @apply .w-1/5;
     }
 }
 
 .nav-menu__item {
+    @apply .text-sm;
     @apply .block;
     @apply .no-underline;
-    @apply .mt-0;
     @apply .text-gray-800;
-    @apply .text-sm;
 }

@@ -6,18 +6,18 @@
     <div class="block sm:hidden">
         <hr class="my-4"/>
 
-        <ul class="list-none my-0">
-            <li class="pl-4">
+        <ul class="list-none m-0">
+            <li class="p-0">
                 <a href="/docs/"
-                   class="nav-menu__item hover:text-blue-500"
+                   class="nav-menu__item text-gray-600 my-2 last:mb-4 p-0 hover:text-purple-500"
                 >
                     Core Documentation
                 </a>
             </li>
 
-            <li class="pl-4">
+            <li class="p-0">
                 <a href="https://github.com/DirectoryTree/LdapRecord-Laravel"
-                   class="nav-menu__item hover:text-blue-500"
+                   class="nav-menu__item text-gray-600 my-2 last:mb-4 p-0 hover:text-purple-500"
                 >
                     Source Code
                 </a>

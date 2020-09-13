@@ -1,15 +1,15 @@
 @php($url = is_string($item) ? $item : $item->url)
-<li class="pl-4 py-2 {{ $page->isActive($url) ? 'bg-purple-100' : '' }}">
+<li class=" {{ $page->isActive($url) ? '' : '' }}">
     @if($url)
         {{-- Menu item with URL--}}
         <a href="{{ $page->url($url) }}"
-            class="{{ 'lvl' . $level }} {{ $page->isActiveParent($item) ? 'lvl' . $level . '-active' : '' }} {{ $page->isActive($url) ? 'active font-semibold text-purple-600' : 'text-gray-700' }} nav-menu__item hover:text-purple-500"
+            class="{{ 'lvl' . $level }} {{ $page->isActiveParent($item) ? 'lvl' . $level . '-active' : '' }} {{ $page->isActive($url) ? 'active font-semibold text-purple-600' : 'text-gray-600' }} nav-menu__item my-2 p-0 hover:text-purple-500"
         >
             {{ $label }}
         </a>
     @else
         {{-- Menu item without URL--}}
-        <p class="nav-menu__item text-gray-500 font-extrabold text-xs tracking-widest uppercase pt-2">{{ $label }}</p>
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mt-6 mb-2">{{ $label }}</p>
     @endif
 
     @if (! is_string($item) && $item->children)
