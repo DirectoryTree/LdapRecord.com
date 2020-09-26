@@ -15,11 +15,20 @@ return [
             'Overview' => 'docs/laravel/auth',
             'Installation' => 'docs/laravel/auth/installation',
             'Configuration' => 'docs/laravel/auth/configuration',
-            'Setup & Features' => 'docs/laravel/auth/setup',
+            'Setup' => 'docs/laravel/auth/setup',
+            'Laravel Jetsream' => 'docs/laravel/auth/laravel-jetstream',
+            'Laravel UI (deprecated)' => 'docs/laravel/auth/laravel-ui',
             'Multi-Domain' => 'docs/laravel/auth/multi-domain',
             'Importing Users' => 'docs/laravel/auth/importing',
+            'Restricting Sign In' => 'docs/laravel/auth/restricting-sign-in',
             'Testing' => 'docs/laravel/auth/testing',
         ]
+    ],
+    'SSO Authentication' => [
+        'children' => [
+            'Overview' => 'docs/laravel/auth/sso',
+            'Setup' => 'docs/laravel/auth/sso/setup',
+        ],
     ],
     'Other Features' => [
         'children' => [
