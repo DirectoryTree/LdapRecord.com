@@ -116,7 +116,9 @@
   }
 
   div.prism-show-language {
-    @apply .relative;
+    @apply .absolute;
+    top: 0;
+    right: 0;
   
     .prism-show-language-label {
       bottom: auto;
@@ -137,16 +139,17 @@
       @apply .bg-opacity-75;
     }
   }
-
   
   div.files {
     @apply .bg-white;
     @apply .border;
     @apply .rounded-md;
-    @apply .py-4 .px-8;
+    @apply .pb-4 .px-8;
     @apply .text-sm;
+    @apply .leading-none;
 
     .ellipsis {
+      @apply .pt-4;
       @apply .font-black;
       @apply .tracking-wide;
       @apply .text-gray-500;
@@ -157,7 +160,7 @@
     }
 
     .file, .folder {
-      @apply .pl-6 .pt-2;
+      @apply .pl-6 .pt-4;
       @apply .text-gray-700;
     }
 
