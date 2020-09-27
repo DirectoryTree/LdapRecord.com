@@ -9,7 +9,6 @@
 @import 'base';
 @import 'navigation';
 @import 'search';
-@import 'hero';
 
 @tailwind utilities;
 
@@ -116,9 +115,8 @@
   }
 
   div.prism-show-language {
-    @apply .absolute;
-    top: 0;
-    right: 0;
+    @apply .relative;
+    @apply .mt-2;
   
     .prism-show-language-label {
       bottom: auto;

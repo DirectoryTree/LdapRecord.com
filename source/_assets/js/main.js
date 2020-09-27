@@ -24,7 +24,7 @@ $(document).ready(() => {
     // Wrap tables in content responsive container.
     $('.content > table').wrap($("<div />").addClass('my-2 border overflow-auto rounded-lg'));
 
-    $('.content > pre[class*="language-"] > code').each((index, el) => {
+    $('.content > pre[class*="language-"]').each((index, el) => {
         let language = el.classList[0].split('-')[1];
 
         if (['php', 'bash', 'html'].includes(language)) {
