@@ -147,7 +147,7 @@
     @apply .text-sm;
     @apply .leading-none;
 
-    .ellipsis {
+    & .ellipsis {
       @apply .pt-4;
       @apply .font-black;
       @apply .tracking-wide;
@@ -163,53 +163,49 @@
       @apply .text-gray-700;
     }
 
+    .file {
+      &.focus {
+        @apply .text-purple-700;
+      }
+
+      &::before {
+        position: absolute;
+        display: block;
+        fill: currentColor;
+        color: #45658a;
+        background-size: 40px 18px;
+        content: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 224.16 86.11'%3E%3Cpath stroke='%23b0c1d3' fill='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='6' d='M173.53 1.5l-27 .09s-7.42 0-7.42 7.42v68.06s0 7.42 7.42 7.42h49.21s7.42 0 7.42-7.42l-.07-48.21z'/%3E%3Cpath fill='%23b0c1d3' d='M172.9 1.94v27.52h29.7L172.9 1.94z'/%3E%3C/svg%3E");
+        height: 18px;
+        margin-left: -46px;
+        width:40px;
+      }
+    }
+
     .folder {
-      @apply .text-purple-700;
-    }
+      &.focus {
+        @apply .py-3;
+        @apply .-mx-1;
+        @apply .rounded;
+        background-color: #f3f7f9;
+      }
 
-    .file:before {
-      position: absolute;
-      display: block;
-      fill: currentColor;
-      color: #45658a;
-      background-size: 40px 18px;
-      content: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 224.16 86.11'%3E%3Cpath stroke='%23b0c1d3' fill='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='6' d='M173.53 1.5l-27 .09s-7.42 0-7.42 7.42v68.06s0 7.42 7.42 7.42h49.21s7.42 0 7.42-7.42l-.07-48.21z'/%3E%3Cpath fill='%23b0c1d3' d='M172.9 1.94v27.52h29.7L172.9 1.94z'/%3E%3C/svg%3E");
-      height: 18px;
-      margin-left: -46px;
-      width:40px;
-    }
+      &.folder--open {
+        @apply .text-purple-700;
 
-    .file.focus {
-      background-color: #f3f7f9;
-      @apply .py-4;
-      @apply .rounded;
-      margin-left: -15px;
-      margin-top: 8px;
-      padding-left:53px;
-    }
-
-    .folder:before {
-      content: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 224.16 85.9'%3E%3Cpath fill='%23b0c1d3' d='M63.39 46.77s4.49-3.61 0-7.21l-25.1-20.15s-4.49-3.61-4.49 2.15v43.21s0 5.76 4.49 2.15zM220.75 74.77V25s0-8-8-8h-36.34c-5.25 0-5.8-2.33-5.8-6.33 0-2.17-1.68-7-7.93-7h-33.11s-8 0-8 8v63.1s0 8 8 8h83.17s8 0 8-8'/%3E%3C/svg%3E")
-    }
-
-    .folder--open:before, .folder:before {
-      @apply .absolute;
-      @apply .block;
-      background-size: 40px 18px;
-      height: 18px;
-      margin-left: -46px;
-      width:40px;
-    }
-
-    .folder--open:before {
-      content: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 224.16 85.9'%3E%3Cpath fill='%23b0c1d3' d='M43.23 53.39s3.61 4.49 7.21 0l20.15-25.1s3.61-4.49-2.15-4.49H25.23s-5.76 0-2.15 4.49zM220.75 74.77V25s0-8-8-8h-36.34c-5.25 0-5.8-2.33-5.8-6.33 0-2.17-1.68-7-7.93-7h-33.11s-8 0-8 8v63.1s0 8 8 8h83.17s8 0 8-8'/%3E%3C/svg%3E")
-    }
-
-    .folder.focus {
-      @apply .py-3;
-      @apply .-mx-1;
-      @apply .rounded;
-      background-color: #f3f7f9;
+        &::before {
+          content: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 224.16 85.9'%3E%3Cpath fill='%23b0c1d3' d='M43.23 53.39s3.61 4.49 7.21 0l20.15-25.1s3.61-4.49-2.15-4.49H25.23s-5.76 0-2.15 4.49zM220.75 74.77V25s0-8-8-8h-36.34c-5.25 0-5.8-2.33-5.8-6.33 0-2.17-1.68-7-7.93-7h-33.11s-8 0-8 8v63.1s0 8 8 8h83.17s8 0 8-8'/%3E%3C/svg%3E")
+        }
+      }
+      
+      &::before {
+        @apply .absolute;
+        @apply .block;
+        background-size: 40px 18px;
+        height: 18px;
+        margin-left: -46px;
+        width:40px;
+        content: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 224.16 85.9'%3E%3Cpath fill='%23b0c1d3' d='M63.39 46.77s4.49-3.61 0-7.21l-25.1-20.15s-4.49-3.61-4.49 2.15v43.21s0 5.76 4.49 2.15zM220.75 74.77V25s0-8-8-8h-36.34c-5.25 0-5.8-2.33-5.8-6.33 0-2.17-1.68-7-7.93-7h-33.11s-8 0-8 8v63.1s0 8 8 8h83.17s8 0 8-8'/%3E%3C/svg%3E")
+      }
     }
   }
 }
