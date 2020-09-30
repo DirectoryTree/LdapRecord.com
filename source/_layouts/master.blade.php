@@ -23,10 +23,9 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="manifest" href="/site.webmanifest">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6b46c1">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#805ad5">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
+        <meta name="msapplication-TileColor" content="#805ad5">
 
         @stack('meta')
 
@@ -60,27 +59,25 @@
                     <div class="flex flex-1 justify-end items-center text-right md:pl-10 text-gray-800">
                         <navigation api-key="{{ $page->docsearchApiKey }}" index="{{ $page->docsearchIndexName }}">
                             @if($page->isOnLaravel())
-                                <a href="/docs/" class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" title="LdapRecord Documentation Link">
+                                <x-menu-link href="/docs/" title="LdapRecord Documentation Link">
                                     {{ $page->isOnLaravel() ? 'Core Docs' : 'Docs' }}
-                                </a>
+                                </x-menu-link>
 
                                 <a href="https://github.com/DirectoryTree/LdapRecord-Laravel" class="hidden text-gray-800 hover:text-purple-700 sm:inline">
                                     <svg class="fill-current w-8 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
                                 </a>
                             @else
                                 @if($page->isHomePage())
-                                    <a href="/docs/" class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" title="LdapRecord-Laravel Documentation Link">
+                                    <x-menu-link href="/docs/" title="LdapRecord-Laravel Documentation Link">
                                         Docs
-                                    </a>
+                                    </x-menu-link>
                                 @endif
 
-                                <a href="/docs/laravel" class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" title="LdapRecord-Laravel Documentation Link">
+                                <x-menu-link href="/docs/laravel" title="LdapRecord-Laravel Documentation Link">
                                     Laravel Docs
-                                </a>
+                                </x-menu-link>
 
-                                <a href="https://github.com/DirectoryTree/LdapRecord" class="hidden md:inline text-gray-800 hover:text-purple-700">
-                                    <svg class="fill-current w-8 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
-                                </a>
+                                <x-github-link url="https://github.com/DirectoryTree/LdapRecord" class="hidden md:inline text-gray-800 hover:text-purple-700"></x-github-link>
                             @endif
                         </navigation>
                     </div>
@@ -89,31 +86,27 @@
                 @yield('nav-toggle')
             </nav>
 
-            <div class="w-full">
-                <div class="relative h-full max-w-screen-xl mx-auto">
-                    @if($page->isHomePage())
-                        <svg style="right:100%;" width="404" height="784" fill="none" viewBox="0 0 404 784" class="absolute hidden sm:block transform -translate-y-8 translate-x-1/4 lg:translate-x-1/2">
-                            <defs>
-                                <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <rect x="0" y="0" width="4" height="4" fill="currentColor" class="text-gray-200"></rect>
-                                </pattern>
-                            </defs>
-                            <rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"></rect>
-                        </svg>
-                    @else
-                        <svg style="left:100%;" width="404" height="784" fill="none" viewBox="0 0 404 784" class="absolute hidden sm:block transform translate-y-64 -translate-x-64">
-                            <defs>
-                                <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <rect x="0" y="0" width="4" height="4" fill="currentColor" class="text-gray-200"></rect>
-                                </pattern>
-                            </defs>
-                            <rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"></rect>
-                        </svg>
-                    @endif
-                </div>
+            @if($page->isHomePage())
+                <svg style="right:100%;" width="404" height="784" fill="none" viewBox="0 0 404 784" class="absolute hidden sm:block transform -translate-y-8 translate-x-1/4 lg:translate-x-1/2">
+                    <defs>
+                        <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <rect x="0" y="0" width="4" height="4" fill="currentColor" class="text-gray-200"></rect>
+                        </pattern>
+                    </defs>
+                    <rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"></rect>
+                </svg>
+            @else
+                <svg style="left:100%;" width="404" height="784" fill="none" viewBox="0 0 404 784" class="absolute hidden sm:block transform translate-y-64 -translate-x-64">
+                    <defs>
+                        <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <rect x="0" y="0" width="4" height="4" fill="currentColor" class="text-gray-200"></rect>
+                        </pattern>
+                    </defs>
+                    <rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"></rect>
+                </svg>
+            @endif
 
-                @yield('body')
-            </div>
+            @yield('body')
 
             @if($page->isHomePage())
                 <footer class="text-center text-sm pt-24 mt-auto" role="contentinfo">

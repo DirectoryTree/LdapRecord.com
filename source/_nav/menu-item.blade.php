@@ -9,7 +9,7 @@
         </a>
     @else
         {{-- Menu item without URL--}}
-        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mt-6 mb-2">{{ $label }}</p>
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 {{ $first ? 'mt-0 lg:mt-6' : 'mt-6' }}">{{ $label }}</p>
     @endif
 
     @if (! is_string($item) && $item->children)

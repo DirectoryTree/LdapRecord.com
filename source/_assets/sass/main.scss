@@ -27,30 +27,34 @@
   border-image-source: linear-gradient(to right, rgb(127, 0, 255) 0%, rgb(225, 0, 255) 100%);
 }
 
-.content {
-  h1+ul {
-    @apply .ml-0;
-    @apply .list-none;
+.content {  
+  h1 {
+    @apply .leading-none;
 
-    li {
-      a {
-        @apply .text-sm;
-        @apply .text-gray-700;
+    &+ul {
+      @apply .ml-0;
+      @apply .list-none;
   
-        &:hover {
-          @apply .text-purple-500;
-        }
-
-        &::before {
-          content:'# ';
-          @apply .text-purple-400;
+      li {
+        a {
+          @apply .text-sm;
+          @apply .text-gray-700;
+    
+          &:hover {
+            @apply .text-purple-500;
+          }
+  
+          &::before {
+            content:'# ';
+            @apply .text-purple-400;
+          }
         }
       }
+  
+      ul {
+        @apply .list-none;
+      }
     }
-  }
-
-  h1+ul ul {
-    @apply .list-none;
   }
 
   ul li {
