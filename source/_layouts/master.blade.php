@@ -40,9 +40,9 @@
         <script src="{{ mix('js/main.js', 'assets/build') }}" defer></script>
         @stack('scripts')
     </head>
-    <body class="antialiased font-sans">
+    <body class="antialiased font-sans {{ empty($page->getPath()) ? 'bg-pattern' : '' }}">
         <main id="app" role="main">
-            <nav class="flex items-center h-24 py-12 z-20 border-gradient-l-purple-light {{ $page->isHomePage() ? '' : 'border-b-8 mb-2' }}" role="banner">
+            <nav class="flex items-center h-24 py-12 z-20 bg-white border-gradient-l-purple-light border-b-8 mb-2" role="banner">
                 <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
                     <div class="flex items-center">
                         <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
@@ -86,42 +86,20 @@
                 @yield('nav-toggle')
             </nav>
 
-            @if($page->isHomePage())
-                <svg style="right:100%;" width="404" height="784" fill="none" viewBox="0 0 404 784" class="absolute hidden sm:block transform -translate-y-8 translate-x-1/4 lg:translate-x-1/2">
-                    <defs>
-                        <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                            <rect x="0" y="0" width="4" height="4" fill="currentColor" class="text-gray-200"></rect>
-                        </pattern>
-                    </defs>
-                    <rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"></rect>
-                </svg>
-            @else
-                <svg style="left:100%;" width="404" height="784" fill="none" viewBox="0 0 404 784" class="absolute hidden sm:block transform translate-y-64 -translate-x-64">
-                    <defs>
-                        <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                            <rect x="0" y="0" width="4" height="4" fill="currentColor" class="text-gray-200"></rect>
-                        </pattern>
-                    </defs>
-                    <rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"></rect>
-                </svg>
-            @endif
-
             @yield('body')
 
-            @if($page->isHomePage())
-                <footer class="text-center text-sm pt-24 mt-auto" role="contentinfo">
-                    <ul class="flex flex-col md:flex-row justify-center list-none text-gray-600">
-                        <li class="md:mr-2">
-                            &copy; <a href="https://github.com/DirectoryTree" title="DirectoryTree GitHub" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">DirectoryTree</a> {{ date('Y') }}.
-                        </li>
+            <footer class="text-center text-sm pt-24 mt-auto" role="contentinfo">
+                <ul class="flex flex-col md:flex-row justify-center list-none text-gray-600">
+                    <li class="md:mr-2">
+                        &copy; <a href="https://github.com/DirectoryTree" title="DirectoryTree GitHub" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">DirectoryTree</a> {{ date('Y') }}.
+                    </li>
 
-                        <li class="md:mr-2">
-                            Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Jigsaw</a>
-                            and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Tailwind CSS</a>.
-                        </li>
-                    </ul>
-                </footer>
-            @endif
+                    <li class="md:mr-2">
+                        Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Jigsaw</a>
+                        and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Tailwind CSS</a>.
+                    </li>
+                </ul>
+            </footer>
         </main>
     </body>
 </html>
