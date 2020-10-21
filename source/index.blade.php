@@ -3,41 +3,40 @@
 @section('body')
 <div class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28 mb-12 sm:mb-16 md:mb-20 lg:mb-28 xl:mb-32">
     <div class="text-center">
-        <h2 class="text-3xl sm:text-5xl md:text-6xl tracking-tighter leading-tight sm:leading-normal font-semibold text-gray-900">
-            <span class="font-light">A framework for </span>
+        <h1 class="text-3xl sm:text-5xl md:text-6xl tracking-tighter leading-tight sm:leading-normal text-black">
+            <span>A framework for</span>
 
             <br class="xl:hidden">
 
             <span class="text-gradient bg-gradient-l-purple-light inline-block">
                 Rapid LDAP Integration
             </span>
-        </h2>
+        </h1>
 
         <p class="mt-3 max-w-md mx-auto text-gray-600 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
             LdapRecord is a framework that helps you quickly integrate <br class="hidden xl:inline-block"> LDAP  into your <strong>PHP</strong> applications.
         </p>
 
         <div class="my-10 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-            <a href="/docs/installation/" title="{{ $page->siteName }} getting started" class="group hover:shadow-xl transform hover:-translate-y-2 rounded-md shadow lg:flex justify-center px-8 py-3 text-base leading-6 font-medium rounded-md text-white bg-gradient-l-purple-light hover:text-white focus:outline-none focus:shadow-outline-indigo transition duration-75 ease-in-out md:py-4 md:text-lg md:px-10">
+            <a href="/docs/installation/" title="{{ $page->siteName }} getting started" class="rounded-md shadow hover:shadow-none px-8 py-3 text-base leading-6 font-medium rounded-md text-white bg-gradient-l-purple-light hover:bg-purple-600 hover:text-white md:py-4 md:text-lg md:px-10">
                 Get started
-                <span class="text-xl ml-1">→</span>
             </a>
         </div>
 
         <div class="mt-4 max-w-md mx-auto sm:flex sm:justify-center">
-            <a href="https://github.com/sponsors/stevebauman" target="_blank" title="Support LdapRecord Link" class="group rounded-md lg:flex justify-center px-8 py-3 text-base leading-6 font-medium rounded-md text-black bg-gray-200 hover:bg-gray-300 shadow hover:shadow-none md:py-4 md:text-lg md:px-10">
+            <a href="https://github.com/sponsors/stevebauman" target="_blank" title="Support LdapRecord Link" class="rounded-md px-8 py-3 text-base leading-6 font-medium rounded-md text-black bg-gray-200 hover:bg-gray-300 shadow hover:shadow-none md:py-4 md:text-lg md:px-10">
                 Sponsor LdapRecord <span class="text-xl ml-1">❤️</span>
             </a>
         </div>
     </div>
 </div>
 
-<div class="bg-gray-b-code hidden sm:block">
+<div class="hidden sm:block">
     <div class="pb-12 sm:pb-16">
         <div class="relative">
             <div class="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
-                    <div class="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3">
+                    <div class="rounded-lg bg-white grid grid-cols-1 sm:grid-cols-3 shadow-none sm:shadow-lg">
                         <a href="/docs/laravel/quickstart" class="rounded-tl-lg rounded-bl-lg">
                             <div class="border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r flex flex-col justify-between items-center h-full">
                                 <div>
@@ -96,4 +95,85 @@
     </div>
 </div>
 
+<div class="mx-auto max-w-6xl mt-16">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center md:space-x-20 mx-4 md:mx-8 mb-16 md:mb-40">
+        <div class="text-center md:text-left md:w-2/6">
+            <h1 class="text-3xl sm:text-5xl md:text-6xl text-black leading-normal">
+                Declarative
+                <br/>
+                <span class="text-gradient bg-gradient-l-purple-light whitespace-no-wrap">
+                    LDAP Models.
+                </span>
+            </h1>
+            <p class="mt-3 max-w-md mx-auto text-gray-600 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                Each LDAP object type has its own model. If you've used Laravel's Eloquent, you'll feel right at home.
+            </p>
+        </div>
+
+        <feature class="shadow-lg rounded-md flex-grow md:w-4/6">
+            <feature-tab name="Model.php">
+                @include('docs.examples.model')
+            </feature-tab>
+            <feature-tab name="Usage.php">
+                @include('docs.examples.active-record')
+            </feature-tab>
+        </feature>
+    </div>
+
+    <div class="flex flex-col-reverse md:flex-row md:justify-between md:items-center md:space-x-20 mx-4 md:mx-8 mb-16 md:mb-40">
+        <feature class="shadow-lg rounded-md flex-grow md:w-4/6">
+            <feature-tab name="QueryBuilder.php">
+                @include('docs.examples.fluent')
+            </feature-tab>
+        </feature>
+
+        <div class="text-center md:text-left md:w-2/6">
+            <h1 class="text-3xl sm:text-5xl md:text-6xl text-black leading-normal">
+                Fluently query
+                <br/>
+                <span class="text-gradient bg-gradient-l-purple-light whitespace-no-wrap">
+                    Like a boss.
+                </span>
+            </h1>
+            <p class="mt-3 max-w-md mx-auto text-gray-600 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                LdapRecord's filter builder provides a clean, chainable API, that's easy to read and write.
+            </p>
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center md:space-x-20 mx-4 md:mx-8 mb-16 md:mb-40">
+        <div class="text-center md:text-left md:w-2/6">
+            <h1 class="text-3xl sm:text-5xl md:text-6xl text-black leading-normal">
+                Features
+                <br/>
+                <span class="text-gradient bg-gradient-l-purple-light whitespace-no-wrap">
+                    We have a lot.
+                </span>
+            </h1>
+            <p class="mt-3 max-w-md mx-auto text-gray-600 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                Events, caching, logging, testing tools, relationships, accessors, mutators, and more.
+            </p>
+        </div>
+
+        <feature class="shadow-lg rounded-md flex-grow md:w-4/6">
+            <feature-tab name="Events.php">
+                @include('docs.examples.events')
+            </feature-tab>
+            <feature-tab name="Caching.php">
+                @include('docs.examples.caching')
+            </feature-tab>
+            <feature-tab name="Relations.php">
+                @include('docs.examples.relations')
+            </feature-tab>
+        </feature>
+    </div>
+
+    <div class="flex flex-col items-center mt-16">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl text-black leading-normal">Ready to get started?</h2>
+        
+        <a href="/docs/installation/" title="{{ $page->siteName }} getting started" class="rounded-md shadow hover:shadow-none px-8 py-3 text-base leading-6 font-medium rounded-md text-white bg-gradient-l-purple-light hover:bg-purple-600 hover:text-white md:py-4 md:text-lg md:px-10">
+            Show me the way
+        </a>
+    </div>
+</div>
 @endsection

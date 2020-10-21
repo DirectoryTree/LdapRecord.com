@@ -40,7 +40,7 @@
         <script src="{{ mix('js/main.js', 'assets/build') }}" defer></script>
         @stack('scripts')
     </head>
-    <body class="antialiased font-sans {{ empty($page->getPath()) ? 'bg-pattern' : '' }}">
+    <body class="antialiased font-sans">
         <main id="app" role="main">
             <nav class="flex items-center h-24 py-12 z-20 bg-white border-gradient-l-purple-light border-b-8 mb-2" role="banner">
                 <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">

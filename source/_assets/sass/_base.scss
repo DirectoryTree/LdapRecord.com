@@ -14,12 +14,11 @@ a {
 }
 
 blockquote {
-    @apply .border-purple-400;
+    @apply .border-purple-600;
     @apply .bg-purple-100;
     @apply .border;
     @apply .border-l-4;
     @apply .font-normal;
-    @apply .italic;
     @apply .my-6;
     @apply .pl-6;
     @apply .text-gray-800;
@@ -55,7 +54,7 @@ h6 {
     @apply .leading-tight;
     @apply .mb-4;
     @apply .mt-8;
-    @apply .text-blue-900;
+    @apply .text-black;
 
     &:first-child {
         @apply .mt-0;
