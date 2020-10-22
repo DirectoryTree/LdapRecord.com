@@ -96,8 +96,9 @@
 </div>
 
 <div class="mx-auto max-w-6xl mt-16">
-    <div class="flex flex-col md:flex-row md:justify-between md:items-center md:space-x-20 mx-4 md:mx-8 mb-16 md:mb-40">
-        <div class="text-center md:text-left md:w-2/6">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center md:space-x-20 mx-4 md:mx-8 mb-16 md:mb-40 relative">
+        <div class="absolute inset bg-purple-400"></div>
+        <div class="relative text-center md:text-left md:w-2/6">
             <h1 class="text-3xl sm:text-5xl md:text-6xl text-black leading-normal">
                 Declarative
                 <br/>

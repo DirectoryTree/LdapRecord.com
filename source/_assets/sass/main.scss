@@ -103,6 +103,7 @@
     }
 
     &.language-bash {
+      @apply .border-none;
       @apply .bg-gray-800;
       @apply .text-white;
   
