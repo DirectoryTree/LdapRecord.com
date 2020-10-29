@@ -19,6 +19,7 @@ return [
     'Models' => [
         'children' => [
             'Getting Started' => 'docs/models',
+            'Scopes' => 'docs/model-scopes',
             'Relationships' => 'docs/model-relationships',
             'Accessors & Mutators' => 'docs/model-mutators',
             'API (Available Methods)' => 'docs/model-api',
