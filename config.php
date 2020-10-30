@@ -1,5 +1,6 @@
 <?php
 
+use App\PagePaginator;
 use Illuminate\Support\Str;
 
 return [
@@ -22,32 +23,10 @@ return [
     // Thanks to: Caleb Porzio for these methods
     // https://github.com/livewire/docs
     'getNextPage' => function ($page, $navigation = 'navigation') {
-        // Before: ['foo' => 'bar', 'baz' => ['children' => ['bob' => 'lob', 'law' => 'blog']]]
-        $flattenedArrayOfPagesAndTheirLables = $page->{$navigation}->map(function ($value, $key) {
-            $links = is_iterable($value) ? $value['children']->toArray() : [$key => $value];
-            return collect($links)->map(function ($path, $label) {
-                return ['path' => $path, 'label' => $label];
-            });
-        })->flatten(1);
-        // After: [['label' => 'foo', 'path' => 'bar'], ['label' => 'bob', 'path' => 'lob'], ['label' => 'law', 'path' => 'blog']]
-        $pathsByIndex = $flattenedArrayOfPagesAndTheirLables->pluck('path');
-        $currentIndex = $pathsByIndex->search(trimPath($page->getPath()));
-        $nextIndex = $currentIndex + 1;
-        return $flattenedArrayOfPagesAndTheirLables[$nextIndex] ?? null;
+        return (new PagePaginator($page, $navigation))->getNext();
     },
     'getPreviousPage' => function ($page, $navigation = 'navigation') {
-        // Before: ['foo' => 'bar', 'baz' => ['children' => ['bob' => 'lob', 'law' => 'blog']]]
-        $flattenedArrayOfPagesAndTheirLables = $page->{$navigation}->map(function ($value, $key) {
-            $links = is_iterable($value) ? $value['children']->toArray() : [$key => $value];
-            return collect($links)->map(function ($path, $label) {
-                return ['path' => $path, 'label' => $label];
-            });
-        })->flatten(1);
-        // After: [['label' => 'foo', 'path' => 'bar'], ['label' => 'bob', 'path' => 'lob'], ['label' => 'law', 'path' => 'blog']]
-        $pathsByIndex = $flattenedArrayOfPagesAndTheirLables->pluck('path');
-        $currentIndex = $pathsByIndex->search(trimPath($page->getPath()));
-        $previousIndex = $currentIndex - 1;
-        return $flattenedArrayOfPagesAndTheirLables[$previousIndex] ?? null;
+        return (new PagePaginator($page, $navigation))->getPrevious();
     },
     'isActive' => function ($page, $path) {
         return Str::endsWith(trimPath($page->getPath()), trimPath($path));
