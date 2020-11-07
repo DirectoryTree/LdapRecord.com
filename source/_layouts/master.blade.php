@@ -31,13 +31,13 @@
 
         <title>{{ $page->siteName }}{{ $page->title ? ' | ' . $page->title : '' }}</title>
         <link rel="home" href="{{ $page->baseUrl }}">
-        <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
+        <link rel="stylesheet" href="{{ mix('css/app.css', 'assets/build') }}">
 
         @if ($page->docsearchApiKey && $page->docsearchIndexName)
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
         @endif
 
-        <script src="{{ mix('js/main.js', 'assets/build') }}" defer></script>
+        <script src="{{ mix('js/app.js', 'assets/build') }}" defer></script>
         @stack('scripts')
     </head>
     <body class="font-sans bg-gradient-to-b from-gray-100 to-white">

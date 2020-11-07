@@ -2,7 +2,7 @@
 
 namespace App;
 
-class PagePaginator
+class DocumentPaginator
 {
     protected $page;
 
@@ -10,13 +10,6 @@ class PagePaginator
 
     protected $version;
 
-    /**
-     * Constructor.
-     * 
-     * @param $page
-     * 
-     * @return void
-     */
     public function __construct($page)
     {
         $this->page = $page;
@@ -32,10 +25,15 @@ class PagePaginator
         return $this->getPageByOperator('previous');
     }
 
+    /**
+     * Get the page in the pages index.
+     * 
+     * @return array
+     */
     protected function getPageByOperator($operator = 'next')
     {
         $pages = $this->getPages();
-    
+
         $currentIndex = $pages->pluck('path')->search(
             trimPath($this->page->getPath())
         );

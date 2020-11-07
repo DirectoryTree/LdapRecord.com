@@ -7,7 +7,7 @@
 @section('body')
     <section class="container relative max-w-8xl mx-auto p-0 md:px-6">
         <div class="flex flex-col lg:flex-row justify-center mt-0 lg:mt-6">
-            <nav id="js-nav-menu" class="nav-menu relative hidden lg:block">
+            <nav id="js-nav-menu" class="nav-menu relative hidden lg:block md:rounded-b">
                 @yield('nav')
             </nav>
 
@@ -35,7 +35,32 @@
                 @yield('content')
 
                 <div class="mt-12 pt-8 pb-6">
-                    @yield('footer')
+                    @php
+                    $next = $page->getNextPage();
+                    $prev = $page->getPreviousPage();
+                    @endphp
+
+                    <div class="flex flex-col-reverse md:flex-row justify-between items-center">
+                        <div class="flex flex-col items-center md:items-start">
+                            @if ($prev)
+                                <span class="font-bold text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
+
+                                <h4 class="font-bold underline m-0 text-blue-700">
+                                    <a href="/{{ $prev['path'] }}">{!! $prev['label'] !!}</a>
+                                </h4>
+                            @endif
+                        </div>
+                        
+                        <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
+                            @if ($next)
+                                <span class="font-bold text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
+
+                                <h4 class="font-bold underline m-0 text-blue-700">
+                                    <a href="/{{ $next['path'] }}">{!! $next['label'] !!}</a>
+                                </h4>
+                            @endif
+                        </div>
+                    </div>
                 </div>
 
                 <div class="mt-8 text-center hidden md:block">

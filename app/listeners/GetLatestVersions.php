@@ -51,9 +51,9 @@ class GetLatestVersions
     public function handle(Jigsaw $jigsaw)
     {
         // We won't generate Github versions during local builds.
-        // if ($jigsaw->getEnvironment() == 'local') {
-        //     return;
-        // }
+        if ($jigsaw->getEnvironment() == 'local') {
+            return;
+        }
 
         $this->client->authenticate($jigsaw->getConfig('githubApiToken'), null, Client::AUTH_HTTP_TOKEN);
 

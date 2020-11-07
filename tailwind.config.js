@@ -1,13 +1,16 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 module.exports = {
   theme: {
     extend: {
       fontFamily: {
         sans: [
-          'Inter,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji',
+          'Inter',
+          ...fontFamily.sans
         ],
         mono: [
           'Roboto Mono',
-          'monospace',
+          ...fontFamily.mono
         ],
       },
       lineHeight: {

@@ -1,6 +1,6 @@
 <?php
 
-use App\PagePaginator;
+use App\DocumentPaginator;
 use Illuminate\Support\Str;
 
 return [
@@ -49,12 +49,12 @@ return [
         return explode('/', $page->getRelativePath())[1] ?? null;
     },
 
-    'getNextPage' => function ($page, $navigation = 'navigation') {
-        return (new PagePaginator($page, $navigation))->getNext();
+    'getNextPage' => function ($page) {
+        return (new DocumentPaginator($page))->getNext();
     },
 
-    'getPreviousPage' => function ($page, $navigation = 'navigation') {
-        return (new PagePaginator($page, $navigation))->getPrevious();
+    'getPreviousPage' => function ($page) {
+        return (new DocumentPaginator($page))->getPrevious();
     },
 
     'isActive' => function ($page, $path) {
