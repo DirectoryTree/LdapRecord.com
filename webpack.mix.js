@@ -21,8 +21,8 @@ mix.webpackConfig({
 });
 
 mix.js('source/_assets/js/app.js', 'js')
-    .sass('source/_assets/sass/app.scss', 'css')
     .sourceMaps()
+    .sass('source/_assets/sass/app.scss', 'css')
     .options({
         processCssUrls: false,
         postCss: [tailwindcss()],
