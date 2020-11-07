@@ -1,16 +1,28 @@
-const { fontFamily } = require('tailwindcss/defaultTheme')
-
 module.exports = {
+  purge: {
+    content: [
+      'source/**/*.html',
+      'source/**/*.md',
+      'source/**/*.js',
+      'source/**/*.php',
+      'source/**/*.vue',
+    ],
+    options: {
+      whitelist: [
+        /language/,
+        /hljs/,
+        /algolia/,
+      ],
+    },
+  },
   theme: {
     extend: {
       fontFamily: {
         sans: [
-          'Inter',
-          ...fontFamily.sans
+          'Inter'
         ],
         mono: [
-          'Roboto Mono',
-          ...fontFamily.mono
+          'monospace',
         ],
       },
       lineHeight: {
@@ -31,8 +43,8 @@ module.exports = {
       }
     },
     fontSize: {
-      'xs': '.75rem',
-      'sm': '.875rem',
+      'xs': '.8rem',
+      'sm': '.925rem',
       'base': '1rem',
       'lg': '1.125rem',
       'xl': '1.25rem',
@@ -40,7 +52,7 @@ module.exports = {
       '3xl': '1.75rem',
       '4xl': '2.125rem',
       '5xl': '2.625rem',
-      '6xl': '3rem',
+      '6xl': '10rem',
     },
   },
   variants: {
