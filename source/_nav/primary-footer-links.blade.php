@@ -1,6 +1,6 @@
-<?php
+@php
 $next = $page->getNextPage();
-$prev = $page->getPreviousPage();
-?>
+$prev = $page->getPreviousPage();   
+@endphp
 
 @include('_nav.footer-links')

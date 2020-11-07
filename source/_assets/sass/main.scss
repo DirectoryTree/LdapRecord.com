@@ -44,7 +44,7 @@
             @apply .text-purple-500;
           }
   
-          &::before {
+          &:before {
             content:'# ';
             @apply .text-purple-400;
           }

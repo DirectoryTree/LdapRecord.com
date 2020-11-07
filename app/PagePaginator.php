@@ -8,10 +8,18 @@ class PagePaginator
 
     protected $navigation;
 
-    public function __construct($page, $navigation = 'navigation')
+    protected $version;
+
+    /**
+     * Constructor.
+     * 
+     * @param $page
+     * 
+     * @return void
+     */
+    public function __construct($page)
     {
         $this->page = $page;
-        $this->navigation = $navigation;
     }
 
     public function getNext()
@@ -55,6 +63,8 @@ class PagePaginator
 
     protected function getNavigation()
     {
-        return $this->page->{$this->navigation};
+        return $this->page->navigation
+            ->{$this->page->getCurrentRepository()}
+            ->{$this->page->getCurrentVersion()};
     }
 }

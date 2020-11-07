@@ -9,7 +9,7 @@
     <hr class="block w-full max-w-lg mx-auto my-8 border">
 
     <p class="text-xl">
-        <a title="404 Page Documentation" href="/docs/">Back to Documentation</a>.
+        <a title="404 Page Documentation" href="/">Back to Home</a>.
     </p>
 </div>
 @endsection

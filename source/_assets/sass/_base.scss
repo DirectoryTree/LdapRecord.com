@@ -1,6 +1,7 @@
 body {
-    font-size: 16px;
-    @apply .text-black;
+    @apply .text-gray-800;
+    @apply .text-base;
+    @apply .font-normal;
 }
 
 a {
@@ -36,24 +37,15 @@ blockquote {
     }
 }
 
-code {
-    @apply .bg-gray-200;
-    @apply .px-2;
-    @apply .py-px;
-    @apply .rounded;
-    @apply .text-sm;
-    @apply .text-purple-700;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    @apply .leading-tight;
     @apply .mb-4;
     @apply .mt-8;
+    @apply .leading-tight;
     @apply .text-gray-800;
 
     &:first-child {
@@ -126,25 +118,6 @@ p {
     @screen md {
         @apply .my-6;
     }
-}
-
-pre {
-    @apply .bg-gray-800;
-    @apply .leading-loose;
-    @apply .my-6;
-    @apply .overflow-x-auto;
-    @apply .rounded-lg;
-    @apply .border;
-    @apply .text-base;
-
-    code {
-        @apply .bg-transparent;
-        @apply .block;
-        @apply .p-0;
-    }
-}::selection {
-    @apply .bg-blue-500;
-    @apply .text-white;
 }
 
 table {

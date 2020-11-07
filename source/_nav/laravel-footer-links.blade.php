@@ -1,6 +1,6 @@
-<?php
-$next = $page->getNextPage('laravelNavigation');
-$prev = $page->getPreviousPage('laravelNavigation');
-?>
+@php
+$next = $page->getNextPage('laravel');
+$prev = $page->getPreviousPage('laravel');
+@endphp
 
 @include('_nav.footer-links')

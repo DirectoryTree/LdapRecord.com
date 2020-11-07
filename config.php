@@ -16,21 +16,51 @@ return [
     // GitHub API token for getting new release versions
     'githubApiToken' => '12622c742b29bfdd5ef03f59d4856bf51db773da',
 
-    // navigation menu
-    'navigation' => require_once('navigation.php'),
-    'laravelNavigation' => require_once('laravel.navigation.php'),
+    'navigation' => [
+        'core' => [
+            'v1' => require_once('versions/core/v1/navigation.php'),
+            // 'v2' => require_once('versions/core/v2/navigation.php'),
+        ],
+        'laravel' => [
+            'v1' => require_once('versions/laravel/v1/navigation.php'),
+            // 'v2' => require_once('versions/laravel/v2/navigation.php'),
+        ],
+    ],
 
-    // Thanks to: Caleb Porzio for these methods
-    // https://github.com/livewire/docs
+    'getCurrentVersion' => function ($page, $repository = null) {
+        $version = explode('/', $page->getRelativePath())[2] ?? null;
+
+        if (! empty($version)) {
+            $version;
+        }
+
+        return $page->getLatestVersion($repository);
+    },
+
+    'getLatestVersion' => function ($page, $repository = null) {
+        $currentRepo = $repository ?? $page->getCurrentRepository();
+
+        if ($nav = $page->navigation->{$currentRepo}) {
+            return $nav->reverse()->keys()->first();
+        }
+    },
+
+    'getCurrentRepository' => function ($page) {
+        return explode('/', $page->getRelativePath())[1] ?? null;
+    },
+
     'getNextPage' => function ($page, $navigation = 'navigation') {
         return (new PagePaginator($page, $navigation))->getNext();
     },
+
     'getPreviousPage' => function ($page, $navigation = 'navigation') {
         return (new PagePaginator($page, $navigation))->getPrevious();
     },
+
     'isActive' => function ($page, $path) {
         return Str::endsWith(trimPath($page->getPath()), trimPath($path));
     },
+
     'isActiveParent' => function ($page, $menuItem) {
         if (is_object($menuItem) && $menuItem->children) {
             return $menuItem->children->contains(function ($child) use ($page) {
@@ -38,15 +68,19 @@ return [
             });
         }
     },
+
     'isHomePage' => function ($page) {
         return $page->isActive('/');
     },
+
     'isOnParent' => function ($page, $path) {
         return Str::startsWith(Str::start($page->getPath(), '/'), $path);
     },
+
     'isOnLaravel' => function ($page) {
-        return $page->isOnParent('/docs/laravel');
+        return $page->getCurrentRepository() === "laravel";
     },
+
     'pullRequestPath' => function ($page) {
         $uri = 'https://github.com/DirectoryTree/LdapRecord-Docs/blob/master';
 
@@ -56,6 +90,7 @@ return [
 
         return implode([$uri, $path.$file]);
     },
+    
     'url' => function ($page, $path) {
         return Str::startsWith($path, 'http') ? $path : '/' . trimPath($path);
     },
