@@ -43,8 +43,8 @@ module.exports = {
       }
     },
     fontSize: {
-      'xs': '.8rem',
-      'sm': '.925rem',
+      'xs': '.75rem',
+      'sm': '.875rem',
       'base': '1rem',
       'lg': '1.125rem',
       'xl': '1.25rem',
@@ -52,7 +52,7 @@ module.exports = {
       '3xl': '1.75rem',
       '4xl': '2.125rem',
       '5xl': '2.625rem',
-      '6xl': '10rem',
+      '6xl': '3rem',
     },
   },
   variants: {
