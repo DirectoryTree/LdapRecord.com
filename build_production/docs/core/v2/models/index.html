@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Creating and using models in LdapRecord">
+
+        <meta property="og:site_name" content="LdapRecord"/>
+        <meta property="og:title" content="Models | LdapRecord"/>
+        <meta property="og:description" content="Creating and using models in LdapRecord"/>
+        <meta property="og:url" content="https://ldaprecord.com/docs/core/v2/models"/>
+        <meta property="og:image" content="/assets/img/logo.png"/>
+        <meta property="og:type" content="website"/>
+
+        <!-- Twitter Meta -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/assets/img/logo.png">
+        <meta name="twitter:image:alt" content="LdapRecord">
+
+        <!-- Favicons -->
+        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#805ad5">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <meta name="msapplication-TileColor" content="#805ad5">
+
+        
+        <title>LdapRecord | Models</title>
+        <link rel="home" href="https://ldaprecord.com">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=d85691bef0abb251f279">
+
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+        
+        <script src="/assets/build/js/app.js?id=2849b7b33f0b070ee172" defer></script>
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </head>
+    <body class="font-sans bg-gradient-to-b from-gray-100 to-white">
+        <main id="app" role="main">
+            <nav class="flex items-center h-24 py-12 z-20 bg-white border-gradient-l-purple-light border-b-8" role="banner">
+    <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
+        <div class="flex items-center">
+            <a href="/" title="LdapRecord home" class="inline-flex items-center">
+                <img class="h-20 md:h-24 mr-3" src="/assets/img/logo.svg" alt="LdapRecord logo" />
+            </a>
+        </div>
+
+        <div class="flex flex-1 justify-end items-center text-right md:pl-10 text-gray-800">
+            <navigation api-key="bc526397341486f980ca0b7ee7a0fa61" index="ldaprecord">
+                                    
+                     <a class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" href="/docs/laravel/v1" title="LdapRecord-Laravel Documentation Link">
+    Laravel Docs
+</a> 
+
+                     <a href="https://github.com/DirectoryTree/LdapRecord" url="https://github.com/DirectoryTree/LdapRecord" class="hidden md:inline text-gray-800 hover:text-purple-700">
+    <svg class="fill-current w-8 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
+</a> 
+                            </navigation>
+        </div>
+    </div>
+
+        <button class="flex justify-center items-center bg-purple-500 shadow h-10 mr-4 px-5 rounded lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+</nav>
+                <section class="container relative max-w-8xl mx-auto p-0 md:px-6">
+        <div class="flex flex-col lg:flex-row justify-center mt-0 lg:mt-6">
+            <nav id="js-nav-menu" class="nav-menu relative hidden lg:block md:rounded-b">
+                     <div class="mt-0 mr-0 mb-4 lg:mt-8 lg:mr-4 lg:mb-0">
+    <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-0 lg:mt-6">Version</p>
+    
+    <version repository="LdapRecord"></version>
+</div> 
+
+    <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-0 lg:mt-6">Introduction</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/quickstart"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Quickstart
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Overview
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/installation"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Installation
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/configuration"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Configuration
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/connections"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Connections
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Searching</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/searching"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Query Builder
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/v1/searching-api"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            API (Available Methods)
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Models</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/models"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Getting Started
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/model-scopes"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Scopes
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/model-relationships"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Relationships
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/model-mutators"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Accessors &amp; Mutators
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/model-api"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            API (Available Methods)
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Active Directory</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/active-directory/users"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Users
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/active-directory/groups"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Groups
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Other Features</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/authentication"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Authentication
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/common-queries"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Common Queries
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/caching"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Caching
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/events"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Events
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/logging"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Logging
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/testing"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Testing
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Extra</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/versioning"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Versioning
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/credits"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Credits
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/license"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            License
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+    </ul>
+
+    <div class="block md:hidden">
+        <hr class="my-4"/>
+
+        <ul class="list-none m-0">
+            <li class="p-0">
+                <a href="/docs/laravel/v1/"
+                   class="nav-menu__item text-gray-600 my-2 last:mb-4 p-0 hover:text-purple-500"
+                >
+                    Laravel Documentation
+                </a>
+            </li>
+
+            <li class="p-0">
+                <a href="https://github.com/DirectoryTree/LdapRecord"
+                   class="nav-menu__item text-gray-600 my-2 last:mb-4 p-0 hover:text-purple-500"
+                >
+                    Source Code
+                </a>
+            </li>
+        </ul>
+    </div>
+            </nav>
+
+            <div class="DocSearch-content content w-full h-full lg:w-3/5 bg-white break-words rounded-none md:rounded-lg shadow-none md:shadow mt-0 md:mt-6 px-6 pt-6 md:pt-8 md:pb-16 md:px-10" v-pre>     
+                                
+                <h1>Models: Getting Started</h1>
+
+<ul>
+<li><a href="#introduction">Introduction</a>
+
+<ul>
+<li><a href="#defining-models">Defining Models</a></li>
+<li><a href="#predefined-models">Predefined Models</a></li>
+<li><a href="#connections">Connections</a></li>
+<li><a href="#distinguished-names">Distinguished Names</a></li>
+<li><a href="#object-guids">Object GUIDs</a></li>
+<li><a href="#default-attribute-values">Default Attribute Values</a></li>
+</ul></li>
+<li><a href="#retrieving-models">Retrieving Models</a>
+
+<ul>
+<li><a href="#collections">Collections</a></li>
+</ul></li>
+<li><a href="#retrieving-single-models">Retrieving Single Models</a></li>
+<li><a href="#creating-amp-updating-models">Creating &amp; Updating Models</a>
+
+<ul>
+<li><a href="#creating">Creating</a></li>
+<li><a href="#updating">Updating</a></li>
+<li><a href="#moving">Moving</a></li>
+<li><a href="#renaming">Renaming</a></li>
+</ul></li>
+<li><a href="#restoring">Restoring Deleted Models</a></li>
+<li><a href="#attributes">Attributes</a>
+
+<ul>
+<li><a href="#methods">Methods</a></li>
+<li><a href="#array-conversion">Array Conversion</a></li>
+<li><a href="#determining-attribute-existence">Checking Existence</a></li>
+<li><a href="#casing-amp-hyphens">Casing &amp; Hyphens</a></li>
+</ul></li>
+<li><a href="#deleting-models">Deleting Models</a></li>
+<li><a href="#comparing-models">Comparing Models</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#serialization">Serialization</a>
+
+<ul>
+<li><a href="#hiding-attributes">Hiding Attributes</a></li>
+</ul></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The LdapRecord ORM provides a beautiful and simple ActiveRecord implementation for working with your LDAP server.
+Each "Model" represents a type of LDAP object that resides in your directory.</p>
+
+<p>Models allow you query your directory as well as create, update, and delete records.</p>
+
+<p>Before getting started, ensure you've added at least one connection to the <a href="/docs/core/v2/connections#container">container</a>.</p>
+
+<p>By default, there are models included with LdapRecord for popular LDAP directories (namely Active Directory &amp;
+OpenLDAP) so you can get up and running as fast as possible. More on this <a href="#predefined-models">below</a>.</p>
+
+<h3 id="defining-models">Defining Models</h3>
+
+<p>To get started, you must create a new class that represents the LDAP object you would like to query.</p>
+
+<p>For example, let's create a model that represents Active Directory users:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\Model;
+
+class User extends Model
+{
+    public static $objectClasses = [
+        'top',
+        'person',
+        'organizationalperson',
+        'user',
+    ];
+}
+</code></pre>
+
+<p>As you can see above, we must add a public static property that contains the object classes of the LDAP record.</p>
+
+<p>These object classes are used to locate the proper objects in your LDAP directory.</p>
+
+<blockquote>
+  <p>If you do not provide any object classes, global directory searches will be performed when retrieving models.</p>
+</blockquote>
+
+<h3 id="predefined-models">Predefined Models</h3>
+
+<p>LdapRecord comes with many predefined models that allow you to get started right away.</p>
+
+<p>You may extend these built-in models and add your own methods &amp; functionality, as well as override built-in functionality.</p>
+
+<h4>Entry Model</h4>
+
+<p>Use the <code>LdapRecord\Models\Entry</code> model for retrieving all objects from your directory - regardless of type.</p>
+
+<h4>Active Directory Models</h4>
+
+<p>Each below model references a type of object in Active Directory.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>LdapRecord\Models\ActiveDirectory\Entry</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\ActiveDirectory\User</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\ActiveDirectory\Group</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\ActiveDirectory\Computer</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\ActiveDirectory\Contact</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\ActiveDirectory\Container</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\ActiveDirectory\OrganizationalUnit</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\ActiveDirectory\Printer</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\ActiveDirectory\ForeignSecurityPrincipal</code></td>
+</tr>
+</tbody>
+</table>
+
+<h4>OpenLDAP Models</h4>
+
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>LdapRecord\Models\OpenLdap\Entry</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\OpenLdap\User</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\OpenLdap\Group</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\OpenLdap\OrganizationalUnit</code></td>
+</tr>
+</tbody>
+</table>
+
+<h4>FreeIPA Models</h4>
+
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>LdapRecord\Models\FreeIPA\Entry</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\FreeIPA\User</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\FreeIPA\Group</code></td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+  <p>Don't see a model for the LDAP server you're using? <a href="https://github.com/DirectoryTree/LdapRecord/pulls">Create a pull request!</a></p>
+</blockquote>
+
+<h3 id="connections">Connections</h3>
+
+<p>By default, all models you create will try to use your <code>default</code> LDAP connection that resides in the connection
+<a href="/docs/core/v2/connections#container">container</a>. To set your model to use an alternate connection,
+define a <code>$connection</code> property equal to the name of your other connection.</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\Model;
+
+class User extends Model
+{
+    protected $connection = 'domain-b';
+}
+</code></pre>
+
+<h3 id="distinguished-names">Distinguished Names</h3>
+
+<p>To get an objects full distinguished name call the <code>getDn</code> method:</p>
+
+<pre><code class="language-php">$user = User::find('cn=user,dc=local,dc=com');
+
+// Returns 'cn=user,dc=local,dc=com'
+$user-&gt;getDn();
+</code></pre>
+
+<p>To get an objects relative distinguished name, call the <code>getRdn</code> method:</p>
+
+<pre><code class="language-php">$user = User::find('cn=user,dc=local,dc=com');
+
+// Returns 'cn=user'
+$user-&gt;getRdn();
+</code></pre>
+
+<p>To get an objects parent distinguished name, call the <code>getParentDn</code> method:</p>
+
+<pre><code class="language-php">$user = User::find('cn=user,dc=local,dc=com');
+
+// Returns 'dc=local,dc=com'
+$user-&gt;getParentDn();
+</code></pre>
+
+<p>To get an objects name, call the <code>getName</code> method:</p>
+
+<pre><code class="language-php">$user = User::find('cn=user,dc=local,dc=com');
+
+// Returns 'user'
+$user-&gt;getName();
+</code></pre>
+
+<h3 id="object-guids">Object GUIDs</h3>
+
+<p>To retrieve a models Object GUID (globally unique identifier) call the <code>getConvertedGuid</code> method.</p>
+
+<p>This method will return the string variant of your models GUID. Some LDAP directories
+(namely Active Directory) use hexadecimal byte arrays to store these, so conversion
+is necessary.</p>
+
+<pre><code class="language-php">$user = User::find('cn=user,dc=local,dc=com');
+
+$user-&gt;getConvertedGuid();
+</code></pre>
+
+<p>To retrieve the raw GUID value, use the <code>getObjectGuid</code> method.</p>
+
+<p>By default, LdapRecord models will use the <code>objectguid</code> attribute in the
+above methods. If your directory stores GUIDs in a different attribute,
+define a <code>$guidKey</code> attribute inside of your model:</p>
+
+<pre><code class="language-php">class User extends Model
+{
+    protected $guidKey = 'entryuuid';
+}
+</code></pre>
+
+<h3 id="default-attribute-values">Default Attribute Values</h3>
+
+<p>If you would like to define the default values for some of your model's attributes,
+you may define an <code>$attributes</code> property on your model. This helps you to assign
+static default values when creating objects in your directory:</p>
+
+<blockquote>
+  <p>Due to LDAP's multi-valued nature, each attribute value you define <strong>must</strong> be
+  an array, regardless if it is single-valued or or multi-valued.</p>
+</blockquote>
+
+<pre><code class="language-php">class User extends Model
+{
+    protected $attributes = [
+        'company' =&gt; ['Acme'],
+        'description' =&gt; ['User Account'],
+        'manager' =&gt; ['cn=John Doe,dc=acme,dc=org']
+    ];
+}
+</code></pre>
+
+<h2 id="retrieving-models">Retrieving Models</h2>
+
+<p>Once you've created an LdapRecord model you're ready to start retrieving data from your directory.
+If you've used Laravel's <a href="https://laravel.com/docs/core/v2/eloquent">Eloquent ORM</a>, you'll feel right at home.</p>
+
+<p>You can think of a model as a powerful query builder allowing you to query your directory for objects
+fluently and easily.</p>
+
+<pre><code class="language-php">&lt;?php
+
+$users = User::get();
+
+foreach ($users as $user) {
+    $user-&gt;getFirstAttribute('cn');
+}
+</code></pre>
+
+<h3 id="adding-constraints">Adding Constraints</h3>
+
+<p>Each model serves as a query builder for the object classes you've defined inside.
+You can add constraints to your queries and then call <code>get()</code> to retrieve the
+results.</p>
+
+<pre><code class="language-php">&lt;?php
+
+$users = User::whereStartsWith('cn', 'John')
+            -&gt;whereEndsWith('sn', 'Doe')
+            -&gt;limit(10)
+            -&gt;get();
+</code></pre>
+
+<blockquote>
+  <p>Since models are query builders, it's a good idea to review the
+  <a href="/docs/core/v2/searching">query builder</a> methods so you can utilize
+  them to their full potential.</p>
+</blockquote>
+
+<h3 id="model-constraints">Model Constraints</h3>
+
+<p>Models come with some built in constraint methods that you may find useful.</p>
+
+<blockquote>
+  <p>The below constraints will only retrieve the models that are equal
+  to the type you have retrieved. For example, retrieving the descendants
+  of an organizational unit will only return organizational units that
+  are direct descendants. <br/><br/></p>
+  
+  <p>If you would like to avoid this, use the default <code>LdapRecord\Models\Entry</code>
+  model, which provides no <code>objectclass</code> constraints on queries.</p>
+</blockquote>
+
+<h4 id="anscestors">Ancestors</h4>
+
+<p>To retrieve the direct ancestors of a model, call the <code>ancestors()</code> constraint on a retrieved model:</p>
+
+<pre><code class="language-php">$ou = OrganizationalUnit::find('ou=Accountants,ou=Users,dc=local,dc=com');
+
+$ancestors = $ou-&gt;ancestors()-&gt;get();
+</code></pre>
+
+<p>The above example will execute a <code>listing</code> on your LDAP directory in
+the distinguished name <code>dc=local,dc=com</code>. This effectively pulls
+the ancestors of the model.</p>
+
+<h4 id="siblings">Siblings</h4>
+
+<p>To retrieve the siblings of a model, call the <code>siblings()</code> constraint on a retrieved model:</p>
+
+<pre><code class="language-php">$ou = OrganizationalUnit::find('ou=Accountants,ou=Users,dc=local,dc=com');
+
+$siblings = $ou-&gt;siblings()-&gt;get();
+</code></pre>
+
+<p>The above example will execute a <code>listing</code> on your LDAP directory in
+the distinguished name <code>ou=Users,dc=local,dc=com</code>. This effectively
+pulls the siblings of the model. The current model will also be
+included in the resulting collection.</p>
+
+<h4 id="descendants">Descendants</h4>
+
+<p>To retrieve the descendants of a model, call the <code>descendants()</code> constraint on a retrieved model:</p>
+
+<pre><code class="language-php">$ou = OrganizationalUnit::find('ou=Accountants,ou=Users,dc=local,dc=com');
+
+$descendants = $ou-&gt;descendants()-&gt;get();
+</code></pre>
+
+<p>The above example will execute a <code>listing</code> on your LDAP directory in
+the distinguished name <code>ou=Accountants,ou=Users,dc=local,dc=com</code>. This effectively
+pulls the descendants of the model.</p>
+
+<h4 id="refreshing-models">Refreshing Models</h4>
+
+<p>To re-retrieve a new model from your directory, call the <code>fresh()</code> method.
+Doing so will not affect the existing instance you already have:</p>
+
+<pre><code class="language-php">$user = User::where('cn', '=', 'jdoe')-&gt;first();
+
+$freshUser = $user-&gt;fresh();
+</code></pre>
+
+<p>If you would like to re-retrieve the existing model, call the <code>synchronize()</code> method.
+This will re-retrieve the models attributes from the directory:</p>
+
+<pre><code class="language-php">$user = User::where('cn', '=', 'jdoe')-&gt;first();
+
+$user-&gt;synchronize();
+</code></pre>
+
+<h3 id="collections">Collections</h3>
+
+<p>When you query your models, returned results will be contained inside of a
+<code>LdapRecord\Query\Collection</code>. The <code>Collection</code> class directly extends
+Laravel's collection. Be sure to check out its <a href="https://laravel.com/docs/core/v2/collections">documentation</a>
+for all of the available helpful methods.</p>
+
+<pre><code class="language-php">&lt;?php
+
+$users = User::get();
+
+$usersWithEmail = $users-&gt;filter(function (User $user) {
+    return $user-&gt;hasAttribute('mail');
+});
+</code></pre>
+
+<h2 id="retrieving-single-models">Retrieving Single Models</h2>
+
+<p>If you would like to retrieve a single model from your directory, you can utilize
+a variety of methods. Here is a list and usage of each:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>first()</code></td>
+</tr>
+<tr>
+  <td><code>find($distinguishedName)</code></td>
+</tr>
+<tr>
+  <td><code>findBy($attributeName, $attributeValue)</code></td>
+</tr>
+<tr>
+  <td><code>findByAnr($attributeValue)</code></td>
+</tr>
+<tr>
+  <td><code>findByGuid($objectGuid)</code></td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-php">// Retrieve the first model of a global LDAP search...
+$user = User::first();
+
+// Retrieve a model by its distinguished name...
+$user = User::find('cn=John Doe,dc=acme,dc=org');
+
+// Retrieve the first model that matches the attribute...
+$user = User::findBy('cn', 'John Doe');
+
+// Retrieve the first model that matches an array of ANR attributes...
+$user = User::findByAnr('John Doe');
+
+// Retrieve a model by its object guid...
+$user = User::findByGuid('bf9679e7-0de6-11d0-a285-00aa003049e2');
+</code></pre>
+
+<h4 id="not-found-exceptions">Not Found Exceptions</h4>
+
+<p>Occasionally you may want to throw an exception if a specific record you're looking
+for cannot be found on your directory. You can substitute the above methods
+with <code>OrFail()</code> variants:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>firstOrFail()</code></td>
+</tr>
+<tr>
+  <td><code>findOrFail($distinguishedName)</code></td>
+</tr>
+<tr>
+  <td><code>findByOrFail($attributeName, $attributeValue)</code></td>
+</tr>
+<tr>
+  <td><code>findByAnrOrFail($attributeValue)</code></td>
+</tr>
+<tr>
+  <td><code>findByGuidOrFail($objectGuid)</code></td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-php">try {
+    // Retrieve the first model of a global LDAP search or fail...
+    $user = User::firstOrFail();
+
+    // Retrieve a model by its distinguished name or fail...
+    $user = User::findOrFail('cn=John Doe,dc=acme,dc=org');
+
+    // Retrieve the first model that matches the attribute or fail...
+    $user = User::findByOrFail('cn', 'John Doe');
+
+    // Retrieve the first model that matches an array of ANR attributes or fail...
+    $user = User::findByAnrOrFail('John Doe');
+
+    // Retrieve a model by its object guid or fail...
+    $user = User::findByGuidOrFail('bf9679e7-0de6-11d0-a285-00aa003049e2');
+} catch (\LdapRecord\Models\ModelNotFoundException $e) {
+    // One of the models could not be located...
+}
+</code></pre>
+
+<h2 id="creating-amp-updating-models">Creating &amp; Updating Models</h2>
+
+<h3 id="creating">Creating</h3>
+
+<p>Before we begin it is paramount to know that LDAP objects require a Distinguished Name to be
+created successfully in your LDAP directory. LdapRecord will always attempt to generate a
+Distinguished Name for models that do not have one upon <code>save</code>. In addition, some LDAP
+objects require <strong>more</strong> attributes to be set for successful creation.</p>
+
+<p>For example, to create a <code>User</code> object in Active Directory, the <code>cn</code> (Common Name) attribute is required.
+If you do not set this attribute, an exception will be thrown upon saving your LDAP model. For another
+example, <code>OrganizationlUnit</code>'s must have the <code>ou</code> attribute set.</p>
+
+<p>LdapRecord cannot validate this for you as LDAP objects differ widely in their attribute requirements.</p>
+
+<p>To create a new record in your directory, create a new model instance and call the <code>save()</code> method.
+Upon calling <code>save()</code>, if no Distinguished Name is set on a new model, one will be generated
+based on your configured <code>base_dn</code> that you have set inside your connections configuration:</p>
+
+<pre><code class="language-php">$conn = new Connection([
+    // ...
+    'base_dn' =&gt; 'dc=local,dc=com',
+]);
+
+$conn-&gt;connect();
+
+$user = new User();
+
+$user-&gt;cn = 'John Doe';
+
+// User will be saved with the DN: 'cn=John Doe,dc=local,dc=com
+$user-&gt;save();
+</code></pre>
+
+<h4 id="dynamic-dn-generation">Dynamic Distinguished Name Generation</h4>
+
+<p>LdapRecord generates a models distinguished name via the model method <code>getCreatableRdn</code>.
+This method is responsible for generating the "Relative Distinguished Name" which is
+the true name of the object inside of your LDAP directory that does not include
+your base Distinguished Name.</p>
+
+<p>Since <em>most</em> LDAP objects require a Common Name (<code>cn</code>) this is defaulted to:</p>
+
+<pre><code class="language-php">/**
+ * Get a creatable RDN for the model.
+ *
+ * @return string
+ */
+public function getCreatableRdn()
+{
+    $name = $this-&gt;escape($this-&gt;getFirstAttribute('cn'))-&gt;dn();
+
+    return "cn=$name";
+}
+</code></pre>
+
+<blockquote>
+  <p>As you can see above, the attribute is escaped before being passed into the RDN string.
+  <strong>You must do this</strong>, otherwise if commas or other reserved characters are inside the
+  attribute you are using, it will generate a malformed distinguished name.</p>
+</blockquote>
+
+<p>You may override this method to allow your models Distinguished Name's to be dynamically generated
+rather than creating them yourself manually. For example, here is how we would set the Relative
+Distinguished Name (RDN) for an Active Directory <code>OrganizationalUnit</code> model:</p>
+
+<pre><code class="language-php">public function getCreatableRdn()
+{
+    $name = $this-&gt;escape($this-&gt;getFirstAttribute('ou'))-&gt;dn();
+
+    return "ou=$name";
+}
+</code></pre>
+
+<p>This then gets prepended onto your connections configured <code>base_dn</code>, for a resulting "Full" Distinguished Name:</p>
+
+<pre><code class="language-text">ou=MyOrganizationalUnitName,dc=local,dc=com
+</code></pre>
+
+<p>You may set the base DN of where you would like the object to be created inside by
+using the <code>inside()</code> method, rather than your <code>base_dn</code> from your configuration:</p>
+
+<pre><code class="language-php">$user = new User(['cn' =&gt; 'John Doe']);
+
+$user-&gt;inside('ou=Users,dc=local,dc=com');
+
+$user-&gt;save();
+</code></pre>
+
+<p>You may also pass in an LdapRecord <code>Model</code> instance. This is convenient so you
+know the container / organizational unit distinguished name is valid:</p>
+
+<pre><code class="language-php">$ou = OrganizationalUnit::findOrFail('ou=Users,dc=acme,dc=org');
+
+$user = new User(['cn' =&gt; 'John Doe']);
+
+$user-&gt;inside($ou)-&gt;save();
+</code></pre>
+
+<p>The above examples will save the user inside the <code>Users</code> OU resulting in the full distinguished name:</p>
+
+<pre><code class="language-text">cn=John Doe,ou=Users,dc=acme,dc=org
+</code></pre>
+
+<h4 id="setting-a-distinguished-name">Setting A Distinguished Name</h4>
+
+<p>To set the models distinguished name, call the <code>setDn()</code> method on your model and populate it
+with any organization unit or container that you would like it to be created inside:</p>
+
+<pre><code class="language-php">$user = new User();
+
+$user-&gt;cn = 'John Doe';
+
+$user-&gt;setDn('cn=John Doe,ou=Users,dc=acme,dc=org');
+
+$user-&gt;save();
+</code></pre>
+
+<h3 id="updating">Updating</h3>
+
+<p>Updating models is as easy as creating them. When you have a model returned from a query,
+set its attributes as you would for creating and call the <code>save()</code> method:</p>
+
+<pre><code class="language-php">$user = User::first();
+
+$user-&gt;company = 'My Company';
+$user-&gt;samaccountname = 'jdoe';
+$user-&gt;department = 'Accounting';
+$user-&gt;displayname = 'Johnathan Doe';
+
+$user-&gt;save();
+</code></pre>
+
+<h3 id="moving">Moving</h3>
+
+<p>To move existing models into Organizational Units or Containers, call the <code>move()</code> method:</p>
+
+<blockquote>
+  <p>When moving a model is successful, the users distinguished name will be
+  automatically updated to reflect its new location in your directory,
+  so you may continue to run operations on it during the same request.</p>
+</blockquote>
+
+<pre><code class="language-php">$user = User::find('cn=Steve Bauman,dc=local,dc=com');
+
+$ou = OrganizationalUnit::find('ou=Office Users,dc=local,dc=com');
+
+$user-&gt;move($ou);
+
+// Displays 'cn=Steve Bauman,ou=Office Users,dc=local,d=com'
+echo $user-&gt;getDn();
+</code></pre>
+
+<h3 id="renaming">Renaming</h3>
+
+<p>To rename existing models, call the <code>rename()</code> method and supply the new objects RDN (relative distinguished name):</p>
+
+<blockquote>
+  <p>When renaming is successful, the users distinguished name is automatically
+  updated to reflect its new name in the directory, so you may run further
+  operations on it during the same request.</p>
+</blockquote>
+
+<pre><code class="language-php">$user = User::find('cn=John Doe,dc=local,dc=com');
+
+$user-&gt;rename('cn=Jane Doe');
+
+// Displays 'cn=Jane Doe,dc=local,dc=com'
+echo $user-&gt;getDn();
+</code></pre>
+
+<h2 id="restoring">Restoring Deleted Models</h2>
+
+<blockquote>
+  <p><strong>Important</strong>: This feature is only possible when connecting to an Active Directory server.</p>
+</blockquote>
+
+<p>To restore a deleted object, we must first query the directory
+for deleted objects by using the <code>whereDeleted</code> method:</p>
+
+<pre><code class="language-php">use LdapRecord\LdapRecordException;
+use LdapRecord\Models\ActiveDirectory\User;
+
+$user = User::whereDeleted()
+            -&gt;where('mail', '=', 'sbauman@local.com')
+            -&gt;first();
+
+try {
+    $user-&gt;restore();
+
+    // Successfully restored user.
+} catch (LdapRecordException $ex) {
+    // Failed restoring user.
+}
+</code></pre>
+
+<p>If you're including deleted results in your queries using the <code>withDeleted</code> clause,
+you can call the <code>isDeleted</code> method to check if an object has been deleted:</p>
+
+<pre><code class="language-php">$users = User::withDeleted()-&gt;get();
+
+foreach ($users as $user) {
+    if ($user-&gt;isDeleted()) {
+        $user-&gt;restore();
+    }
+}
+</code></pre>
+
+<p>If you call <code>restore</code> on a non-deleted object, it will simply return <code>false</code>:</p>
+
+<pre><code class="language-php">$user = User::where('cn', '=', 'Steve Bauman')-&gt;first();
+
+$result = $user-&gt;restore();
+
+// Displays bool(false)
+var_dump($result);
+</code></pre>
+
+<h2 id="attributes">Attributes</h2>
+
+<h3 id="methods">Methods</h3>
+
+<p>There are several built-in methods on models you may like to utilize:</p>
+
+<p><code>Model::getAttributes()</code></p>
+
+<p>The <code>getAttributes</code> method returns all of the values on the model:</p>
+
+<pre><code class="language-php">$user = User::first();
+
+$attributes = $user-&gt;getAttributes();
+
+foreach ($attributes as $name =&gt; $values) {
+    //
+}
+</code></pre>
+
+<blockquote>
+  <p>In the above example, <code>$values</code> will always be an array.</p>
+</blockquote>
+
+<p><code>Model::getAttribute($name)</code></p>
+
+<p>The <code>getAttribute</code> method returns all of the values inside the given key. This will return an <code>array</code> if the attribute exists:</p>
+
+<pre><code class="language-php">$group = Group::first();
+
+$members = $group-&gt;getAttribute('member');
+
+if ($members) {
+    foreach ($members as $member) {
+        echo $member;
+    }
+}
+</code></pre>
+
+<p><code>Model::getFirstAttribute($name)</code></p>
+
+<p>The <code>getFirstAttribute</code> method returns the first value of the given key. This will always return <code>null</code> or <code>string</code>:</p>
+
+<pre><code class="language-php">$group = Group::first();
+
+$firstMember = $group-&gt;getFirstAttribute('member');
+</code></pre>
+
+<p><code>Model::hasAttribute()</code></p>
+
+<p>The <code>hasAttribute</code> method determines whether the model contains the key in the models attributes:</p>
+
+<pre><code class="language-php">$user = User::first();
+
+if ($user-&gt;hasAttribute('company')) {
+    //
+}
+</code></pre>
+
+<p><code>Model::addAttributeValue($name, $value)</code></p>
+
+<p>To add a value to an attribute without clearing it, use the <code>addAttributeValue</code> method:</p>
+
+<pre><code class="language-php">$user = User::first();
+
+$user-&gt;addAttributeValue('proxyaddresses', 'SMTP:sbauman@local.com');
+</code></pre>
+
+<p><code>Model::countAttributes()</code></p>
+
+<p>The <code>countAttributes</code> method returns the number of attributes the model contains:</p>
+
+<pre><code class="language-php">$user = User::first();
+
+echo $user-&gt;countAttributes();
+</code></pre>
+
+<h3 id="array-conversion">Array Conversion</h3>
+
+<p>Attributes you retrieve from an LdapRecord model will <strong>always</strong>
+return and array. This is due to LDAP's multi-valued nature.</p>
+
+<p>For example, if you would like to retrieve the users <code>mail</code>
+attribute, you must request the first key from it:</p>
+
+<pre><code class="language-php">$user = User::find('cn=John Doe,dc=acme,dc=org');
+
+// Get the users email address.
+echo $user-&gt;mail[0];
+</code></pre>
+
+<p>However, the above will cause an exception if the attribute does not exist.</p>
+
+<p>To work around this, we can use the <code>getFirstAttribute()</code> method:</p>
+
+<pre><code class="language-php">$user = User::find('cn=John Doe,dc=acme,dc=org');
+
+// Get the users email address.
+echo $user-&gt;getFirstAttribute('mail');
+</code></pre>
+
+<p>When setting attributes on models, they will automatically
+be converted to an array for you if you do not provide one.</p>
+
+<pre><code class="language-php">$user = User::find('cn=John Doe,dc=acme,dc=org');
+
+// Both approaches will set the attribute identically:
+$user-&gt;mail = 'jdoe@acme.org';
+$user-&gt;mail = ['jdoe@acme.org'];
+</code></pre>
+
+<p>Similarly, you can use the <code>setFirstAttribute()</code> method to
+set the attributes first value in its array, even if
+it does not currently exist on the model:</p>
+
+<pre><code class="language-php">$user = User::find('cn=John Doe,dc=acme,dc=org');
+
+// Set the users email address.
+$user-&gt;setFirstAttribute('mail', 'jdoe@acme.org');
+</code></pre>
+
+<h3 id="determining-attribute-existence">Determining Attribute Existence</h3>
+
+<p>To check if a model has an attribute, you can use the <code>hasAttribute()</code> method:</p>
+
+<pre><code class="language-php">if ($user-&gt;hasAttribute('mail')) {
+    // This user has an email address.
+}
+</code></pre>
+
+<p>As with all other attribute methods, this check is <strong>case-insensitive</strong>.
+You may pass any type of casing of the attribute you are looking for:</p>
+
+<pre><code class="language-php">// Both will return 'true':
+$user-&gt;hasAttribute('samaccountname');
+$user-&gt;hasAttribute('sAMAccountname');
+</code></pre>
+
+<h3 id="casing-amp-hyphens">Casing &amp; Hyphens</h3>
+
+<h4 id="attribute-casing">Attribute Casing</h4>
+
+<p>LdapRecord automatically normalizes all attribute keys to lowercase. This
+means when setting or getting model attributes, you can use alternate
+casing and the same attribute will be set or retrieved.</p>
+
+<p>This is extremely handy so you do not have to look up the casing of
+each attribute every time you want to set or retrieve one. This
+also means you can use your own attribute convention:</p>
+
+<pre><code class="language-php">$user = new User();
+
+// Each will set the same attribute:
+$user-&gt;samaccountname = 'John Doe';
+$user-&gt;sAMAccountName = 'John Doe';
+$user-&gt;samAccountName = 'John Doe';
+</code></pre>
+
+<h4 id="attribute-hyphens">Attribute Hyphens</h4>
+
+<p>Since LDAP does not support underscores in LDAP attributes but does
+support using hyphens, anytime you would like to set an attribute
+that contains a hypen, set it using an underscore instead.
+LdapRecord will automatically convert the underscore
+to a hyphen dynamically:</p>
+
+<pre><code class="language-php">$user = new User();
+
+$user-&gt;some_attribute = 'Value';
+
+// Returns 'Value'
+echo $user-&gt;some_attribute[0];
+echo $user-&gt;getAttribute('some-attribute')[0];
+</code></pre>
+
+<p>Similarly, when retrieving attributes that contain a hyphen, use
+an underscore instead:</p>
+
+<pre><code class="language-php">$user = User::find('cn=John Doe,dc=acme,dc=org');
+
+// Both will act identically:
+echo $user-&gt;apple_user_homeurl[0];
+echo $user-&gt;getAttribute('apple-user-homeurl')[0];
+</code></pre>
+
+<h2 id="deleting-models">Deleting Models</h2>
+
+<p>To delete a record from your directory, call the <code>delete()</code> method on a model you have retrieved:</p>
+
+<pre><code class="language-php">&lt;?php
+
+$user = User::first();
+
+$user-&gt;delete();
+</code></pre>
+
+<blockquote>
+  <p>The account you have configured to bind to your LDAP server must have permission to delete the record
+  you have retrieved. If it does not, you will receive an exception upon deletion.</p>
+</blockquote>
+
+<h4 id="deleting-models-by-distinguished-name">Deleting Models By Distinguished Name</h4>
+
+<p>In the example above, we are retrieving the record from the directory prior to deletion. However,
+if you'd like to simply delete a model by its distinguished name, call the <code>destroy()</code> method.
+The <em>number</em> of deleted models will be returned from this method:</p>
+
+<pre><code class="language-php">&lt;?php
+
+// Deleting single object...
+$deleted = User::destroy('cn=John Doe,dc=acme,dc=org');
+
+// Deleting multiple objects...
+$deleted = User::destroy([
+    'cn=John Doe,dc=acme,dc=org',
+    'cn=Jane Doe,dc=acme,dc=org',
+]);
+</code></pre>
+
+<blockquote>
+  <p>You may also pass in <code>true</code> into the second parameter to recursively delete
+  leaf entries if a record is located by the distinguished name you have given.</p>
+</blockquote>
+
+<h4 id="recursive-deleting">Recursive Deleting</h4>
+
+<p>Sometimes you will be working with containers or organizational units that contain nested records
+inside of them. Calling <code>delete()</code> on these records will generate an exception without first
+deleting the records inside. If you would like to delete all records contained inside of
+another model, pass in <code>true</code> in the first parameter of the <code>delete()</code> method:</p>
+
+<pre><code class="language-php">&lt;?php
+
+$ou = OrganizationalUnit::find('ou=Users,dc=acme,dc=org');
+
+$ou-&gt;delete($recursive = true);
+</code></pre>
+
+<h2 id="comparing-models">Comparing Models</h2>
+
+<p>If you ever need to compare to models to see if they are the same, call the the <code>is()</code> method.
+This method will determine if the models have the same distinguished name and connection:</p>
+
+<pre><code class="language-php">if ($user-&gt;is($anotherUser)) {
+    //
+}
+</code></pre>
+
+<p>To see if a model is contained inside an organizational unit or another type of
+container, call the <code>isDescendantOf()</code> method:</p>
+
+<pre><code class="language-php">$ou = OrganizationalUnit::find('ou=User Accounts,dc=acme,dc=org');
+$user = User::find('cn=John Doe,ou=User Accounts,dc=acme,dc=org');
+
+if ($user-&gt;isDescendantOf($ou)) {
+    // This user is contained inside this organizational unit.
+}
+</code></pre>
+
+<p>You may also want to know whether a model is an ancestor of another. To
+do so, call the <code>isAncestorOf()</code> method:</p>
+
+<pre><code class="language-php">$user = User::find('cn=John Doe,ou=User Accounts,dc=acme,dc=org');
+$ou = OrganizationalUnit::find('ou=User Accounts,dc=acme,dc=org');
+
+if ($ou-&gt;isAncestorOf($user)) {
+    // This OU is an ancestor of this user.
+}
+</code></pre>
+
+<blockquote>
+  <p>Calling <code>isDescendantOf()</code> or <code>isAncestorOf()</code> performs recursive checks. If
+  a model is contained in a nested OU / container of the one you are checking,
+  the methods will return <code>true</code>.</p>
+</blockquote>
+
+<pre><code class="language-php">$ou = OrganizationalUnit::find('ou=User Accounts,dc=acme,dc=org');
+$user = User::find('cn=John Doe,ou=Accounting,ou=User Accounts,dc=acme,dc=org');
+
+// This will return true:
+if ($user-&gt;isDescendantOf($ou)) {
+    // 
+}
+
+// This will return true:
+if ($ou-&gt;isAncestorOf($user)) {
+    //
+}
+</code></pre>
+
+<p>To perform non-recursive checks, such as checking if a model is a
+<strong>direct</strong> child of another model, call the <code>isChildOf</code> method:</p>
+
+<pre><code class="language-php">$ou = OrganizationalUnit::find('ou=User Accounts,dc=acme,dc=org');
+$user = User::find('cn=John Doe,ou=User Accounts,dc=acme,dc=org');
+
+if ($user-&gt;isChildOf($ou)) {
+    //
+}
+</code></pre>
+
+<p>To perform the opposite, such as checking if a model is a parent of
+another, call the <code>isParentOf</code> method:</p>
+
+<pre><code class="language-php">$officeOu = OrganizationalUnit::find('ou=Office,ou=User Accounts,dc=acme,dc=org');
+$userAccountsOu = OrganizationalUnit::find('ou=User Accounts,dc=acme,dc=org');
+
+if ($userAccountsOu-&gt;isParentOf($officeOu)) {
+    //
+}
+</code></pre>
+
+<h2 id="events">Events</h2>
+
+<p>LdapRecord models fire several different <a href="/docs/core/v2/events">event</a> during the creation,
+updating and deletion. Here is a list of all the events you can listen for:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Event</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>LdapRecord\Models\Events\Creating</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\Events\Created</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\Events\Updating</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\Events\Updated</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\Events\Saving</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\Events\Saved</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\Events\Deleting</code></td>
+</tr>
+<tr>
+  <td><code>LdapRecord\Models\Events\Deleted</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>To listen for these events, call the <code>getEventDispatcher()</code> on the <code>LdapRecord\Container</code>
+to retrieve the dispatcher, then call <code>listen()</code> on the returned dispatcher:</p>
+
+<pre><code class="language-php">&lt;?php
+
+$dispatcher = \LdapRecord\Container::getEventDispatcher();
+
+$dispatcher-&gt;listen(\LdapRecord\Models\Events\Creating::class, function ($event) {
+    $model = $event-&gt;getModel();
+});
+</code></pre>
+
+<blockquote>
+  <p>You will want to setup any listeners prior to making changes to models,
+  otherwise your listener will not be executed due to them not existing yet.</p>
+</blockquote>
+
+<h2 id="serialization">Serialization</h2>
+
+<p>All model instances can be converted to an array for JSON serialization. To serialize
+a model instance, simply pass the model into <code>json_encode()</code>. This calls
+<code>jsonSerialize()</code> on the model to retrieve is serializable data:</p>
+
+<pre><code class="language-php">&lt;?php
+
+$user = User::first();
+
+echo json_encode($user);
+</code></pre>
+
+<h3 id="hiding-attributes">Hiding Attributes</h3>
+
+<p>You may want to exclude certain attributes from being included in the
+serialization of your model, such as <code>userPassword</code> for OpenLDAP.</p>
+
+<p>To do this, add a <code>$hides</code> property to your model:</p>
+
+<pre><code class="language-php">use LdapRecord\Models\Model;
+
+class User extends Model
+{
+    protected $hides = ['userPassword'];
+}
+</code></pre>
+
+<p>Now when you <code>json_encode($model)</code>, all attributes will be included <strong>except</strong> the <code>userPassword</code> attribute.</p>
+
+<p>If you'd prefer a white-list of attributes, you can add a <code>$visible</code> property instead,
+which will ensure only the attributes specified will be included in serialization:</p>
+
+<pre><code class="language-php">use LdapRecord\Models\Model;
+
+class User extends Model
+{
+    protected $visible = ['cn', 'mail', 'sn'];
+}
+</code></pre>
+
+<h4 id="converting-attributes-to-json">Converting Attributes to JSON</h4>
+
+<p>Depending on the type of LDAP directory and model you are working with, you may need
+to convert some attributes to a string before it can be properly serialized.
+For example, if you your model is from Active Directory, you will need to
+convert the <code>objectguid</code> property to a string since it is in binary,
+otherwise <code>json_encode()</code> will throw an exception.</p>
+
+<p>This can be done by adding a <code>convertAttributesForJson()</code> method to your model:</p>
+
+<blockquote>
+  <p>By default, the <code>objectguid</code> and <code>objectsid</code> attributes are
+  converted for you when using the built-in Active Directory models.</p>
+</blockquote>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\Model;
+
+class User extends Model
+{
+    protected function convertAttributesForJson(array $attributes = [])
+    {
+        if ($this-&gt;hasAttribute('objectguid')) {
+            // If the model has a GUID set, we need to convert it due to it being in
+            // binary. Otherwise we will receive a JSON serialization exception.
+            return array_replace($attributes, [
+                'objectguid' =&gt; [$this-&gt;getConvertedGuid()]
+            ]);
+        }
+
+        return $attributes;
+    }
+}
+</code></pre>
+
+                <div class="mt-12 pt-8 pb-6">
+                    
+                    <div class="flex flex-col-reverse md:flex-row justify-between items-center">
+                        <div class="flex flex-col items-center md:items-start">
+                                                    </div>
+                        
+                        <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
+                                                            <span class="font-bold text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
+
+                                <h4 class="font-bold underline m-0 text-blue-700">
+                                    <a href="/docs/core/v1">Overview</a>
+                                </h4>
+                                                    </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center hidden md:block">
+                    <a class="font-bold text-gray-500 text-sm tracking-wider uppercase" href="https://github.com/DirectoryTree/LdapRecord-Docs/blob/master/core/v2/models.md" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6 inline-block fill-current mr-1">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                        </svg>
+
+                        Edit this Page
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+            <footer class="text-center text-sm pt-24 mt-auto" role="contentinfo">
+                <ul class="flex flex-col md:flex-row justify-center list-none text-gray-600">
+                    <li class="md:mr-2">
+                        &copy; <a href="https://github.com/DirectoryTree" title="DirectoryTree GitHub" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">DirectoryTree</a> 2020.
+                    </li>
+
+                    <li class="md:mr-2">
+                        Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Jigsaw</a>
+                        and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Tailwind CSS</a>.
+                    </li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

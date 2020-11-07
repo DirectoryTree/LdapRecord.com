@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="A list of all available LdapRecord query builder methods.">
+
+        <meta property="og:site_name" content="LdapRecord"/>
+        <meta property="og:title" content="Searching API | LdapRecord"/>
+        <meta property="og:description" content="A list of all available LdapRecord query builder methods."/>
+        <meta property="og:url" content="https://ldaprecord.com/docs/core/v2/searching-api"/>
+        <meta property="og:image" content="/assets/img/logo.png"/>
+        <meta property="og:type" content="website"/>
+
+        <!-- Twitter Meta -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/assets/img/logo.png">
+        <meta name="twitter:image:alt" content="LdapRecord">
+
+        <!-- Favicons -->
+        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#805ad5">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <meta name="msapplication-TileColor" content="#805ad5">
+
+        
+        <title>LdapRecord | Searching API</title>
+        <link rel="home" href="https://ldaprecord.com">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=d85691bef0abb251f279">
+
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+        
+        <script src="/assets/build/js/app.js?id=2849b7b33f0b070ee172" defer></script>
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </head>
+    <body class="font-sans bg-gradient-to-b from-gray-100 to-white">
+        <main id="app" role="main">
+            <nav class="flex items-center h-24 py-12 z-20 bg-white border-gradient-l-purple-light border-b-8" role="banner">
+    <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
+        <div class="flex items-center">
+            <a href="/" title="LdapRecord home" class="inline-flex items-center">
+                <img class="h-20 md:h-24 mr-3" src="/assets/img/logo.svg" alt="LdapRecord logo" />
+            </a>
+        </div>
+
+        <div class="flex flex-1 justify-end items-center text-right md:pl-10 text-gray-800">
+            <navigation api-key="bc526397341486f980ca0b7ee7a0fa61" index="ldaprecord">
+                                    
+                     <a class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" href="/docs/laravel/v1" title="LdapRecord-Laravel Documentation Link">
+    Laravel Docs
+</a> 
+
+                     <a href="https://github.com/DirectoryTree/LdapRecord" url="https://github.com/DirectoryTree/LdapRecord" class="hidden md:inline text-gray-800 hover:text-purple-700">
+    <svg class="fill-current w-8 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
+</a> 
+                            </navigation>
+        </div>
+    </div>
+
+        <button class="flex justify-center items-center bg-purple-500 shadow h-10 mr-4 px-5 rounded lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+</nav>
+                <section class="container relative max-w-8xl mx-auto p-0 md:px-6">
+        <div class="flex flex-col lg:flex-row justify-center mt-0 lg:mt-6">
+            <nav id="js-nav-menu" class="nav-menu relative hidden lg:block md:rounded-b">
+                     <div class="mt-0 mr-0 mb-4 lg:mt-8 lg:mr-4 lg:mb-0">
+    <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-0 lg:mt-6">Version</p>
+    
+    <version repository="LdapRecord"></version>
+</div> 
+
+    <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-0 lg:mt-6">Introduction</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/quickstart"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Quickstart
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Overview
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/installation"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Installation
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/configuration"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Configuration
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/connections"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Connections
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Searching</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/searching"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Query Builder
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/v1/searching-api"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            API (Available Methods)
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Models</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/models"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Getting Started
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/model-scopes"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Scopes
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/model-relationships"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Relationships
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/model-mutators"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Accessors &amp; Mutators
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/model-api"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            API (Available Methods)
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Active Directory</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/active-directory/users"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Users
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/active-directory/groups"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Groups
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Other Features</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/authentication"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Authentication
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/common-queries"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Common Queries
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/caching"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Caching
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/events"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Events
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/logging"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Logging
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/testing"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Testing
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Extra</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/versioning"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Versioning
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/credits"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Credits
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/license"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            License
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+    </ul>
+
+    <div class="block md:hidden">
+        <hr class="my-4"/>
+
+        <ul class="list-none m-0">
+            <li class="p-0">
+                <a href="/docs/laravel/v1/"
+                   class="nav-menu__item text-gray-600 my-2 last:mb-4 p-0 hover:text-purple-500"
+                >
+                    Laravel Documentation
+                </a>
+            </li>
+
+            <li class="p-0">
+                <a href="https://github.com/DirectoryTree/LdapRecord"
+                   class="nav-menu__item text-gray-600 my-2 last:mb-4 p-0 hover:text-purple-500"
+                >
+                    Source Code
+                </a>
+            </li>
+        </ul>
+    </div>
+            </nav>
+
+            <div class="DocSearch-content content w-full h-full lg:w-3/5 bg-white break-words rounded-none md:rounded-lg shadow-none md:shadow mt-0 md:mt-6 px-6 pt-6 md:pt-8 md:pb-16 md:px-10" v-pre>     
+                                
+                <h1>Available Search Methods (API)</h1>
+
+<div class="api-method-list">
+<p>
+<a href="#addControl">addControl</a>
+<a href="#addFilter">addFilter</a>
+<a href="#addSelect">addSelect</a>
+<a href="#andFilter">andFilter</a>
+<a href="#cache">cache</a>
+<a href="#clearFilters">clearFilters</a>
+<a href="#delete">delete</a>
+<a href="#deleteAttributes">deleteAttributes</a>
+<a href="#escape">escape</a>
+<a href="#find">find</a>
+<a href="#findBy">findBy</a>
+<a href="#findByOrFail">findByOrFail</a>
+<a href="#findMany">findMany</a>
+<a href="#findManyBy">findManyBy</a>
+<a href="#findOrFail">findOrFail</a>
+<a href="#first">first</a>
+<a href="#firstOrFail">firstOrFail</a>
+<a href="#get">get</a>
+<a href="#getCache">getCache</a>
+<a href="#getConnection">getConnection</a>
+<a href="#getDn">getDn</a>
+<a href="#getFilters">getFilters</a>
+<a href="#getGrammar">getGrammar</a>
+<a href="#getQuery">getQuery</a>
+<a href="#getSelects">getSelects</a>
+<a href="#getType">getType</a>
+<a href="#getUnescapedQuery">getUnescapedQuery</a>
+<a href="#hasControl">hasControl</a>
+<a href="#hasSelects">hasSelects</a>
+<a href="#in">in</a>
+<a href="#insert">insert</a>
+<a href="#insertAttributes">insertAttributes</a>
+<a href="#isNested">isNested</a>
+<a href="#isPaginated">isPaginated</a>
+<a href="#limit">limit</a>
+<a href="#listing">listing</a>
+<a href="#model">model</a>
+<a href="#nested">nested</a>
+<a href="#newInstance">newInstance</a>
+<a href="#newNestedInstance">newNestedInstance</a>
+<a href="#notFilter">notFilter</a>
+<a href="#orFilter">orFilter</a>
+<a href="#orWhere">orWhere</a>
+<a href="#orWhereApproximatelyEquals">orWhereApproximatelyEquals</a>
+<a href="#orWhereContains">orWhereContains</a>
+<a href="#orWhereEndsWith">orWhereEndsWith</a>
+<a href="#orWhereEquals">orWhereEquals</a>
+<a href="#orWhereHas">orWhereHas</a>
+<a href="#orWhereNotContains">orWhereNotContains</a>
+<a href="#orWhereNotEndsWith">orWhereNotEndsWith</a>
+<a href="#orWhereNotEquals">orWhereNotEquals</a>
+<a href="#orWhereNotHas">orWhereNotHas</a>
+<a href="#orWhereNotStartsWith">orWhereNotStartsWith</a>
+<a href="#orWhereRaw">orWhereRaw</a>
+<a href="#orWhereStartsWith">orWhereStartsWith</a>
+<a href="#paginate">paginate</a>
+<a href="#query">query</a>
+<a href="#rawFilter">rawFilter</a>
+<a href="#read">read</a>
+<a href="#recursive">recursive</a>
+<a href="#rename">rename</a>
+<a href="#select">select</a>
+<a href="#setCache">setCache</a>
+<a href="#setConnection">setConnection</a>
+<a href="#setDn">setDn</a>
+<a href="#setGrammar">setGrammar</a>
+<a href="#update">update</a>
+<a href="#updateAttributes">updateAttributes</a>
+<a href="#where">where</a>
+<a href="#whereApproximatelyEquals">whereApproximatelyEquals</a>
+<a href="#whereBetween">whereBetween</a>
+<a href="#whereContains">whereContains</a>
+<a href="#whereDeleted">whereDeleted</a>
+<a href="#whereEndsWith">whereEndsWith</a>
+<a href="#whereEquals">whereEquals</a>
+<a href="#whereHas">whereHas</a>
+<a href="#whereIn">whereIn</a>
+<a href="#whereNotContains">whereNotContains</a>
+<a href="#whereNotEndsWith">whereNotEndsWith</a>
+<a href="#whereNotEquals">whereNotEquals</a>
+<a href="#whereNotHas">whereNotHas</a>
+<a href="#whereNotStartsWith">whereNotStartsWith</a>
+<a href="#whereRaw">whereRaw</a>
+<a href="#whereStartsWith">whereStartsWith</a>
+<a href="#withDeleted">withDeleted</a>
+</p>
+</div>
+
+<h2>Method Listing</h2>
+
+<h4 id="addControl"><code>addControl</code></h4>
+
+<p>Add a server control to be executed with the LDAP search query:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query-&gt;addControl(
+    $oid = '1.2.840.113556.1.4.417', $isCritical = true, $value = null
+);
+
+// array:1 [▼
+//  "1.2.840.113556.1.4.417" =&gt; array:3 [▼
+//    "oid" =&gt; "1.2.840.113556.1.4.417"
+//    "isCritical" =&gt; true
+//    "value" =&gt; null
+//  ]
+// ]
+var_dump($query-&gt;controls);
+</code></pre>
+
+<h4 id="addFilter"><code>addFilter</code></h4>
+
+<p>Add a filter with its bindings to the query:</p>
+
+<blockquote>
+  <p>Available types are <code>and</code>, <code>or</code> and <code>raw</code>.</p>
+</blockquote>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$bindings = [
+    'field' =&gt; 'cn',
+    'operator' =&gt; '=',
+    'value' =&gt; 'Steve Bauman',
+];
+
+$query-&gt;addFilter($type = 'and', $bindings);
+</code></pre>
+
+<h4 id="addSelect"><code>addSelect</code></h4>
+
+<p>Add an attribute to be selected for the query:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Using arguments:
+$query-&gt;addSelect('cn');
+$query-&gt;addSelect('foo', 'bar', 'baz');
+
+// Using an array:
+$query-&gt;addSelect(['sn', 'givenname']);
+
+// array:7 [▼
+//   0 =&gt; "cn"
+//   1 =&gt; "foo"
+//   2 =&gt; "bar"
+//   3 =&gt; "baz"
+//   4 =&gt; "sn"
+//   5 =&gt; "givenname"
+//   6 =&gt; "objectclass"
+// ]
+var_dump($query-&gt;getSelects());
+</code></pre>
+
+<h4 id="andFilter"><code>andFilter</code></h4>
+
+<p>Add a nested "and" filter to the query:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query-&gt;andFilter(function (\LdapRecord\Query\Builder $q) {
+    $q-&gt;where('foo', '=', 'bar');
+    $q-&gt;where('baz', '=', 'zal');
+});
+
+// "(&amp;(foo=bar)(baz=zal))"
+echo $query-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="cache"><code>cache</code></h4>
+
+<p>Cache the executed query until the given date has passed:</p>
+
+<blockquote>
+  <p>Pass <code>true</code> as the second argument to force flush the cache if the query has been executed before.</p>
+</blockquote>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$until = new \DateTime('+1 day');
+
+$query-&gt;cache($until, $flush = false);
+</code></pre>
+
+<h4 id="clearFilters"><code>clearFilters</code></h4>
+
+<p>Reset / clear all filters that have been added to the query:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query-&gt;where('foo', '=', 'bar');
+
+$query-&gt;clearFilters();
+
+// array:3 [▼
+//   "and" =&gt; []
+//   "or" =&gt; []
+//   "raw" =&gt; []
+// ]
+var_dump($query-&gt;getFilters());
+</code></pre>
+
+<h4 id="delete"><code>delete</code></h4>
+
+<p>Delete an entry from the directory:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query-&gt;delete('cn=John Doe,ou=Users,dc=local,dc=com');
+</code></pre>
+
+<h4 id="deleteAttributes"><code>deleteAttributes</code></h4>
+
+<p>Delete an attributes values from the directory:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$entry = 'cn=Accounting Users,ou=Groups,dc=local,dc=com';
+
+// Delete all values from an attribute, for example,
+// removing all members from a particular group:
+$query-&gt;deleteAttributes($entry, ['member' =&gt; []]);
+
+// Delete a specific value from an attribute, for example,
+// removing a specific member from a particular group:
+$member = 'cn=John Doe,ou=Users,dc=local,dc=com';
+
+$query-&gt;deleteAttributes($entry, ['member' =&gt; [$member]]);
+</code></pre>
+
+<h4 id="escape"><code>escape</code></h4>
+
+<p>Prepare a value to be escaped:</p>
+
+<blockquote>
+  <p>This method accepts the same parameters as the built in PHP
+  <a href="https://www.php.net/manual/function.ldap-escape.php"><code>ldap_escape</code> method</a>.</p>
+</blockquote>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns instance of:
+// LdapRecord\Models\Attributes\EscapedValue
+$value = $query-&gt;escape('value', $ignore = '', $flags = 0);
+
+// Prepare the value to be escaped for use in a distinguished name:
+$value-&gt;dn();
+
+// Prepare the value to be escaped for use in a filter:
+$value-&gt;filter();
+
+// Prepare the value to be escaped for use in a distinguished name and filter:
+$value-&gt;both();
+
+// Set the characters to ignore:
+$value-&gt;ignore('/*');
+
+// Get the escaped value:
+$value-&gt;get();
+
+// Can also be casted to string:
+(string) $value;
+</code></pre>
+
+<h4 id="find"><code>find</code></h4>
+
+<p>Find an entry in the directory by its distinguished name:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+if ($entry = $query-&gt;find('cn=John Doe,dc=local,dc=com')) {
+    // Found entry!
+} else {
+    // Not found.
+}
+</code></pre>
+
+<h4 id="findBy"><code>findBy</code></h4>
+
+<p>Find the first matching entry in the directory by the given attribute and value:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+if ($entry = $query-&gt;findBy('samaccountname', 'johndoe')) {
+    // Found entry!
+} else {
+    // Not found.
+}
+</code></pre>
+
+<h4 id="findByOrFail"><code>findByOrFail</code></h4>
+
+<p>Find the first matching entry in the directory by the given attribute and value <strong>or fail</strong>:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+try {
+    $entry = $query-&gt;findByOrFail('samaccountname', 'johndoe');
+} catch (\LdapRecord\Models\ModelNotFoundException $ex) {
+    // Not found.
+}
+</code></pre>
+
+<h4 id="findMany"><code>findMany</code></h4>
+
+<p>Find many entries in the directory by an array of Distinguished Names:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$entries = $query-&gt;findMany([
+    'cn=John Doe,dc=local,dc=com',
+    'ou=Accounting,dc=local,dc=com',
+]);
+</code></pre>
+
+<h4 id="findManyBy"><code>findManyBy</code></h4>
+
+<p>Find many entries in the directory by the given attribute and values:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$entries = $query-&gt;findManyBy('samaccountname', ['johndoe', 'janedoe', 'sbauman']);
+</code></pre>
+
+<h4 id="findOrFail"><code>findOrFail</code></h4>
+
+<p>Find an entry in the directory by its distinguished name <strong>or fail</strong>:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+try {
+    $entry = $query-&gt;findOrFail('cn=John Doe,dc=local,dc=com');
+} catch (\LdapRecord\Models\ModelNotFoundException $ex) {
+    // Not found.
+}
+</code></pre>
+
+<h4 id="first"><code>first</code></h4>
+
+<p>Get the first resulting entry of a query from the directory:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$entry = $query-&gt;whereStartsWith('cn', 'Steve')-&gt;first();
+</code></pre>
+
+<h4 id="firstOrFail"><code>firstOrFail</code></h4>
+
+<p>Get the first resulting entry of a query from the directory <strong>or fail</strong>:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+try {
+    $entry = $query-&gt;whereStartsWith('cn', 'Steve')-&gt;first();
+} catch (\LdapRecord\Models\ModelNotFoundException $ex) {
+    // Not entries returned.
+}
+</code></pre>
+
+<h4 id="get"><code>get</code></h4>
+
+<p>Get the resulting entries of a query from the directory:</p>
+
+<blockquote>
+  <p><strong>Important</strong>: If you expect to have more than 1000 entries
+  returned from your query, use the <a href="#paginate">paginate</a>
+  method instead, which will return all entries.</p>
+</blockquote>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$entries = $query-&gt;where('company', '=', 'Acme')-&gt;get();
+</code></pre>
+
+<h4 id="getCache"><code>getCache</code></h4>
+
+<p>Get the query cache (if set):</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns null or instance of LdapRecord\Query\Cache:
+$cache = $query-&gt;getCache();
+</code></pre>
+
+<h4 id="getConnection"><code>getConnection</code></h4>
+
+<p>Get the underlying connection the query is executing on:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns instance of LdapRecord\Connection:
+$conn = $query-&gt;getConnection();
+</code></pre>
+
+<h4 id="getDn"><code>getDn</code></h4>
+
+<p>Get the base Distinguished Name that the query is executing on:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query-&gt;setDn('ou=Users,dc=local,dc=com');
+
+// Returns 'ou=Users,dc=local,dc=com':
+$base = $query-&gt;getDn();
+</code></pre>
+
+<h4 id="getFilters"><code>getFilters</code></h4>
+
+<p>Get the filters that have been added to the query:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query-&gt;where('company', '=', 'Acme');
+
+// array:3 [▼
+//   "and" =&gt; array:1 [▼
+//     0 =&gt; array:3 [▼
+//       "field" =&gt; "company"
+//       "operator" =&gt; "="
+//       "value" =&gt; LdapRecord\Models\Attributes\EscapedValue {#17 ▶}
+//     ]
+//   ]
+//   "or" =&gt; []
+//   "raw" =&gt; []
+// ]
+var_dump($query-&gt;getFilters());
+</code></pre>
+
+<h4 id="getGrammar"><code>getGrammar</code></h4>
+
+<p>Get the underlying query grammar instance:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns instance of LdapRecord\Query\Grammar:
+$grammar = $query-&gt;getGrammar();
+</code></pre>
+
+<h4 id="getQuery"><code>getQuery</code></h4>
+
+<p>Get the raw, <strong>escaped</strong> LDAP query filter:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query-&gt;where('company', '=', 'Acme');
+
+// Returns '(company=\41\63\6d\65)'
+$filter = $query-&gt;getQuery();
+</code></pre>
+
+<h4 id="getSelects"><code>getSelects</code></h4>
+
+<p>Get the selected attributes of the query:</p>
+
+<blockquote>
+  <p><strong>Important</strong>: <code>objectclass</code> will always be included in the returned array.</p>
+</blockquote>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// array:1 [▼
+//   0 =&gt; "objectclass"
+// ]
+var_dump($query-&gt;getSelects());
+
+$query-&gt;select(['cn', 'mail', 'givenname']);
+
+// array:4 [▼
+//   0 =&gt; "cn"
+//   1 =&gt; "mail"
+//   2 =&gt; "givenname"
+//   3 =&gt; "objectclass"
+// ]
+var_dump($query-&gt;getSelects());
+</code></pre>
+
+<h4 id="getType"><code>getType</code></h4>
+
+<p>Get the type of LDAP query to be executed, either <code>search</code>, <code>listing</code> or <code>read</code>:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns 'search':
+$query-&gt;getType();
+
+// Returns 'listing':
+$query-&gt;listing()-&gt;getType();
+
+// Returns 'read':
+$query-&gt;read()-&gt;getType();
+</code></pre>
+
+<h4 id="getUnescapedQuery"><code>getUnescapedQuery</code></h4>
+
+<p>Get the raw, <strong>unescaped</strong> LDAP query filter:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query-&gt;where('company', '=', 'Acme');
+
+// Returns '(company=Acme)'
+$filter = $query-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="hasControl"><code>hasControl</code></h4>
+
+<p>Determine if the query has a specific LDAP control OID added:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+if ($query-&gt;hasControl($oid = '1.2.840.113556.1.4.417')) {
+    // The query has a control added for the OID.
+}
+</code></pre>
+
+<h4 id="hasSelects"><code>hasSelects</code></h4>
+
+<p>Determine if the query has any selects added:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns false:
+$query-&gt;hasSelects();
+
+$query-&gt;select(['cn', 'sn']);
+
+// Returns true:
+$query-&gt;hasSelects();
+</code></pre>
+
+<h4 id="in"><code>in</code></h4>
+
+<p>Sets the base Distinguished Name to perform a search upon.</p>
+
+<p>Alias for the <a href="#setDn">setDn</a> method.</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Get all entries below the 'Users' OU:
+$query-&gt;in('ou=Users,dc=local,dc=com')-&gt;get();
+</code></pre>
+
+<h4 id="insert"><code>insert</code></h4>
+
+<p>Insert a new entry in the directory:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$dn = 'cn=John Doe,dc=local,dc=com';
+
+$attributes = [
+    'cn' =&gt; 'John Doe',
+    'objectclass' =&gt; [
+       'top',
+        'person',
+        'organizationalperson',
+        'user',
+    ],
+];
+
+$query-&gt;insert($dn, $attributes);
+</code></pre>
+
+<h4 id="insertAttributes"><code>insertAttributes</code></h4>
+
+<p>Create attributes on an existing entry in the directory:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$dn = 'cn=John Doe,dc=local,dc=com';
+
+$attributes = [
+    'company' =&gt; 'Acme',
+];
+
+$query-&gt;insertAttributes($dn, $attributes);
+</code></pre>
+
+<h4 id="isNested"><code>isNested</code></h4>
+
+<p>Determine if a query builder is nested:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns false:
+$query-&gt;isNested();
+
+$query-&gt;andFilter(function ($q) {
+    // Returns true:
+    $q-&gt;isNested();
+});
+</code></pre>
+
+<h4 id="isPaginated"><code>isPaginated</code></h4>
+
+<p>Determine if a query builder has been paginated:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns false:
+$query-&gt;isPaginated();
+
+$results = $query-&gt;paginate();
+
+// Returns true:
+$query-&gt;isPaginated();
+</code></pre>
+
+<h4 id="limit"><code>limit</code></h4>
+
+<p>Set the maxmimum number of entries to be returned from the directory:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$results = $query-&gt;whereHas('cn')-&gt;limit(200)-&gt;get();
+</code></pre>
+
+<h4 id="listing"><code>listing</code></h4>
+
+<p>Perform an LDAP <code>listing</code> operation, requesting only immediate children / leaf nodes of the query base:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Only retrieve the immediate children / leaf nodes of the 'Groups' OU:
+$groups = $query-&gt;in('ou=Groups,dc=local,dc=com')-&gt;listing()-&gt;get();
+</code></pre>
+
+<h4 id="model"><code>model</code></h4>
+
+<p>Create a new query builder instance for the given model:</p>
+
+<pre><code class="language-php">use LdapRecord\Models\ActiveDirectory\User;
+
+$query = $connection-&gt;query();
+
+$modelQuery = $query-&gt;model(new User);
+</code></pre>
+
+<h4 id="nested"><code>nested</code></h4>
+
+<p>Whether to mark the current query as nested:</p>
+
+<blockquote>
+  <p><strong>Important</strong>: This affects how the query filter is generated.</p>
+</blockquote>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(cn=John)(sn=Doe)":
+$query-&gt;nested()
+    -&gt;where('cn', '=', 'John')
+    -&gt;where('sn', '=', 'Doe')
+    -&gt;getUnescapedQuery();
+
+// Returns "(&amp;(cn=John)(sn=Doe))"
+$query-&gt;nested(false)
+    -&gt;where('cn', '=', 'John')
+    -&gt;where('sn', '=', 'Doe')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="newInstance"><code>newInstance</code></h4>
+
+<p>Create a new query instance:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Create and inherit the base DN from the previous instance:
+$newQuery = $query-&gt;newInstace();
+
+// Use a new base DN:
+$newQuery = $query-&gt;newInstace('ou=Users,dc=local,dc=com');
+</code></pre>
+
+<h4 id="newNestedInstance"><code>newNestedInstance</code></h4>
+
+<p>Create a new nested query instance:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// New nested query builder:
+$nested = $query-&gt;newNestedInstance();
+
+// New nested query builder With a closure:
+$nested = $query-&gt;newNestedInstance(function (Builder $query) {
+    //
+});
+</code></pre>
+
+<h4 id="notFilter"><code>notFilter</code></h4>
+
+<p>Add a nested 'not' filter to the current query:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(!(cn=John Doe))":
+$query-&gt;notFilter(function ($query) {
+    $query-&gt;where('cn', '=', 'John Doe');
+})-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orFilter"><code>orFilter</code></h4>
+
+<p>Add a nested 'or' filter to the current query:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(|(cn=John Doe))":
+$query-&gt;orFilter(function ($query) {
+    $query-&gt;where('cn', '=', 'John Doe');
+})-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhere"><code>orWhere</code></h4>
+
+<p>Add an 'or where' clause to the query:</p>
+
+<blockquote>
+  <p><strong>Important</strong>: If only a single "or" is added to the query with no
+  other filters, it will be converted to a single filter instead.</p>
+</blockquote>
+
+<pre><code class="language-php">// Returns "(cn=John)":
+$connection-&gt;query()
+    -&gt;orWhere('cn', '=', 'John')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(cn=John)(sn=Doe))":
+$connection-&gt;query()
+    -&gt;where('cn', '=', 'John')
+    -&gt;orWhere('sn', '=', 'Doe')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhereApproximatelyEqual"><code>orWhereApproximatelyEquals</code></h4>
+
+<p>Add an 'or where approximately equals' clause to the query:</p>
+
+<pre><code class="language-php">// Returns "(cn~=John)"
+$connection-&gt;query()
+    -&gt;orWhereApproximatelyEquals('cn', 'John')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(cn~=Sue)(cn~=John))"
+$connection-&gt;query()
+    -&gt;whereApproximatelyEquals('cn', 'Sue')
+    -&gt;orWhereApproximatelyEquals('cn', 'John')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhereContains"><code>orWhereContains</code></h4>
+
+<p>Add an 'or where contains' clause to the query:</p>
+
+<pre><code class="language-php">// Returns "(cn=*John*)"
+$connection-&gt;query()
+    -&gt;orWhereContains('cn', 'John')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(cn=*Sue*)(cn=*John*))"
+$connection-&gt;query()
+    -&gt;whereContains('cn', 'Sue')
+    -&gt;orWhereContains('cn', 'John')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhereEndsWith"><code>orWhereEndsWith</code></h4>
+
+<p>Add an 'or where ends with' clause to the query:</p>
+
+<pre><code class="language-php">// Returns "(cn=*Doe)"
+$connection-&gt;query()
+    -&gt;orWhereEndsWith('cn', 'Doe')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(cn=*Betty)(cn=*Doe))"
+$connection-&gt;query()
+    -&gt;whereEndsWith('cn', 'Betty')
+    -&gt;orWhereEndsWith('cn', 'Doe')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhereEquals"><code>orWhereEquals</code></h4>
+
+<p>Add an 'or where equals' clause to the query:</p>
+
+<pre><code class="language-php">// Returns "(cn=John Doe)"
+$connection-&gt;query()
+    -&gt;orWhereEquals('cn', 'John Doe')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(cn=Suzy Doe)(cn=John Doe))"
+$connection-&gt;query()
+    -&gt;whereEquals('cn', 'Suzy Doe')
+    -&gt;orWhereEquals('cn', 'John Doe')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhereHas"><code>orWhereHas</code></h4>
+
+<p>Add an 'or where has' clause to the query:</p>
+
+<pre><code class="language-php">// Returns "(title=*)"
+$connection-&gt;query()
+    -&gt;orWhereHas('title')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(title=*)(department=*))"
+$connection-&gt;query()
+    -&gt;whereHas('title')
+    -&gt;orWhereHas('department')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhereNotContains"><code>orWhereNotContains</code></h4>
+
+<p>Add an 'or where not contains' clause to the query:</p>
+
+<pre><code class="language-php">// Returns "(!(title=*Accountant*))"
+$connection-&gt;query()
+    -&gt;orWhereNotContains('title', 'Accountant')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(!(title=*Accountant*))(!(department=*Accounting*)))"
+$connection-&gt;query()
+    -&gt;whereNotContains('title', 'Accountant')
+    -&gt;orWhereNotContains('department', 'Accounting')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhereNotEndsWith"><code>orWhereNotEndsWith</code></h4>
+
+<p>Add an 'or where not ends with' clause to the query:</p>
+
+<pre><code class="language-php">// Returns "(!(cn=*Doe))"
+$connection-&gt;query()
+    -&gt;orWhereNotEndsWith('cn', 'Doe')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(!(cn=*Betty))(!(cn=*Doe)))"
+$connection-&gt;query()
+    -&gt;whereNotEndsWith('cn', 'Betty')
+    -&gt;orWhereNotEndsWith('cn', 'Doe')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhereNotEquals"><code>orWhereNotEquals</code></h4>
+
+<p>Add an 'or where not equals' clause to the query:</p>
+
+<pre><code class="language-php">// Returns "(!(cn=John Doe))"
+$connection-&gt;query()
+    -&gt;orWhereNotEquals('cn', 'John Doe')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(!(cn=Suzy Betty))(!(cn=John Doe)))"
+$connection-&gt;query()
+    -&gt;whereNotEquals('cn', 'Suzy Betty')
+    -&gt;orWhereNotEquals('cn', 'John Doe')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhereNotHas"><code>orWhereNotHas</code></h4>
+
+<p>Add an 'or where not has' clause to the query:</p>
+
+<pre><code class="language-php">// Returns "(!(title=*))"
+$connection-&gt;query()
+    -&gt;orWhereNotHas('title')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(!(title=*))(!(department=*)))"
+$connection-&gt;query()
+    -&gt;whereNotHas('title')
+    -&gt;orWhereNotHas('department')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhereNotStartsWith"><code>orWhereNotStartsWith</code></h4>
+
+<p>Add an 'or where not starts with' clause to the query:</p>
+
+<pre><code class="language-php">// Returns "(!(cn=John*))"
+$connection-&gt;query()
+    -&gt;orWhereNotStartsWith('cn', 'John')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(!(cn=Suzy*))(!(cn=John*)))"
+$connection-&gt;query()
+    -&gt;whereNotStartsWith('cn', 'Suzy')
+    -&gt;orWhereNotStartsWith('cn', 'John')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhereRaw"><code>orWhereRaw</code></h4>
+
+<p>Add a "or where" clause to the query without escaping the value, useful
+when values can contain distinguished names or GUIDs:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query
+    -&gt;whereRaw('objectguid', '=', '270db4d0-249d-46a7-9cc5-eb695d9af9ac')
+    -&gt;orWhereRaw('objectguid', '=', '878ce8b7-2713-41a9-a765-5e3905ab5ef2');
+</code></pre>
+
+<p>Add an 'or where starts with' clause to the query:</p>
+
+<pre><code class="language-php">// Returns "(cn=John*)"
+$connection-&gt;query()
+    -&gt;orWhereStartsWith('cn', 'John')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(cn=Suzy*)(cn=John*))"
+$connection-&gt;query()
+    -&gt;whereStartsWith('cn', 'Suzy')
+    -&gt;orWhereStartsWith('cn', 'John')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="orWhereStartsWith"><code>orWhereStartsWith</code></h4>
+
+<p>Add an 'or where starts with' clause to the query:</p>
+
+<pre><code class="language-php">// Returns "(cn=John*)"
+$connection-&gt;query()
+    -&gt;orWhereStartsWith('cn', 'John')
+    -&gt;getUnescapedQuery();
+
+// Returns "(|(cn=Suzy*)(cn=John*))"
+$connection-&gt;query()
+    -&gt;whereStartsWith('cn', 'Suzy')
+    -&gt;orWhereStartsWith('cn', 'John')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="paginate"><code>paginate</code></h4>
+
+<p>Paginate the query by the given limit, returning all results from the LDAP directory:</p>
+
+<blockquote>
+  <p>This will allow you to exceed the LDAP max result limit of (usually) 1000.</p>
+</blockquote>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Paginate by default 1000:
+$results = $query-&gt;paginate();
+
+// Paginate by a specific amount:
+$results = $query-&gt;paginate(500);
+</code></pre>
+
+<h4 id="query"><code>query</code></h4>
+
+<p>Execute a raw filter query on the connection:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$results = $query-&gt;query('(cn=John Doe)');
+</code></pre>
+
+<h4 id="rawFilter"><code>rawFilter</code></h4>
+
+<p>Add a raw LDAP search filter to the query:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(&amp;(cn=Contoso)(sn=Doe*))"
+$query
+    -&gt;rawFilter('(company=Contoso)')
+    -&gt;rawFilter('(sn=Doe*)')
+    -&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="read"><code>read</code></h4>
+
+<p>Set the query to read a single search result using the query's base DN (using <code>ldap_read</code>):</p>
+
+<blockquote>
+  <p>Queries executed with <code>read()</code> will only return a maximum of <em>one</em> result.</p>
+</blockquote>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$entry = $query-&gt;setDn('cn=John Doe,dc=local,dc=com')-&gt;read()-&gt;first();
+</code></pre>
+
+<h4 id="recursive"><code>recursive</code></h4>
+
+<p>Set the query to include recursive search results (using <code>ldap_search</code>):</p>
+
+<blockquote>
+  <p>This is the default search query operation.</p>
+</blockquote>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$results = $query-&gt;recursive()-&gt;get();
+</code></pre>
+
+<h4 id="rename"><code>rename</code></h4>
+
+<p>Rename or move an object. Performs an <code>ldap_rename</code> under the hood:</p>
+
+<pre><code class="language-php">// Rename an object:
+$connection-&gt;query()-&gt;rename(
+    $dn = 'cn=John Doe,dc=local,dc=com',
+    $newRdn = 'cn=Johnathon Doe',
+    $newParentDn = 'dc=local,dc=com'
+);
+
+// Move an object:
+$connection-&gt;query()-&gt;rename(
+    $dn = 'cn=John Doe,dc=local,dc=com',
+    $newRdn = 'cn=John Doe',
+    $newParentDn = 'ou=Users,dc=local,dc=com'
+);
+</code></pre>
+
+<h4 id="select"><code>select</code></h4>
+
+<p>Set the attributes to return from the directory:</p>
+
+<blockquote>
+  <p>**Important*: By selecting only the attributes you need, you can
+  effectively reduce memory usage on large query result sets.</p>
+</blockquote>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Only return the 'cn' and 'sn' attributes in result
+$query-&gt;select(['cn', 'sn'])-&gt;get();
+</code></pre>
+
+<h4 id="setCache"><code>setCache</code></h4>
+
+<p>Set the cache instance to use for the query:</p>
+
+<blockquote>
+  <p>The cache instance must extend <code>LdapRecord\Query\Cache</code>.</p>
+</blockquote>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query-&gt;setCache($cache);
+</code></pre>
+
+<h4 id="setConnection"><code>setConnection</code></h4>
+
+<p>Set the connection instance to use for the query:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$newConnection = new Connection($config = ['...']);
+
+$query-&gt;setConnection($newConnection);
+</code></pre>
+
+<h4 id="setDn"><code>setDn</code></h4>
+
+<p>Sets the base Distinguished Name to perform a search upon.</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Get all entries below the 'Users' OU:
+$query-&gt;setDn('ou=Users,dc=local,dc=com')-&gt;get();
+</code></pre>
+
+<h4 id="setGrammar"><code>setGrammar</code></h4>
+
+<p>Set the underlying query <code>Grammar</code> instance:</p>
+
+<blockquote>
+  <p>The given instance must extend the built-in <code>LdapRecord\Query\Grammar</code>.</p>
+</blockquote>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$myGrammarInstance = new Grammar();
+
+$query-&gt;setGrammar($myGrammarInstance);
+</code></pre>
+
+<h4 id="update"><code>update</code></h4>
+
+<p>Update an entry with the given modifications. Performs an <code>ldap_modify_batch</code> under the hood:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$dn = 'cn=John Doe,dc=local,dc=com';
+
+$modifs = [
+    [
+        'attrib'  =&gt; 'telephoneNumber',
+        'modtype' =&gt; LDAP_MODIFY_BATCH_ADD,
+        'values'  =&gt; ['+1 555 555 1717'],
+    ],
+];
+
+$query-&gt;update($dn, $modifs);
+</code></pre>
+
+<h4 id="updateAttributes"><code>updateAttributes</code></h4>
+
+<p>Update / replace an entry's attribute with the given values. Performs an <code>ldap_mod_replace</code> under the hood:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$dn = 'cn=John Doe,dc=local,dc=com';
+
+// Remove the users telephone number:
+$query-&gt;updateAttributes($dn, ['telephoneNumber' =&gt; []]);
+
+// Update / replace the users telephone number:
+$query-&gt;updateAttributes($dn, ['telephoneNumber' =&gt; ['+1 555 555 1717']]);
+</code></pre>
+
+<h4 id="where"><code>where</code></h4>
+
+<p>Add a "where" clause to the query, searching for objects using the given attribute, operator, and value:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(cn=John Doe)"
+$query-&gt;where('cn', '=', 'John Doe')-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="whereApproximatelyEquals"><code>whereApproximatelyEquals</code></h4>
+
+<p>Add a "where approximately equals" clause to the query, searching for objects where the attribute is around the given value:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query-&gt;whereApproximatelyEquals('givenName', 'John');
+
+// Returns "(givenName~=John)"
+$query-&gt;getUnescapedQuery();
+</code></pre>
+
+<p>The approximately equals operator is great for performing "sounds like" search operations.</p>
+
+<p>For example, the above query would match entries with <code>givenName</code> values of either <code>John</code> or <code>Jon</code>.</p>
+
+<h4 id="whereBetween"><code>whereBetween</code></h4>
+
+<p>Add a "where between" clause to the query, searching for objects where the attribute is between the given values:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$from = (new DateTime('October 1st 2016'))-&gt;format('YmdHis.0\Z');
+$to = (new DateTime('January 1st 2017'))-&gt;format('YmdHis.0\Z');
+
+$query-&gt;whereBetween('whencreated', [$from, $to]);
+
+// Returns "(&amp;(whencreated&gt;=20161001000000.0Z)(whencreated&lt;=20170101000000.0Z))"
+$query-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="whereContains"><code>whereContains</code></h4>
+
+<p>Add a "where contains" clause to the query, searching for objects where the attribute contains the given value:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(title=*Accountant*)"
+$query-&gt;whereContains('title', 'Accountant')-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="whereDeleted"><code>whereDeleted</code></h4>
+
+<p>Set an OID server control that will be sent with the query to instruct the LDAP server
+to include deleted objects in the result set, and add a <code>(isDeleted=TRUE)</code> clause
+to the query, effectively returning <strong>only deleted</strong> objects.</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$onlyDeleted = $query-&gt;whereDeleted()-&gt;get();
+</code></pre>
+
+<h4 id="whereEndsWith"><code>whereEndsWith</code></h4>
+
+<p>Add a "where ends with" clause to the query, searching for objects where the attribute ends with the given value:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(title=*Accountant)"
+$query-&gt;whereEndsWith('title', 'Accountant')-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="whereEquals"><code>whereEquals</code></h4>
+
+<p>Add a "where equals" clause to the query, searching for objects where the attribute equals the given value:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(department=Accounting)"
+$query-&gt;whereEquals('department', 'Accounting')-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="whereHas"><code>whereHas</code></h4>
+
+<p>Add a "where has" clause to the query, searching for objects where the attribute exists, or is not empty:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(department=*)"
+$query-&gt;whereHas('department')-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="whereIn"><code>whereIn</code></h4>
+
+<p>Add a "where in" clause to the query, searching for objects where the attribute does not contain any of the one given values:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(|(name=john)(name=mary)(name=sue))"
+$query-&gt;whereIn('name', ['john', 'mary', 'sue'])-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="whereNotContains"><code>whereNotContains</code></h4>
+
+<p>Add a "where doesn't contain" clause to the query, searching for objects where the attribute does not contain the given value:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(!(telephoneNumber=*555*))"
+$query-&gt;whereNotContains('telephoneNumber', '555')-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="whereNotEndsWith"><code>whereNotEndsWith</code></h4>
+
+<p>Add a "where doesn't end with" clause to the query, searching for objects where the attribute does not end with the given value:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(!(mail=@local.com))"
+$query-&gt;whereNotEndsWith('mail', '@local.com')-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="whereNotEquals"><code>whereNotEquals</code></h4>
+
+<p>Add a "where doesn't equal" clause to the query, searching for objects where the attribute does not contain the given value:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(!(department=Accounting))"
+$query-&gt;whereNotEquals('department', 'Accounting')-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="whereNotHas"><code>whereNotHas</code></h4>
+
+<p>Add a "where doesn't have" clause to the query, searching for objects where the attribute does not exist, or is empty:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(!(mail=*))"
+$query-&gt;whereNotHas('mail')-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="whereNotStartsWith"><code>whereNotStartsWith</code></h4>
+
+<p>Add a "where doesn't start with" clause to the query, searching for objects where the attribute does not start with the given value:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(!(cn=John*))"
+$query-&gt;whereNotStartsWith('cn', 'John')-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="whereRaw"><code>whereRaw</code></h4>
+
+<p>Add a "where" clause to the query without escaping the value, useful
+when values can contain distinguished names or GUIDs:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$query-&gt;whereRaw('objectguid', '=', '270db4d0-249d-46a7-9cc5-eb695d9af9ac');
+</code></pre>
+
+<h4 id="whereStartsWith"><code>whereStartsWith</code></h4>
+
+<p>Add a "starts with" clause to the query, searching for objects where the attribute starts with the given value:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+// Returns "(cn=John*)"
+$query-&gt;whereStartsWith('cn', 'John')-&gt;getUnescapedQuery();
+</code></pre>
+
+<h4 id="withDeleted"><code>withDeleted</code></h4>
+
+<p>Set an OID server control that will be sent with the query to instruct
+the LDAP server to include deleted objects in the result set:</p>
+
+<pre><code class="language-php">$query = $connection-&gt;query();
+
+$resultsWithDeleted = $query-&gt;withDeleted()-&gt;get();
+</code></pre>
+
+                <div class="mt-12 pt-8 pb-6">
+                    
+                    <div class="flex flex-col-reverse md:flex-row justify-between items-center">
+                        <div class="flex flex-col items-center md:items-start">
+                                                    </div>
+                        
+                        <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
+                                                            <span class="font-bold text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
+
+                                <h4 class="font-bold underline m-0 text-blue-700">
+                                    <a href="/docs/core/v1">Overview</a>
+                                </h4>
+                                                    </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center hidden md:block">
+                    <a class="font-bold text-gray-500 text-sm tracking-wider uppercase" href="https://github.com/DirectoryTree/LdapRecord-Docs/blob/master/core/v2/searching-api.md" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6 inline-block fill-current mr-1">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                        </svg>
+
+                        Edit this Page
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+            <footer class="text-center text-sm pt-24 mt-auto" role="contentinfo">
+                <ul class="flex flex-col md:flex-row justify-center list-none text-gray-600">
+                    <li class="md:mr-2">
+                        &copy; <a href="https://github.com/DirectoryTree" title="DirectoryTree GitHub" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">DirectoryTree</a> 2020.
+                    </li>
+
+                    <li class="md:mr-2">
+                        Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Jigsaw</a>
+                        and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Tailwind CSS</a>.
+                    </li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

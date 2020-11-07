@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Managing users with LdapRecord.">
+
+        <meta property="og:site_name" content="LdapRecord"/>
+        <meta property="og:title" content="User Management (Active Directory) | LdapRecord"/>
+        <meta property="og:description" content="Managing users with LdapRecord."/>
+        <meta property="og:url" content="https://ldaprecord.com/docs/core/v2/active-directory/users"/>
+        <meta property="og:image" content="/assets/img/logo.png"/>
+        <meta property="og:type" content="website"/>
+
+        <!-- Twitter Meta -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/assets/img/logo.png">
+        <meta name="twitter:image:alt" content="LdapRecord">
+
+        <!-- Favicons -->
+        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#805ad5">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <meta name="msapplication-TileColor" content="#805ad5">
+
+        
+        <title>LdapRecord | User Management (Active Directory)</title>
+        <link rel="home" href="https://ldaprecord.com">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=d85691bef0abb251f279">
+
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+        
+        <script src="/assets/build/js/app.js?id=2849b7b33f0b070ee172" defer></script>
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </head>
+    <body class="font-sans bg-gradient-to-b from-gray-100 to-white">
+        <main id="app" role="main">
+            <nav class="flex items-center h-24 py-12 z-20 bg-white border-gradient-l-purple-light border-b-8" role="banner">
+    <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
+        <div class="flex items-center">
+            <a href="/" title="LdapRecord home" class="inline-flex items-center">
+                <img class="h-20 md:h-24 mr-3" src="/assets/img/logo.svg" alt="LdapRecord logo" />
+            </a>
+        </div>
+
+        <div class="flex flex-1 justify-end items-center text-right md:pl-10 text-gray-800">
+            <navigation api-key="bc526397341486f980ca0b7ee7a0fa61" index="ldaprecord">
+                                    
+                     <a class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" href="/docs/laravel/v1" title="LdapRecord-Laravel Documentation Link">
+    Laravel Docs
+</a> 
+
+                     <a href="https://github.com/DirectoryTree/LdapRecord" url="https://github.com/DirectoryTree/LdapRecord" class="hidden md:inline text-gray-800 hover:text-purple-700">
+    <svg class="fill-current w-8 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
+</a> 
+                            </navigation>
+        </div>
+    </div>
+
+        <button class="flex justify-center items-center bg-purple-500 shadow h-10 mr-4 px-5 rounded lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+</nav>
+                <section class="container relative max-w-8xl mx-auto p-0 md:px-6">
+        <div class="flex flex-col lg:flex-row justify-center mt-0 lg:mt-6">
+            <nav id="js-nav-menu" class="nav-menu relative hidden lg:block md:rounded-b">
+                     <div class="mt-0 mr-0 mb-4 lg:mt-8 lg:mr-4 lg:mb-0">
+    <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-0 lg:mt-6">Version</p>
+    
+    <version repository="LdapRecord"></version>
+</div> 
+
+    <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-0 lg:mt-6">Introduction</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/quickstart"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Quickstart
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Overview
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/installation"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Installation
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/configuration"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Configuration
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/connections"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Connections
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Searching</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/searching"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Query Builder
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/v1/searching-api"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            API (Available Methods)
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Models</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/models"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Getting Started
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/model-scopes"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Scopes
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/model-relationships"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Relationships
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/model-mutators"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Accessors &amp; Mutators
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/model-api"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            API (Available Methods)
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Active Directory</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/active-directory/users"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Users
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/active-directory/groups"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Groups
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Other Features</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/authentication"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Authentication
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/common-queries"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Common Queries
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/caching"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Caching
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/events"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Events
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/logging"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Logging
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/testing"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Testing
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Extra</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/core/v1/versioning"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Versioning
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/credits"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Credits
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/core/v1/license"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            License
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+    </ul>
+
+    <div class="block md:hidden">
+        <hr class="my-4"/>
+
+        <ul class="list-none m-0">
+            <li class="p-0">
+                <a href="/docs/laravel/v1/"
+                   class="nav-menu__item text-gray-600 my-2 last:mb-4 p-0 hover:text-purple-500"
+                >
+                    Laravel Documentation
+                </a>
+            </li>
+
+            <li class="p-0">
+                <a href="https://github.com/DirectoryTree/LdapRecord"
+                   class="nav-menu__item text-gray-600 my-2 last:mb-4 p-0 hover:text-purple-500"
+                >
+                    Source Code
+                </a>
+            </li>
+        </ul>
+    </div>
+            </nav>
+
+            <div class="DocSearch-content content w-full h-full lg:w-3/5 bg-white break-words rounded-none md:rounded-lg shadow-none md:shadow mt-0 md:mt-6 px-6 pt-6 md:pt-8 md:pb-16 md:px-10" v-pre>     
+                                
+                <h1>User Management (Active Directory)</h1>
+
+<ul>
+<li><a href="#creation">Creation</a></li>
+<li><a href="#password-management">Password Management</a>
+
+<ul>
+<li><a href="#setting-passwords">Setting Passwords</a></li>
+<li><a href="#changing-passwords">Changing Passwords</a></li>
+<li><a href="#resetting-passwords">Resetting Passwords</a></li>
+<li><a href="#password-policy-errors">Password Policy Errors</a></li>
+<li><a href="#unlock-user-account">Unlock Locked Out User Account</a></li>
+<li><a href="#password-extension">Extend User Password Expiration</a></li>
+<li><a href="#password-reset-on-next-login">User Must Change Password at Next Logon</a></li>
+</ul></li>
+<li><a href="#uac">User Account Control</a>
+
+<ul>
+<li><a href="#uac-usage">Usage</a></li>
+<li><a href="#uac-constants">Available Constants</a></li>
+<li><a href="#uac-methods">Available Methods</a></li>
+</ul></li>
+<li><a href="#group-management">Group Management</a>
+
+<ul>
+<li><a href="#getting-groups">Getting Groups</a></li>
+<li><a href="#filtering-groups">Filtering Groups</a></li>
+<li><a href="#checking-group-existence">Checking Existence</a></li>
+<li><a href="#adding-groups">Adding Groups</a></li>
+<li><a href="#removing-groups">Removing Groups</a></li>
+</ul></li>
+</ul>
+
+<h2 id="creation">Creation</h2>
+
+<p>Let's walk through the basics of user creation for Active Directory. There
+are some requirements you must know prior to creation:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>You must connect to your server via TLS or SSL if you set the the users password (<code>unicodepwd</code>) attribute</td>
+</tr>
+<tr>
+  <td>You must connect to your server with an account that has permission to create users</td>
+</tr>
+<tr>
+  <td>You must set a common name (<code>cn</code>) for the user</td>
+</tr>
+<tr>
+  <td>You must set the <code>unicodePwd</code> attribute as a non-encoded string (more on this below)</td>
+</tr>
+<tr>
+  <td>To set the users <code>userAccountControl</code>, it must be set <strong>after</strong> the user has been created</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+  <p>Attributes that are set below can be cased in <em>any</em> manor. They can be
+  <code>UPPERCASED</code>, <code>lowercased</code>, <code>camelCased</code>, etc. Use whichever casing
+  you prefer to be most readable in your application.</p>
+</blockquote>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+
+$user = (new User)-&gt;inside('ou=Users,dc=local,dc=com');
+
+$user-&gt;cn = 'John Doe';
+$user-&gt;unicodePwd = 'SecretPassword';
+$user-&gt;samaccountname = 'jdoe';
+$user-&gt;userPrincipalName = 'jdoe@acme.org';
+
+$user-&gt;save();
+
+// Enable the user.
+$user-&gt;userAccountControl = 512;
+
+try {
+    $user-&gt;save();
+} catch (\LdapRecord\LdapRecordException $e) {
+    // Failed saving user.
+}
+</code></pre>
+
+<blockquote>
+  <p>It is wise to encapsulate saving your user in a try / catch block, so if it 
+  fails you can determine if the cause of failure is due to your domains password policy.</p>
+</blockquote>
+
+<h2 id="password-management">Password Management</h2>
+
+<h3 id="setting-passwords">Setting Passwords</h3>
+
+<p>Using the included <code>LdapRecord\Models\ActiveDirectory\User</code> model, an attribute
+<a href="/docs/core/v2/model-mutators">mutator</a> has been added that assists in the setting
+and changing of passwords on user objects. Feel free to take a
+peek into the source code to see how it all works.</p>
+
+<p>The password string you set on the users <code>unicodePwd</code> attribute is automatically encoded.
+You do not need to encode it yourself. Doing so will cause an error or exception upon
+saving the user.</p>
+
+<p>Once you have set a password on a user object, this generates a modification
+on the user model equal to a <code>LDAP_MODIFY_BATCH_REPLACE</code>:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+
+$user = new User();
+
+$user-&gt;unicodepwd = 'secret';
+
+$modification = $user-&gt;getModifications()[0];
+
+var_dump($modification);
+
+// "attrib" =&gt; "unicodepwd"
+// "modtype" =&gt; 3
+// "values" =&gt; array:1 [
+//    0 =&gt; ""\x00s\x00e\x00c\x00r\x00e\x00t\x00"\x00"
+// ]
+</code></pre>
+
+<p>As you can see, a batch modification has been automatically generated for
+the user. Upon calling <code>save()</code>, it will be sent to your LDAP server.</p>
+
+<h3 id="changing-passwords">Changing Passwords</h3>
+
+<p>To change a user's password, you must either:</p>
+
+<ol>
+<li>Bind to your LDAP server with a user that has <strong>permissions to reset passwords</strong></li>
+<li>Or; <strong>bind as the user</strong> whose password you are trying to change.</li>
+</ol>
+
+<p>There are some prerequisites you must know for changing passwords:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Prerequisites</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>You must provide the <strong>correct user's old password</strong></td>
+</tr>
+<tr>
+  <td>You must provide a new password that abides by your <strong>password policy</strong>, such as <strong>history, complexity, and length</strong></td>
+</tr>
+<tr>
+  <td>You must set the <code>unicodepwd</code> attribute with an array containing <strong>two</strong> (2) values (old &amp; new password)</td>
+</tr>
+</tbody>
+</table>
+
+<p>Let's walk through an example:</p>
+
+<blockquote>
+  <p>You must use a try / catch block upon saving. An <code>LdapRecord\LdapRecordException</code>
+  will always be thrown when an incorrect old password has been given, or the new
+  password does not abide by your password policy.</p>
+</blockquote>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+$user-&gt;unicodepwd = ['old-password', 'new-password'];
+
+try {
+    $user-&gt;save();
+
+    // User password changed!
+} catch (\LdapRecord\Exceptions\InsufficientAccessException $ex) {
+    // The currently bound LDAP user does not
+    // have permission to change passwords.
+} catch (\LdapRecord\Exceptions\ConstraintException $ex) {
+    // The users new password does not abide
+    // by the domains password policy.
+} catch (\LdapRecord\LdapRecordException $ex) {
+    // Failed changing password. Get the last LDAP
+    // error to determine the cause of failure.
+    $error = $ex-&gt;getDetailedError();
+
+    echo $error-&gt;getErrorCode();
+    echo $error-&gt;getErrorMessage();
+    echo $error-&gt;getDiagnosticMessage();
+}
+</code></pre>
+
+<h3 id="resetting-passwords">Resetting Passwords</h3>
+
+<p>To reset a users password, you must be bound to your LDAP directory with a user whom has permission to do so on your directory.</p>
+
+<p>You can perform a password reset by simply setting the users <code>unicodepwd</code> attribute as a string,
+and then calling the <code>save()</code> method, similarly to how it is done during user creation:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+$user-&gt;unicodepwd = 'new-password';
+
+try {
+    $user-&gt;save();
+
+    // User password reset!
+} catch (\LdapRecord\Exceptions\InsufficientAccessException $ex) {
+    // The currently bound LDAP user does not
+    // have permission to reset passwords.
+} catch (\LdapRecord\Exceptions\ConstraintException $ex) {
+    // The users new password does not abide
+    // by the domains password policy.
+} catch (\LdapRecord\LdapRecordException $ex) {
+    // Failed resetting password. Get the last LDAP
+    // error to determine the cause of failure.
+    $error = $ex-&gt;getDetailedError();
+
+    echo $error-&gt;getErrorCode();
+    echo $error-&gt;getErrorMessage();
+    echo $error-&gt;getDiagnosticMessage();
+}
+</code></pre>
+
+<h3 id="password-policy-errors">Password Policy Errors</h3>
+
+<p>Active Directory will return diagnostic error codes when a password modification fails.</p>
+
+<p>To determine the cause, you can check this diagnostic message to see if it contains any of the following codes:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Code</th>
+  <th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>525</code></td>
+  <td>User not found</td>
+</tr>
+<tr>
+  <td><code>52e</code></td>
+  <td>Invalid credentials</td>
+</tr>
+<tr>
+  <td><code>530</code></td>
+  <td>Not permitted to logon at this time</td>
+</tr>
+<tr>
+  <td><code>531</code></td>
+  <td>Not permitted to logon at this workstation</td>
+</tr>
+<tr>
+  <td><code>532</code></td>
+  <td>Password expired</td>
+</tr>
+<tr>
+  <td><code>533</code></td>
+  <td>Account disabled</td>
+</tr>
+<tr>
+  <td><code>701</code></td>
+  <td>Account expired</td>
+</tr>
+<tr>
+  <td><code>773</code></td>
+  <td>User must reset password</td>
+</tr>
+<tr>
+  <td><code>775</code></td>
+  <td>User account locked</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+$user-&gt;unicodepwd = ['old-password', 'new-password'];
+
+try {
+    $user-&gt;save();
+
+    // User password changed!
+} catch (\LdapRecord\LdapRecordException $ex) {
+    // Failed changing password. Get the last LDAP
+    // error to determine the cause of failure.
+    $error = $ex-&gt;getDetailedError();
+
+    echo $error-&gt;getErrorCode(); // 49
+    echo $error-&gt;getErrorMessage(); // 'Invalid credentials'
+    echo $error-&gt;getDiagnosticMessage(); // '80090308: LdapErr: DSID-0C09042A, comment: AcceptSecurityContext error, data 52e, v3839'
+
+    if (strpos($error-&gt;getDiagnosticMessage(), '52e')) {
+        // This is an invalid credentials error.
+    }
+}
+</code></pre>
+
+<h3 id="unlock-user-account">Unlock Locked Out User Account</h3>
+
+<p>If a user has been locked out, set the <code>lockouttime</code> attribute to <code>0</code> (zero):</p>
+
+<pre><code class="language-php">$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+$user-&gt;update(['lockouttime' =&gt; 0]);
+</code></pre>
+
+<h3 id="password-extension">Extend User Password Expiration</h3>
+
+<p>Sometimes you may wish to extend a user's password expiration for the full duration of your domains password expiry time.</p>
+
+<p>To do this, you must update the user's <code>pwdLastSet</code> time to <code>0</code>, then to <code>-1</code>:</p>
+
+<pre><code class="language-php">$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+// Set password last set to 'Never':
+$user-&gt;update(['pwdlastset' =&gt; 0]);
+
+// Set password last set to the current date / time:
+$user-&gt;update(['pwdlastset' =&gt; -1]);
+
+// User password expiration successfully extended.
+</code></pre>
+
+<h3 id="password-reset-on-next-login">User Must Change Password at Next Logon</h3>
+
+<p>To toggle the "<em>User Must Change Password at Next Logon</em>" checkbox that is
+available in the Active Directory GUI - you must set the <code>pwdlastset</code>
+attribute to one of the below values:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Value</th>
+  <th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>0</code></td>
+  <td><strong>Toggled on</strong>. The user will be required to change their password.</td>
+</tr>
+<tr>
+  <td><code>-1</code></td>
+  <td><strong>Toggled off</strong>. The user will not be required to change their password.</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+  <p><strong>Important</strong>:</p>
+  
+  <ul>
+  <li>The <code>pwdlastset</code> attribute can only be modified by domain administrators</li>
+  <li>If toggled on, the Active Directory user <strong>will not</strong> pass LDAP authentication
+  until they visit a domain joined computer and update their password</li>
+  </ul>
+</blockquote>
+
+<pre><code class="language-php">$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+// The user must change their password on next login.
+$user-&gt;pwdlastset = 0;
+
+$user-&gt;save();
+</code></pre>
+
+<h2 id="uac">User Account Control</h2>
+
+<p>A users <code>userAccountControl</code> attribute stores an integer value.</p>
+
+<p>This integer value contains the sums of various integer flags. These flags control the
+accessibility and behaviour of an Active Directory user account, such as account
+disablement, password expiry, the ability to change passwords, and more.</p>
+
+<p>For example, setting a users <code>userAccountControl</code> to <code>512</code> would mean that
+the user account is a default account type that represents a typical user.
+Setting it to <code>2</code>, would mean the account has been disabled.</p>
+
+<p>Combining both to <code>514</code> (<code>512 + 2 = 514</code>) would mean the users
+account is a typical user account, that is also disabled.</p>
+
+<h3 id="uac-usage">Usage</h3>
+
+<p>You can manipulate a users <code>userAccountControl</code> manually by simply setting the 
+<code>userAccountControl</code> property on an existing user using the raw integer value,
+or you can use the account control builder <code>LdapRecord\Models\Attributes\AccountControl</code>:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+use LdapRecord\Models\Attributes\AccountControl;
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+// Setting the UAC value manually:
+$user-&gt;userAccountControl = 512; // Normal, enabled account.
+
+// Or, using the UAC builder:
+$user-&gt;userAccountControl = (new AccountControl)-&gt;accountIsNormal();
+
+$user-&gt;save();
+</code></pre>
+
+<p>Using the <code>AccountControl</code> builder, methods called will automatically sum the integer value.</p>
+
+<p>For example, let's set an account control for a user with the following controls:</p>
+
+<ul>
+<li>The user account is normal</li>
+<li>The user account password does not expire</li>
+<li>The user account password cannot be changed</li>
+</ul>
+
+<pre><code class="language-php">$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+$uac = new AccountControl();
+
+$uac-&gt;accountIsNormal();
+$uac-&gt;passwordDoesNotExpire();
+$uac-&gt;passwordCannotBeChanged();
+
+$user-&gt;userAccountControl = $uac;
+
+$user-&gt;save();
+</code></pre>
+
+<p>The <code>AccountControl</code> builder also allows you to determine which flags are set.</p>
+
+<p>This can be done with the <code>has</code> and <code>doesntHave</code> methods.</p>
+
+<p>Create an <code>AccountControl</code> with the users <code>userAccountControl</code> value in the constructor:</p>
+
+<pre><code class="language-php">$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+$uac = new AccountControl(
+    $user-&gt;getFirstAttribute('userAccountControl')
+);
+
+if ($uac-&gt;has(AccountControl::LOCKOUT)) {
+    // This account is locked out.
+}
+
+if ($uac-&gt;doesntHave(AccountControl::LOCKOUT)) {
+    // The account is not locked out.
+}
+</code></pre>
+
+<h3 id="uac-constants">Available Constants</h3>
+
+<p>The Account Control builder has constants for every possible value:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>AccountControl::SCRIPT</code></td>
+  <td><code>1</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::ACCOUNTDISABLE</code></td>
+  <td><code>2</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::HOMEDIR_REQUIRED</code></td>
+  <td><code>8</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::LOCKOUT</code></td>
+  <td><code>16</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::PASSWD_NOTREQD</code></td>
+  <td><code>32</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::PASSWD_CANT_CHANGE</code></td>
+  <td><code>64</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::ENCRYPTED_TEXT_PWD_ALLOWED</code></td>
+  <td><code>128</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::TEMP_DUPLICATE_ACCOUNT</code></td>
+  <td><code>256</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::NORMAL_ACCOUNT</code></td>
+  <td><code>512</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::INTERDOMAIN_TRUST_ACCOUNT</code></td>
+  <td><code>2048</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::WORKSTATION_TRUST_ACCOUNT</code></td>
+  <td><code>4096</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::SERVER_TRUST_ACCOUNT</code></td>
+  <td><code>8192</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::DONT_EXPIRE_PASSWORD</code></td>
+  <td><code>65536</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::MNS_LOGON_ACCOUNT</code></td>
+  <td><code>131072</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::SMARTCARD_REQUIRED</code></td>
+  <td><code>262144</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::TRUSTED_FOR_DELEGATION</code></td>
+  <td><code>524288</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::NOT_DELEGATED</code></td>
+  <td><code>1048576</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::USE_DES_KEY_ONLY</code></td>
+  <td><code>2097152</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::DONT_REQ_PREAUTH</code></td>
+  <td><code>4194304</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::PASSWORD_EXPIRED</code></td>
+  <td><code>8388608</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::TRUSTED_TO_AUTH_FOR_DELEGATION</code></td>
+  <td><code>16777216</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::PARTIAL_SECRETS_ACCOUNT</code></td>
+  <td><code>67108864</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="uac-methods">Available Methods</h3>
+
+<p>The Account Control builder has methods to apply every possible value:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Method</th>
+  <th>Constant Applied</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>AccountControl::runLoginScript()</code></td>
+  <td><code>AccountControl::SCRIPT</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::accountIsDisabled()</code></td>
+  <td><code>AccountControl::ACCOUNTDISABLE</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::homeFolderIsRequired()</code></td>
+  <td><code>AccountControl::HOMEDIR_REQUIRED</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::accountIsLocked()</code></td>
+  <td><code>AccountControl::LOCKOUT</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::passwordIsNotRequired()</code></td>
+  <td><code>AccountControl::PASSWD_NOTREQD</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::passwordCannotBeChanged()</code></td>
+  <td><code>AccountControl::PASSWD_CANT_CHANGE</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::allowEncryptedTextPassword()</code></td>
+  <td><code>AccountControl::ENCRYPTED_TEXT_PWD_ALLOWED</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::accountIsTemporary()</code></td>
+  <td><code>AccountControl::TEMP_DUPLICATE_ACCOUNT</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::accountIsNormal()</code></td>
+  <td><code>AccountControl::NORMAL_ACCOUNT</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::accountIsForInterdomain()</code></td>
+  <td><code>AccountControl::INTERDOMAIN_TRUST_ACCOUNT</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::accountIsForWorkstation()</code></td>
+  <td><code>AccountControl::WORKSTATION_TRUST_ACCOUNT</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::accountIsForServer()</code></td>
+  <td><code>AccountControl::SERVER_TRUST_ACCOUNT</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::passwordDoesNotExpire()</code></td>
+  <td><code>AccountControl::DONT_EXPIRE_PASSWORD</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::accountIsMnsLogon()</code></td>
+  <td><code>AccountControl::MNS_LOGON_ACCOUNT</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::accountRequiresSmartCard()</code></td>
+  <td><code>AccountControl::SMARTCARD_REQUIRED</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::trustForDelegation()</code></td>
+  <td><code>AccountControl::TRUSTED_FOR_DELEGATION</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::doNotTrustForDelegation()</code></td>
+  <td><code>AccountControl::NOT_DELEGATED</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::useDesKeyOnly()</code></td>
+  <td><code>AccountControl::USE_DES_KEY_ONLY</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::accountDoesNotRequirePreAuth()</code></td>
+  <td><code>AccountControl::DONT_REQ_PREAUTH</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::passwordIsExpired()</code></td>
+  <td><code>AccountControl::PASSWORD_EXPIRED</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::trustToAuthForDelegation()</code></td>
+  <td><code>AccountControl::TRUSTED_TO_AUTH_FOR_DELEGATION</code></td>
+</tr>
+<tr>
+  <td><code>AccountControl::accountIsReadOnly()</code></td>
+  <td><code>AccountControl::PARTIAL_SECRETS_ACCOUNT</code></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="group-management">Group Management</h2>
+
+<p>If you are utilizing the included <code>LdapRecord\Models\ActiveDirectory\User</code> model, the
+<code>groups()</code> relationship exists for easily removing / adding groups to users.</p>
+
+<h3 id="getting-groups">Getting Groups</h3>
+
+<p>To get the groups that a user is a member of, call the <code>groups()</code> relationship method.
+This will return the immediate groups that the user is a member of:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+// Get immediate groups the user is apart of:
+$groups = $user-&gt;groups()-&gt;get();
+
+foreach ($groups as $group) {
+    echo $group-&gt;getName();
+}
+</code></pre>
+
+<p>You may also want to retrieve groups that are <em>members</em> of groups that the user is apart of.
+This is called a <a href="/docs/core/v2/model-relationships/#recursive-queries">recursive relationship query</a>.</p>
+
+<p>To retrieve groups of groups, call the <code>recursive()</code> method following the <code>groups()</code> relation call:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+// Get nested groups the user is apart of:
+$groups = $user-&gt;groups()-&gt;recursive()-&gt;get();
+
+foreach ($groups as $group) {
+    echo $group-&gt;getName();
+}
+</code></pre>
+
+<h3 id="filtering-groups">Filtering Groups</h3>
+
+<p>Relations in LdapRecord act as query builders, so you can chain query methods on the <code>groups()</code> relation itself:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+// Get all groups the user is apart of that contain 'Accounting':
+$groups = $user-&gt;groups()-&gt;whereContains('cn', 'Accounting')-&gt;get();
+
+// Get all groups the user is apart of that are members of the 'Office' group:
+$groups = $user-&gt;groups()-&gt;whereMemberOf('cn=Office,ou=Groups,dc=local,dc=com')-&gt;get();
+</code></pre>
+
+<h3 id="checking-group-existence">Checking Existence</h3>
+
+<p>To check if a user is a member of <em>any</em> group, call the <code>exists()</code> method on the <code>groups()</code> relationship:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+if ($user-&gt;groups()-&gt;exists()) {
+    // The user is a member of at least one group.
+}
+</code></pre>
+
+<p>To check if a user is an immediate member of a specific group, pass a model into the <code>exists()</code> method:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+use LdapRecord\Models\ActiveDirectory\Group;
+
+$group = Group::find('cn=Accounting,dc=local,dc=com');
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+if ($user-&gt;groups()-&gt;exists($group)) {
+    // The user is an immediate member of the 'Accounting' group.
+}
+</code></pre>
+
+<p>To check if a user is a member of a group that could be nested in a sub-group, call
+the <code>recursive()</code> method before calling <code>exists()</code>:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+use LdapRecord\Models\ActiveDirectory\Group;
+
+$group = Group::find('cn=Accounting,dc=local,dc=com');
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+if ($user-&gt;groups()-&gt;recursive()-&gt;exists($group)) {
+    // The user is a member of the 'Accounting' group.
+}
+</code></pre>
+
+<h3 id="adding-groups">Adding Groups</h3>
+
+<p>To add groups to a user, call the <code>groups()</code> relationship method, then <code>attach()</code>:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+use LdapRecord\Models\ActiveDirectory\Group;
+
+$group = Group::findOrFail('cn=Accounting,ou=Groups,dc=local,dc=com');
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+if ($user-&gt;groups()-&gt;attach($group)) {
+    // Successfully added the group to the user.
+}
+</code></pre>
+
+<h3 id="removing-groups">Removing Groups</h3>
+
+<p>To remove groups on user, call the <code>groups()</code> relationship method, then <code>detach()</code>:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+use LdapRecord\Models\ActiveDirectory\Group;
+
+$group = Group::findOrFail('cn=Accounting,ou=Groups,dc=local,dc=com');
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+if ($user-&gt;groups()-&gt;detach($group)) {
+    // Successfully removed the group from the user.
+}
+</code></pre>
+
+<blockquote>
+  <p>The <code>detach()</code> method will return <code>true</code> if the user is already not apart
+  of the given group. This does not indicate that the user was previously a member.</p>
+</blockquote>
+
+<p>You may want to locate groups on the user prior removal to ensure they are a member:</p>
+
+<pre><code class="language-php">&lt;?php
+
+use LdapRecord\Models\ActiveDirectory\User;
+
+$user = User::find('cn=John Doe,ou=Users,dc=local,dc=com');
+
+$group = $user-&gt;groups()-&gt;first();
+
+if ($group &amp;&amp; $user-&gt;groups()-&gt;detach($group)) {
+    // Successfully removed the first group from the user.
+}
+</code></pre>
+
+                <div class="mt-12 pt-8 pb-6">
+                    
+                    <div class="flex flex-col-reverse md:flex-row justify-between items-center">
+                        <div class="flex flex-col items-center md:items-start">
+                                                    </div>
+                        
+                        <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
+                                                            <span class="font-bold text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
+
+                                <h4 class="font-bold underline m-0 text-blue-700">
+                                    <a href="/docs/core/v1">Overview</a>
+                                </h4>
+                                                    </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center hidden md:block">
+                    <a class="font-bold text-gray-500 text-sm tracking-wider uppercase" href="https://github.com/DirectoryTree/LdapRecord-Docs/blob/master/core/v2/active-directory/users.md" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6 inline-block fill-current mr-1">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                        </svg>
+
+                        Edit this Page
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+            <footer class="text-center text-sm pt-24 mt-auto" role="contentinfo">
+                <ul class="flex flex-col md:flex-row justify-center list-none text-gray-600">
+                    <li class="md:mr-2">
+                        &copy; <a href="https://github.com/DirectoryTree" title="DirectoryTree GitHub" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">DirectoryTree</a> 2020.
+                    </li>
+
+                    <li class="md:mr-2">
+                        Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Jigsaw</a>
+                        and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Tailwind CSS</a>.
+                    </li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

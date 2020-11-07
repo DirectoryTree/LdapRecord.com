@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Configuring the LDAP authentication provider">
+
+        <meta property="og:site_name" content="LdapRecord"/>
+        <meta property="og:title" content="Authentication Configuration | LdapRecord"/>
+        <meta property="og:description" content="Configuring the LDAP authentication provider"/>
+        <meta property="og:url" content="https://ldaprecord.com/docs/laravel/v2/auth/configuration"/>
+        <meta property="og:image" content="/assets/img/logo.png"/>
+        <meta property="og:type" content="website"/>
+
+        <!-- Twitter Meta -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/assets/img/logo.png">
+        <meta name="twitter:image:alt" content="LdapRecord">
+
+        <!-- Favicons -->
+        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#805ad5">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <meta name="msapplication-TileColor" content="#805ad5">
+
+        
+        <title>LdapRecord | Authentication Configuration</title>
+        <link rel="home" href="https://ldaprecord.com">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=d85691bef0abb251f279">
+
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+        
+        <script src="/assets/build/js/app.js?id=2849b7b33f0b070ee172" defer></script>
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </head>
+    <body class="font-sans bg-gradient-to-b from-gray-100 to-white">
+        <main id="app" role="main">
+            <nav class="flex items-center h-24 py-12 z-20 bg-white border-gradient-l-purple-light border-b-8" role="banner">
+    <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
+        <div class="flex items-center">
+            <a href="/" title="LdapRecord home" class="inline-flex items-center">
+                <img class="h-20 md:h-24 mr-3" src="/assets/img/logo.svg" alt="LdapRecord logo" />
+            </a>
+        </div>
+
+        <div class="flex flex-1 justify-end items-center text-right md:pl-10 text-gray-800">
+            <navigation api-key="bc526397341486f980ca0b7ee7a0fa61" index="ldaprecord">
+                                     <a class="ml-6 hidden md:inline whitespace-no-wrap text-gray-800 hover:text-purple-700" href="/docs/core/v1" title="LdapRecord Documentation Link">
+    Core Docs
+</a> 
+
+                    <a href="https://github.com/DirectoryTree/LdapRecord-Laravel" class="hidden text-gray-800 hover:text-purple-700 sm:inline">
+                        <svg class="fill-current w-8 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg>
+                    </a>
+                            </navigation>
+        </div>
+    </div>
+
+        <button class="flex justify-center items-center bg-purple-500 shadow h-10 mr-4 px-5 rounded lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+</nav>
+                <section class="container relative max-w-8xl mx-auto p-0 md:px-6">
+        <div class="flex flex-col lg:flex-row justify-center mt-0 lg:mt-6">
+            <nav id="js-nav-menu" class="nav-menu relative hidden lg:block md:rounded-b">
+                     <div class="mt-0 mr-0 mb-4 lg:mt-8 lg:mr-4 lg:mb-0">
+    <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-0 lg:mt-6">Version</p>
+    
+    <version repository="LdapRecord-Laravel"></version>
+</div> 
+
+    <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-0 lg:mt-6">Introduction</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/quickstart"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Quickstart
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Overview
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/installation"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Installation
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/usage"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Usage
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Authentication</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth/quickstart"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Quickstart
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Overview
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth/installation"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Installation
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth/configuration"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Configuration
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth/setup"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Setup
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth/laravel-jetstream"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Laravel Jetsream
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth/laravel-ui"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Laravel UI
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth/multi-domain"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Multi-Domain - Laravel UI
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth/importing"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Importing Users
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth/restricting-sign-in"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Restricting Sign In
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth/testing"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Testing
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">SSO Authentication</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth/sso"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Overview
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/auth/sso/setup"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Setup
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Other Features</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/lumen"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Lumen
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/events"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Events
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/testing"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Testing
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/debugging"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Debugging
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/importing"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Importing Objects
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li>
+            
+        <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-6">Extra</p>
+    
+            
+        <ul class="list-none md:sticky md:top-0 m-0 mr-0 lg:mr-1 ">
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/versioning"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            Versioning
+        </a>
+    
+    </li>
+            <li>
+            
+        <a 
+            href="/docs/laravel/v1/license"
+            class="text-gray-600 pl-2 -ml-2 nav-menu__item my-2 hover:text-purple-500"
+        >
+            License
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+    </ul>
+
+    <div class="block sm:hidden">
+        <hr class="my-4"/>
+
+        <ul class="list-none m-0">
+            <li class="p-0">
+                <a href="/docs/core/v1/"
+                   class="nav-menu__item text-gray-600 my-2 last:mb-4 p-0 hover:text-purple-500"
+                >
+                    Core Documentation
+                </a>
+            </li>
+
+            <li class="p-0">
+                <a href="https://github.com/DirectoryTree/LdapRecord-Laravel"
+                   class="nav-menu__item text-gray-600 my-2 last:mb-4 p-0 hover:text-purple-500"
+                >
+                    Source Code
+                </a>
+            </li>
+        </ul>
+    </div>
+            </nav>
+
+            <div class="DocSearch-content content w-full h-full lg:w-3/5 bg-white break-words rounded-none md:rounded-lg shadow-none md:shadow mt-0 md:mt-6 px-6 pt-6 md:pt-8 md:pb-16 md:px-10" v-pre>     
+                                
+                <h1>Authentication Configuration</h1>
+
+<ul>
+<li><a href="#plain">Plain Authentication</a>
+
+<ul>
+<li><a href="#plain-driver">Driver</a></li>
+<li><a href="#plain-model">Model</a></li>
+<li><a href="#plain-rules">Rules</a></li>
+</ul></li>
+<li><a href="#database">Synchronized Database Authentication</a>
+
+<ul>
+<li><a href="#database-model">Database Model</a></li>
+<li><a href="#database-password-column">Password Column</a></li>
+<li><a href="#database-password-sync">Password Sync</a></li>
+<li><a href="#database-sync-attributes">Sync Attributes</a></li>
+<li><a href="#database-sync-existing">Sync Existing Records</a></li>
+<li><a href="#database-options">All Available Options Example</a></li>
+</ul></li>
+<li><a href="#attribute-handlers">Attribute Handlers</a></li>
+<li><a href="#rules">Authentication Rules</a></li>
+</ul>
+
+<h2>Introduction</h2>
+
+<p>To configure LDAP authentication, you must define or update a <code>provider</code> inside of your <code>config/auth.php</code> file.</p>
+
+<p>Let's walk through configuring both LDAP authentication mechanisms.</p>
+
+<h2 id="plain">Plain Authentication</h2>
+
+<p>To create a plain LDAP authentication provider, navigate to the <code>providers</code>
+array, and paste the following <code>ldap</code> provider:</p>
+
+<pre><code class="language-php">// config/auth.php
+
+'providers' =&gt; [
+    // ...
+
+    'ldap' =&gt; [
+        'driver' =&gt; 'ldap',
+        'model' =&gt; LdapRecord\Models\ActiveDirectory\User::class,
+        'rules' =&gt; [],
+    ],
+],
+</code></pre>
+
+<p>If your application requires more than one LDAP connection, you must create a new provider for each connection.</p>
+
+<p>This new provider must have its own unique <code>model</code> class set which must use your <a href="/docs/laravel/v2/models#connections">alternate configured connection</a>
+using the <code>$connection</code> property.</p>
+
+<p>In the scenario of having multiple LDAP connections, it may be helpful to namespace the LDAP models
+you create with the desired connection. For example:</p>
+
+<pre><code class="language-text">App\Ldap\DomainAlpha\User
+</code></pre>
+
+<p>This will allow you to segregate scopes, rules and other classes to their relating connection.</p>
+
+<h3 id="plain-driver">Driver</h3>
+
+<p>The <code>driver</code> option must be <code>ldap</code> as this is what indicates to Laravel the proper authentication driver to use.</p>
+
+<h3 id="plain-model">Model</h3>
+
+<p>The <code>model</code> option must be the class name of your <a href="/docs/laravel/v2/models">LdapRecord model</a>. This model will be used
+for fetching users from your directory.</p>
+
+<h3 id="plain-rules">Rules</h3>
+
+<p>The <code>rules</code> option must be an array of class names of <a href="#rules">authentication rules</a>.</p>
+
+<h2 id="database">Synchronized Database Authentication</h2>
+
+<p>To create a synchronized database LDAP authentication provider, navigate to the <code>providers</code> array,
+and paste the following <code>ldap</code> provider:</p>
+
+<blockquote>
+  <p>If your application requires two or more LDAP connections, you must create a new provider for each connection.</p>
+</blockquote>
+
+<pre><code class="language-php">// config/auth.php
+
+'providers' =&gt; [
+    // ...
+
+    'ldap' =&gt; [
+        'driver' =&gt; 'ldap',
+        'model' =&gt; LdapRecord\Models\ActiveDirectory\User::class,
+        'rules' =&gt; [],
+        'database' =&gt; [
+            'model' =&gt; App\User::class,
+            'sync_passwords' =&gt; false,
+            'sync_attributes' =&gt; [
+                'name' =&gt; 'cn',
+                'email' =&gt; 'mail',
+            ],
+        ],
+    ],
+],
+</code></pre>
+
+<p>As you can see above, a <code>database</code> array is used to configure the association between your LDAP user and your Eloquent user.</p>
+
+<h3 id="database-model">Database Model</h3>
+
+<p>The <code>database =&gt; model</code> key is the class name of the <a href="https://laravel.com/docs/laravel/v2/eloquent">Eloquent model</a> that will be
+used for creating and retrieving LDAP users from your applications database.</p>
+
+<blockquote>
+  <p>Be sure to add the required <a href="/docs/laravel/v2/laravel/auth/installation">trait and interface</a> to this model as shown in the installation guide.</p>
+</blockquote>
+
+<h3 id="database-password-column">Sync Password Column</h3>
+
+<p>If your application uses a different password column than <code>password</code>, then you can configure
+it using the <code>password_column</code> key inside of your providers configuration:</p>
+
+<pre><code class="language-php">'providers' =&gt; [
+    // ...
+
+    'ldap' =&gt; [
+        // ...
+        'database' =&gt; [
+            // ...
+            'password_column' =&gt; 'my_password_column',
+        ],
+    ],
+],
+</code></pre>
+
+<p>You can also set the value to <code>false</code> if your database table does not have any password column at all:</p>
+
+<pre><code class="language-php">'providers' =&gt; [
+    // ...
+
+    'ldap' =&gt; [
+        // ...
+        'database' =&gt; [
+            // ...
+            'password_column' =&gt; false,
+        ],
+    ],
+],
+</code></pre>
+
+<h3 id="database-password-sync">Sync Passwords</h3>
+
+<p>The <code>database =&gt; sync_passwords</code> option enables password synchronization. Password synchronization captures and hashes
+the users password <strong>upon login</strong> if they pass LDAP authentication. This helps in situations where you may want to
+provide a "back up" option in case your LDAP server is unreachable, as well as a way of determining if a
+users password is valid without having to call to your LDAP server and validate it for you.</p>
+
+<blockquote>
+  <p>If you do not define the <code>sync_passwords</code> key or have it set <code>false</code>, a user is always applied a
+  random 16 character hashed password. This hashed password is only set once upon initial
+  import or login so no needless updates are performed on user records.</p>
+</blockquote>
+
+<h3 id="database-sync-attributes">Sync Attributes</h3>
+
+<p>The <code>database =&gt; sync_attributes</code> array defines a set of key-value pairs:</p>
+
+<ul>
+<li>The <strong>key</strong> of each array item is the column of your <code>users</code> database table</li>
+<li>The <strong>value</strong> is the <em>name</em> of the users LDAP attribute to set the database value to</li>
+</ul>
+
+<blockquote>
+  <p>You do not need to add your users <code>guid</code> or <code>domain</code> database columns. These are done automatically for you.</p>
+</blockquote>
+
+<p>For further control on sync attributes, see the below <a href="#attribute-handlers">attribute handler</a> feature.</p>
+
+<h3 id="database-sync-existing">Sync Existing Records</h3>
+
+<p>The <code>database =&gt; sync_existing</code> array defines a set of key-value pairs:</p>
+
+<ul>
+<li>The <strong>key</strong> of each array item is the column of your <code>users</code> database table to query</li>
+<li>The <strong>value</strong> is the <em>name</em> of the users LDAP attribute to query inside of your database for</li>
+</ul>
+
+<blockquote>
+  <p>If the LDAP attribute returns <code>null</code> for the given <strong>value</strong>, the value string will be used
+  in the query instead. This is helpful to be able to use raw strings to scope your query by.</p>
+</blockquote>
+
+<p>Let's walk through an example.</p>
+
+<p>In our application, we have existing users inside of our Laravel applications database:</p>
+
+<table>
+<thead>
+<tr>
+  <th>id</th>
+  <th>name</th>
+  <th>email</th>
+  <th>password</th>
+  <th>guid</th>
+  <th>domain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>Steve Bauman</td>
+  <td>sbauman@local.com</td>
+  <td>...</td>
+  <td><code>null</code></td>
+  <td><code>null</code></td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>John Doe</td>
+  <td>jdoe@local.com</td>
+  <td>...</td>
+  <td><code>null</code></td>
+  <td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>As you can see above, these users have <code>null</code> values for their <code>guid</code> and <code>domain</code> columns.</p>
+
+<p>If you do not define a <code>sync_existing</code> array, and a user logs in with <code>sbauman@local.com</code>,
+you will receive a SQL exception. This is because LdapRecord was unable to locate a local
+database user using the users GUID. If this occurs, LdapRecord attempts to insert a new
+user with the same email address.</p>
+
+<p>To solve this issue, we will insert the following <code>sync_existing</code> array:</p>
+
+<pre><code class="language-php">'providers' =&gt; [
+    // ...
+
+    'ldap' =&gt; [
+        // ...
+        'database' =&gt; [
+            // ...
+            'sync_existing' =&gt; [
+                'email' =&gt; 'mail',
+            ],
+        ],
+    ],
+],
+</code></pre>
+
+<p>Now when <code>sbauman@local.com</code> attempts to log in, if the user cannot be located
+by their GUID, they will instead be located by their email address. Their
+GUID, domain, and sync attributes you define will then synchronize.</p>
+
+<h3 id="database-options">All Available Options Example</h3>
+
+<p>Here is a synchronized database provider fully configured with all available options set:</p>
+
+<pre><code class="language-php">// config/auth.php
+
+'providers' =&gt; [
+    // ...
+
+    'ldap' =&gt; [
+        'driver' =&gt; 'ldap',
+        'model' =&gt; LdapRecord\Models\ActiveDirectory\User::class,
+        'rules' =&gt; [],
+        'database' =&gt; [
+            'model' =&gt; App\User::class,
+            'sync_passwords' =&gt; true,
+            'sync_attributes' =&gt; [
+                'name' =&gt; 'cn',
+                'email' =&gt; 'mail',
+            ],
+            'sync_existing' =&gt; [
+                'email' =&gt; 'mail',
+            ],
+            'password_column' =&gt; 'password',
+        ],
+    ],
+],
+</code></pre>
+
+<h2 id="attribute-handlers">Attribute Handlers</h2>
+
+<p>If you require logic for synchronizing attributes when users sign into your application or are
+being <a href="/docs/laravel/v2/laravel/auth/importing">imported</a>, you can create an attribute handler class
+responsible for setting / synchronizing your database models attributes from their
+LDAP model.</p>
+
+<p>This class you define must have a <code>handle</code> method. This method must accept the LDAP model you
+have configured as the first parameter and your Eloquent database model as the second.</p>
+
+<p>For the example below, we will create a handler named <code>AttributeHandler.php</code> inside of your <code>app/Ldap</code> folder:</p>
+
+<blockquote>
+  <p>You do not need to call <code>save()</code> on your Eloquent database model.
+  This is called for you after attribute synchronization.</p>
+</blockquote>
+
+<pre><code class="language-php">&lt;?php
+
+namespace App\Ldap;
+
+use App\User as DatabaseUser;
+use App\Ldap\User as LdapUser;
+
+class AttributeHandler
+{
+    public function handle(LdapUser $ldap, DatabaseUser $database)
+    {
+        $database-&gt;name = $ldap-&gt;getFirstAttribute('cn');
+        $database-&gt;email = $ldap-&gt;getFirstAttribute('mail');
+    }
+}
+</code></pre>
+
+<blockquote>
+  <p>Attribute handlers are created using Laravel's <code>app()</code> helper, so you may type-hint
+  any dependencies you require in your handlers constructor to be made available
+  during synchronization.</p>
+</blockquote>
+
+<p>Then inside of your <code>config/auth.php</code> file for your provider, set the attribute handler class as the <code>sync_attributes</code> value:</p>
+
+<pre><code class="language-php">'providers' =&gt; [
+    // ...
+
+    'ldap' =&gt; [
+        // ...
+        'database' =&gt; [
+            // ...
+            'sync_attributes' =&gt; \App\Ldap\LdapAttributeHandler::class,
+        ],
+    ],
+],
+</code></pre>
+
+<p>You may also add multiple if you'd prefer, or combine them with <code>key =&gt; value</code> pairs:</p>
+
+<pre><code class="language-php">// ...
+'database' =&gt; [
+    // ...
+    'sync_attributes' =&gt; [
+        'name' =&gt; 'cn',
+        'email' =&gt; 'mail',
+        \App\Ldap\MyFirstAttributeHandler::class,
+        \App\Ldap\MySecondAttributeHandler::class,
+    ],
+],
+</code></pre>
+
+<h2 id="rules">Authentication Rules</h2>
+
+<p>LDAP authentication rules give you the ability to allow or deny users from signing into your
+application using a condition you would like to apply. These rules are executed <strong>after</strong>
+a user successfully passes LDAP authentication against your configured server.</p>
+
+<p>Think of them as a final authorization gate before they are allowed in.</p>
+
+<blockquote>
+  <p>Authentication rules are never executed if a user fails LDAP authentication.</p>
+</blockquote>
+
+<p>Let's create an LDAP rule that only allows members of our domain <code>Administrators</code> group.</p>
+
+<p>To create an authentication rule, call the <code>make:ldap-rule</code> command:</p>
+
+<pre><code class="language-bash">php artisan make:ldap-rule OnlyAdministrators
+</code></pre>
+
+<p>A rule will then be created in your applications <code>app/Ldap/Rules</code> directory:</p>
+
+<pre><code class="language-php">&lt;?php
+
+namespace App\Ldap\Rules;
+
+use LdapRecord\Laravel\Auth\Rule;
+
+class OnlyAdministrators extends Rule
+{
+    /**
+     * Check if the rule passes validation.
+     *
+     * @return bool
+     */
+    public function isValid()
+    {
+        //
+    }
+}
+</code></pre>
+
+<p>In the authentication rule, there are two properties made available to us.</p>
+
+<ul>
+<li>A <code>user</code> property that is the <strong>LdapRecord</strong> model of the authenticating user</li>
+<li>A <code>model</code> property that is the <strong>Eloquent</strong> model of the authenticating user</li>
+</ul>
+
+<blockquote>
+  <p>The <code>model</code> property will be <code>null</code> if you are not using database synchronization.</p>
+</blockquote>
+
+<p>Now, we will update the <code>isValid</code> method to check the LDAP users <code>groups</code> relationship to see if they are a member:</p>
+
+<pre><code class="language-php">&lt;?php
+
+namespace App\Ldap\Rules;
+
+use LdapRecord\Laravel\Auth\Rule;
+use LdapRecord\Models\ActiveDirectory\Group;
+
+class OnlyAdministrators extends Rule
+{
+    public function isValid()
+    {
+        $administrators = Group::find('cn=Administrators,dc=local,dc=com');
+
+        return $this-&gt;user-&gt;groups()-&gt;recursive()-&gt;exists($administrators);
+    }
+}
+</code></pre>
+
+<blockquote>
+  <p>We call the <code>recursive</code> method on the relationship to make sure that we load groups of
+  groups in case the user is not an immediate member of the <code>Administrators</code> group.</p>
+</blockquote>
+
+<p>Once we have our rule defined, we will add it into our authentication provider in the <code>config/auth.php</code> file:</p>
+
+<pre><code class="language-php">'providers' =&gt; [
+    // ...
+
+    'ldap' =&gt; [
+        'driver' =&gt; 'ldap',
+        'model' =&gt; LdapRecord\Models\ActiveDirectory\User::class,
+        'rules' =&gt; [
+            App\Ldap\Rules\OnlyAdministrators::class,
+        ],
+    ],
+],
+</code></pre>
+
+<p>Now when you attempt to login to your application with a LDAP user that successfully passes
+LDAP authentication, they will need to be a member of the <code>Administrators</code> group.</p>
+
+<p>If you are caching your configuration, make sure you re-run <code>config:cache</code> to re-cache your modifications.</p>
+
+                <div class="mt-12 pt-8 pb-6">
+                    
+                    <div class="flex flex-col-reverse md:flex-row justify-between items-center">
+                        <div class="flex flex-col items-center md:items-start">
+                                                    </div>
+                        
+                        <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
+                                                            <span class="font-bold text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
+
+                                <h4 class="font-bold underline m-0 text-blue-700">
+                                    <a href="/docs/laravel/v1">Overview</a>
+                                </h4>
+                                                    </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center hidden md:block">
+                    <a class="font-bold text-gray-500 text-sm tracking-wider uppercase" href="https://github.com/DirectoryTree/LdapRecord-Docs/blob/master/laravel/v2/auth/configuration.md" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6 inline-block fill-current mr-1">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                        </svg>
+
+                        Edit this Page
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+            <footer class="text-center text-sm pt-24 mt-auto" role="contentinfo">
+                <ul class="flex flex-col md:flex-row justify-center list-none text-gray-600">
+                    <li class="md:mr-2">
+                        &copy; <a href="https://github.com/DirectoryTree" title="DirectoryTree GitHub" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">DirectoryTree</a> 2020.
+                    </li>
+
+                    <li class="md:mr-2">
+                        Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Jigsaw</a>
+                        and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework" class="whitespace-no-wrap text-gray-800 hover:text-purple-700">Tailwind CSS</a>.
+                    </li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>
