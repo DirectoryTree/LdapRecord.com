@@ -1,7 +1,6 @@
 <?php
 
 use App\Listeners\BuildSiteMap;
-use App\Listeners\GetLatestVersions;
 
 /** @var $container \Illuminate\Container\Container */
 /** @var $events \TightenCo\Jigsaw\Events\EventBus */
@@ -18,4 +17,3 @@ use App\Listeners\GetLatestVersions;
  */
 
 $events->afterBuild(BuildSiteMap::class);
-$events->afterBuild(GetLatestVersions::class);

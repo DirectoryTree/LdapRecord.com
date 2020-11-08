@@ -13,7 +13,6 @@ Prism.highlightAll();
 window.$ = window.jQuery = require('jquery');
 window.axios = require('axios');
 
-Vue.component('version', require('./components/Version').default);
 Vue.component('navigation', require('./components/Navigation').default);
 Vue.component('feature', require('./components/Feature').default);
 Vue.component('feature-tab', require('./components/FeatureTab.vue').default);

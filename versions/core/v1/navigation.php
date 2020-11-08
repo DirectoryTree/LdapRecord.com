@@ -13,7 +13,7 @@ return [
     'Searching' => [
         'children' => [
             'Query Builder'=> 'docs/core/v1/searching',
-            'API (Available Methods)' => 'docs/v1/searching-api',
+            'API (Available Methods)' => 'docs/core/v1/searching-api',
         ],
     ],
     'Models' => [

@@ -1,5 +1,6 @@
 <?php
 
+use App\Versions;
 use App\DocumentPaginator;
 use Illuminate\Support\Str;
 
@@ -35,6 +36,10 @@ return [
         }
 
         return $page->getLatestVersion($repository);
+    },
+
+    'getVersions' => function ($page) {
+        return (new Versions($page))->get();
     },
 
     'getLatestVersion' => function ($page, $repository = null) {
