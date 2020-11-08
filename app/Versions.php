@@ -16,7 +16,7 @@ class Versions
      * @var array
      */
     protected $repositories = [
-        'LdapRecord' => '/docs/v%s',
+        'LdapRecord' => '/docs/v%s/core',
         'LdapRecord-Laravel' => '/docs/v%s/laravel',
     ];
 

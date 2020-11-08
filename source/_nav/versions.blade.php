@@ -2,9 +2,17 @@
     <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-0 lg:mt-6">Version</p>
     
     <div class="inline-block relative w-full">
-        <select class="block appearance-none w-full bg-white px-4 h-10 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+        <select
+            class="block appearance-none w-full bg-white px-4 h-10 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+            onchange="(function(e){ window.location = e.target.value }(event))"
+        >
             @foreach($versions as $version)
-                <option value="{{ $version['url'] }}">{{ $version['name'] }}</option>
+                <option
+                    value="{{ $version['url'] }}"
+                    {{ \Illuminate\Support\Str::contains($page->getRelativePath(), $version['url']) ? 'selected' : '' }}
+                >
+                    {{ $version['name'] }}
+                </option>
             @endforeach
         </select>
         
