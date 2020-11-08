@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: {
     content: [
@@ -19,10 +21,12 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
-          'Inter'
+          'Inter',
+          ...defaultTheme.fontFamily.sans
         ],
         mono: [
-          'monospace',
+          'Roboto',
+          ...defaultTheme.fontFamily.mono,
         ],
       },
       lineHeight: {
