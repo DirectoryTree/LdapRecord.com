@@ -6,8 +6,18 @@ use Github\Client;
 
 class Versions
 {
+    /**
+     * The current page
+     * 
+     * @var object $page
+     */
     protected $page;
 
+    /**
+     * The GitHub client.
+     * 
+     * @var Client
+     */
     protected $client;
 
     /**
@@ -16,10 +26,15 @@ class Versions
      * @var array
      */
     protected $repositories = [
-        'LdapRecord' => '/docs/v%s/core',
-        'LdapRecord-Laravel' => '/docs/v%s/laravel',
+        'LdapRecord' => '/docs/core/v%s',
+        'LdapRecord-Laravel' => '/docs/laravel/v%s',
     ];
 
+    /**
+     * Constructor.
+     * 
+     * @param object $page
+     */
     public function __construct($page)
     {
         $this->page = $page;
