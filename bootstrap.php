@@ -1,5 +1,7 @@
 <?php
 
+use App\VersionsCache;
+use TightenCo\Jigsaw\Jigsaw;
 use App\Listeners\BuildSiteMap;
 
 /** @var $container \Illuminate\Container\Container */
@@ -15,5 +17,11 @@ use App\Listeners\BuildSiteMap;
  *     // Your code here
  * });
  */
+
+$events->beforeBuild(function (Jigsaw $jigsaw) {
+    foreach (['core', 'laravel'] as $repo) {
+        (new VersionsCache($jigsaw))->store($repo);
+    }
+});
 
 $events->afterBuild(BuildSiteMap::class);

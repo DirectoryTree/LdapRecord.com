@@ -11,8 +11,8 @@ class Versions
      * 
      * @var object $page
      */
-    protected $page;
-
+    protected $apiToken;
+    
     /**
      * The GitHub client.
      * 
@@ -33,11 +33,13 @@ class Versions
     /**
      * Constructor.
      * 
-     * @param object $page
+     * @param string $apiToken
+     * 
+     * @return void
      */
-    public function __construct($page)
+    public function __construct($apiToken)
     {
-        $this->page = $page;
+        $this->apiToken = $apiToken;
         $this->client = new Client();
     }
 
@@ -46,13 +48,13 @@ class Versions
      * 
      * @return array
      */
-    public function get()
+    public function get($repository)
     {
         $this->client->authenticate(
-            $this->page->githubApiToken, null, Client::AUTH_HTTP_TOKEN
+            $this->apiToken, null, Client::AUTH_HTTP_TOKEN
         );
 
-        return $this->getLatestRelease();
+        return $this->getLatestRelease($repository);
     }
 
     /**
@@ -60,14 +62,14 @@ class Versions
      *
      * @return array
      */
-    protected function getLatestRelease()
+    protected function getLatestRelease($repository)
     {
         $map = [
             'core' => 'LdapRecord',
             'laravel' => 'LdapRecord-Laravel',
         ];
 
-        $repository = $map[$this->page->getCurrentRepository()];
+        $repository = $map[$repository];
 
         $releases = $this->client
             ->api('repo')

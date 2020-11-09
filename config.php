@@ -1,6 +1,6 @@
 <?php
 
-use App\Versions;
+use App\VersionsCache;
 use App\DocumentPaginator;
 use Illuminate\Support\Str;
 
@@ -20,11 +20,9 @@ return [
     'navigation' => [
         'core' => [
             'v1' => require_once('versions/core/v1/navigation.php'),
-            // 'v2' => require_once('versions/core/v2/navigation.php'),
         ],
         'laravel' => [
             'v1' => require_once('versions/laravel/v1/navigation.php'),
-            // 'v2' => require_once('versions/laravel/v2/navigation.php'),
         ],
     ],
 
@@ -39,7 +37,7 @@ return [
     },
 
     'getVersions' => function ($page) {
-        return (new Versions($page))->get();
+        return VersionsCache::get($page->getCurrentRepository());
     },
 
     'getLatestVersion' => function ($page, $repository = null) {
