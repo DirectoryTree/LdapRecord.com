@@ -3,7 +3,7 @@
     
     <div class="inline-block relative w-full">
         <select
-            class="block appearance-none w-full bg-white px-4 h-10 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+            class="block appearance-none w-full border bg-white px-4 h-10 rounded-lg leading-tight focus:outline-none"
             onchange="(function(e){ window.location = e.target.value }(event))"
         >
             @foreach($versions as $version)
