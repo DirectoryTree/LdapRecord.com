@@ -40,7 +40,7 @@
         <script src="{{ mix('js/main.js', 'assets/build') }}" defer></script>
         @stack('scripts')
     </head>
-    <body class="font-sans bg-gradient-to-b from-gray-100 to-white">
+    <body class="antialiased font-sans bg-gradient-to-b from-gray-100 to-white">
         <main id="app" role="main">
             @include('_layouts.navigation')
 

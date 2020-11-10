@@ -2,7 +2,7 @@
     $url = is_string($item) ? $item : $item->url;
 
     $navClasses = $page->isActive($url)
-        ? 'font-semibold text-purple-600 p-2 border-l-4 border-purple-500 bg-gradient-to-r from-purple-100 to-transparent'
+        ? 'font-semibold text-purple-600 p-2 rounded-lg bg-purple-100'
         : 'text-gray-600 pl-2';
 @endphp
 
