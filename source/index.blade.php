@@ -113,11 +113,11 @@
 
         <feature class="shadow rounded-md flex-grow md:w-4/6">
             <feature-tab name="Model.php">
-                @include('docs.examples.model')
+                @include('docs._examples.model')
             </feature-tab>
 
             <feature-tab name="Usage.php">
-                @include('docs.examples.active-record')
+                @include('docs._examples.active-record')
             </feature-tab>
         </feature>
     </div>
@@ -125,7 +125,7 @@
     <div class="flex flex-col-reverse md:flex-row md:justify-between md:items-center md:space-x-20 mx-4 md:mx-8 mb-16 md:mb-40">
         <feature class="shadow rounded-md flex-grow md:w-4/6">
             <feature-tab name="QueryBuilder.php">
-                @include('docs.examples.fluent')
+                @include('docs._examples.fluent')
             </feature-tab>
         </feature>
 
@@ -161,13 +161,13 @@
 
         <feature class="shadow rounded-md flex-grow md:w-4/6">
             <feature-tab name="Events.php">
-                @include('docs.examples.events')
+                @include('docs._examples.events')
             </feature-tab>
             <feature-tab name="Caching.php">
-                @include('docs.examples.caching')
+                @include('docs._examples.caching')
             </feature-tab>
             <feature-tab name="Relations.php">
-                @include('docs.examples.relations')
+                @include('docs._examples.relations')
             </feature-tab>
         </feature>
     </div>
