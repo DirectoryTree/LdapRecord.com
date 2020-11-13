@@ -36,14 +36,14 @@ return [
         return $page->getLatestVersion($repository);
     },
 
-    'getVersions' => function ($page) {
-        return VersionsCache::get($page->getCurrentRepository());
+    'getVersions' => function ($page, $repository = null) {
+        return VersionsCache::get($repository ?? $page->getCurrentRepository());
     },
 
     'getLatestVersion' => function ($page, $repository = null) {
-        $currentRepo = $repository ?? $page->getCurrentRepository();
+        $repository = $repository ?? $page->getCurrentRepository();
 
-        if ($nav = $page->navigation->{$currentRepo}) {
+        if ($nav = $page->navigation->{$repository}) {
             return $nav->reverse()->keys()->first();
         }
     },
@@ -73,7 +73,7 @@ return [
     },
 
     'isHomePage' => function ($page) {
-        return $page->isActive('/');
+        return $page->getRelativePath() ? false : true;
     },
 
     'isOnParent' => function ($page, $path) {
