@@ -18,12 +18,12 @@
                     </a>
                 @else
                     @if($page->isHomePage())
-                        <x-menu-link href="/docs/core/{{ $page->getCurrentVersion() }}" title="LdapRecord-Laravel Documentation Link">
+                        <x-menu-link href="/docs/core/{{ $page->getCurrentVersion('core') }}" title="LdapRecord-Laravel Documentation Link">
                             Docs
                         </x-menu-link>
                     @endif
 
-                    <x-menu-link href="/docs/laravel/{{ $page->getCurrentVersion() }}" title="LdapRecord-Laravel Documentation Link">
+                    <x-menu-link href="/docs/laravel/{{ $page->getCurrentVersion('laravel') }}" title="LdapRecord-Laravel Documentation Link">
                         Laravel Docs
                     </x-menu-link>
 
