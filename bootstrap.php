@@ -1,5 +1,6 @@
 <?php
 
+use App\Router;
 use App\VersionsCache;
 use TightenCo\Jigsaw\Jigsaw;
 use App\Listeners\BuildSiteMap;
@@ -17,6 +18,15 @@ use App\Listeners\BuildSiteMap;
  *     // Your code here
  * });
  */
+
+$events->beforeBuild(function () {
+    $router = Router::instance();
+
+    $router->register('docs.core', '/docs/core/{version}');
+    $router->register('docs.laravel', '/docs/laravel/{version}');
+    
+    $router->register('docs.pr', 'https://github.com/DirectoryTree/LdapRecord-Docs/blob/master/{repository}/{version}/{file}');
+});
 
 $events->beforeBuild(function (Jigsaw $jigsaw) {
     foreach (['core', 'laravel'] as $repo) {

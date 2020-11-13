@@ -14,7 +14,7 @@
         <ul class="list-none m-0">
             <li class="p-0">
                 <a
-                    href="/docs/core/{{ $page->getCurrentVersion() }}/"
+                    href="{{ $page->route('docs.core', ['version' => $page->getCurrentVersion()]) }}"
                     class="nav-menu__item text-gray-600 my-2 last:mb-4 p-0 hover:text-purple-500"
                 >
                     Core Documentation

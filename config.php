@@ -1,5 +1,6 @@
 <?php
 
+use App\Router;
 use App\VersionsCache;
 use App\DocumentPaginator;
 use Illuminate\Support\Str;
@@ -25,6 +26,10 @@ return [
             'v1' => require_once('versions/laravel/v1/navigation.php'),
         ],
     ],
+
+    'route' => function ($page, $name, $params) {
+        return Router::instance()->get($name, $params);
+    },
 
     'getCurrentVersion' => function ($page, $repository = null) {
         $version = explode('/', $page->getRelativePath())[2] ?? null;
@@ -60,6 +65,18 @@ return [
         return (new DocumentPaginator($page))->getPrevious();
     },
 
+    'getPrFilePath' => function ($page) {
+        return implode('/', [$page->getFolderPath(), $page->getFullFilename()]);
+    },
+
+    'getFullFilename' => function ($page) {
+        return implode('.', [$page->getFilename(), $page->getExtension()]);
+    },
+
+    'getFolderPath' => function ($page) {
+        return explode('/', $page->getRelativePath())[3];
+    },
+    
     'isActive' => function ($page, $path) {
         return Str::endsWith(trimPath($page->getPath()), trimPath($path));
     },
