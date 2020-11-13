@@ -66,7 +66,10 @@ return [
     },
 
     'getPrFilePath' => function ($page) {
-        return implode('/', [$page->getFolderPath(), $page->getFullFilename()]);
+        return implode('/', array_filter([
+            $page->getFolderPath(),
+            $page->getFullFilename(),
+        ]));
     },
 
     'getFullFilename' => function ($page) {
@@ -74,9 +77,9 @@ return [
     },
 
     'getFolderPath' => function ($page) {
-        return explode('/', $page->getRelativePath())[3];
+        return explode('/', $page->getRelativePath())[3] ?? null;
     },
-    
+
     'isActive' => function ($page, $path) {
         return Str::endsWith(trimPath($page->getPath()), trimPath($path));
     },
