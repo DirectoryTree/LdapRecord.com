@@ -21,6 +21,7 @@ return [
     'navigation' => [
         'core' => [
             'v1' => require_once('versions/core/v1/navigation.php'),
+            'v2' => require_once('versions/core/v2/navigation.php'),
         ],
         'laravel' => [
             'v1' => require_once('versions/laravel/v1/navigation.php'),
@@ -105,13 +106,18 @@ return [
     },
 
     'pullRequestPath' => function ($page) {
-        $uri = 'https://github.com/DirectoryTree/LdapRecord-Docs/blob/master';
+        $uris = explode('/', $page->getPath());
 
-        $path = str_replace($page->getFilename(), '', str_replace('docs/', '', $page->getPath()));
+        array_shift($uris);
 
-        $file = $page->getFilename().".".$page->getExtension();
+        $path = implode('/', $uris);
+        
+        $file = implode('.', [$page->getFilename(), $page->getExtension()]);
 
-        return implode([$uri, $path.$file]);
+        return implode([
+            'https://github.com/DirectoryTree/LdapRecord-Docs/blob/master',
+            $path.$file
+        ]);
     },
     
     'url' => function ($page, $path) {

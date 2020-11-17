@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'Upgrade Guide' => [
+        'children' => [
+            'Upgrading from v1' => 'docs/core/v2/upgrading',
+        ]
+    ],
     'Introduction' => [
         'children' => [
             'Quickstart' => 'docs/core/v2/quickstart',

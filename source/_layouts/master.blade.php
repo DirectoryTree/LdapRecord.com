@@ -34,7 +34,7 @@
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
 
         @if ($page->docsearchApiKey && $page->docsearchIndexName)
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+            <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" onload="this.onload=null;this.rel='stylesheet'"/>
         @endif
 
         <script src="{{ mix('js/main.js', 'assets/build') }}" defer></script>

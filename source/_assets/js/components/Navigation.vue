@@ -6,19 +6,19 @@
                class="flex md:hidden bg-gray-100 hover:bg-blue-100 justify-center items-center rounded-lg focus:outline-none h-10 px-3 shadow"
                v-on:click="this.toggle"
         >
-           <img src="/assets/img/magnifying-glass.svg" alt="search icon" class="h-4 w-4 max-w-none">
+            <img src="/assets/img/magnifying-glass.svg" alt="search icon" class="h-4 w-4 max-w-none">
         </button>
 
         <div id="js-search-input" class="docsearch-input__wrapper hidden md:block">
-           <label for="search" class="hidden">Search</label>
+            <label for="search" class="hidden">Search</label>
 
-           <input
-                   id="docsearch-input"
-                   class="docsearch-input block h-10 transition-fast w-full lg:w-1/2 xl:w-1/3 outline-none rounded-lg text-gray-700 focus:border-blue-400 ml-auto px-4 pb-0 border shadow md:shadow-none"
-                   name="docsearch"
-                   type="text"
-                   placeholder="Search"
-           >
+            <input
+                id="docsearch-input"
+                class="docsearch-input block h-10 transition-fast w-full lg:w-1/2 xl:w-1/3 outline-none rounded-lg text-gray-700 focus:border-blue-400 ml-auto px-4 pb-0 border shadow md:shadow-none"
+                name="docsearch"
+                type="text"
+                placeholder="Search"
+            >
 
            <button
                    class="md:hidden absolute right-0 top-0 mr-8 h-full font-light text-3xl text-blue-500 hover:text-blue-600 focus:outline-none -mt-px"
