@@ -10,12 +10,12 @@
         <meta property="og:title" content="{{ $page->title ?  $page->title . ' | ' : '' }}{{ $page->siteName }}" />
         <meta property="og:description" content="{{ $page->description ?? $page->siteDescription }}" />
         <meta property="og:url" content="{{ $page->getUrl() }}" />
-        <meta property="og:image" content="{{ $page->['baseUrl'] }}/assets/img/logo.png" />
+        <meta property="og:image" content="{{ $page->baseUrl }}/assets/img/logo.png" />
         <meta property="og:type" content="website" />
 
         <!-- Twitter Meta -->
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="{{ $page->['baseUrl'] }}/assets/img/logo.png" />
+        <meta name="twitter:image" content="{{ $page->baseUrl }}/assets/img/logo.png" />
         <meta name="twitter:image:alt" content="{{ $page->siteName }}" />
 
         <!-- Favicons -->
