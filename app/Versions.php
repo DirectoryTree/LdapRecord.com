@@ -77,12 +77,12 @@ class Versions
             ->all('DirectoryTree', $repository);
 
         return collect($releases)->sortByDesc(function ($release) {
-            return $release['name'];
+            return $release['tag_name'];
         })->groupBy(function ($release) {
-            return $this->getMajorRelease($release['name']);
+            return $this->getMajorRelease($release['tag_name']);
         })->mapWithKeys(function ($versions, $majorVersion) use ($repository) {
-            return [$majorVersion = [
-                'name' => $versions->first()['name'],
+            return [$majorVersion => [
+                'name' => $versions->first()['tag_name'],
                 'url' => sprintf($this->repositories[$repository], $majorVersion),
             ]];
         });

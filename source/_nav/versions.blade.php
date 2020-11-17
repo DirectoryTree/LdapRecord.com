@@ -9,7 +9,7 @@
             @foreach($versions as $version)
                 <option
                     value="{{ $version['url'] }}"
-                    {{ \Illuminate\Support\Str::contains($page->getRelativePath(), $version['url']) ? 'selected' : '' }}
+                    {{ \Illuminate\Support\Str::contains($version['url'], $page->getRelativePath()) ? 'selected' : '' }}
                 >
                     {{ $version['name'] }}
                 </option>
