@@ -47,7 +47,11 @@ class DocumentPaginator
 
     protected function getPages()
     {
-        return $this->getNavigation()->map(function ($value, $key) {
+        if (! $navigation = $this->getNavigation()) {
+            return collect();
+        }
+
+        return $navigation->map(function ($value, $key) {
             $links = is_iterable($value) ? $value['children']->toArray() : [$key => $value];
             
             return collect($links)->map(function ($path, $label) {
@@ -62,7 +66,7 @@ class DocumentPaginator
     protected function getNavigation()
     {
         return $this->page->navigation
-            ->{$this->page->getCurrentRepository()}
-            ->{$this->page->getCurrentVersion()};
+                ->{$this->page->getCurrentRepository()}
+                ->{$this->page->getCurrentVersion()};
     }
 }

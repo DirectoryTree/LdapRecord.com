@@ -35,11 +35,9 @@ return [
     'getCurrentVersion' => function ($page, $repository = null) {
         $version = explode('/', $page->getRelativePath())[2] ?? null;
 
-        if (! empty($version)) {
-            $version;
-        }
-
-        return $page->getLatestVersion($repository);
+        return empty($version)
+            ? $page->getLatestVersion($repository)
+            : $version;
     },
 
     'getVersions' => function ($page, $repository = null) {
