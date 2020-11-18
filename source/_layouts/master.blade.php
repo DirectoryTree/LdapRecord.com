@@ -15,7 +15,7 @@
 
         <!-- Twitter Meta -->
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="{{ $page->baseUrl }}/assets/img/logo.png" />
+        <meta name="twitter:image" content="{{ $page->baseUrl }}/assets/img/twitter_card.png" />
         <meta name="twitter:image:alt" content="{{ $page->siteName }}" />
 
         <!-- Favicons -->
