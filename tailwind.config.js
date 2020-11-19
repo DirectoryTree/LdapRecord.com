@@ -29,6 +29,12 @@ module.exports = {
           ...defaultTheme.fontFamily.mono,
         ],
       },
+      colors: {
+        purple: {
+          ...defaultTheme.colors.purple,
+          '900': '#150050'
+        }
+      },
       lineHeight: {
         normal: '1.6',
         loose: '1.75',
