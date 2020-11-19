@@ -1,5 +1,4 @@
 body {
-    @apply .text-gray-800;
     @apply .text-base;
     @apply .font-normal;
 }
@@ -17,15 +16,14 @@ a {
 blockquote {
     @apply .border-purple-600;
     @apply .bg-purple-100;
+    @apply .text-purple-800;
     @apply .border-l-4;
     @apply .font-normal;
     @apply .my-6;
     @apply .pl-6;
-    @apply .text-gray-800;
     @apply .rounded;
     @apply .py-2;
     @apply .px-4;
-
 
     p {
         @apply .m-0;
@@ -112,11 +110,7 @@ ul {
 }
 
 p {
-    @apply .my-3;
-
-    @screen md {
-        @apply .my-6;
-    }
+    @apply .my-6;
 }
 
 table {
