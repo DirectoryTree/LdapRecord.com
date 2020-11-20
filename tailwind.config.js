@@ -42,7 +42,7 @@ module.exports = {
       maxWidth: {
         none: 'none',
         '7xl': '80rem',
-        '8xl': '88rem'
+        '8xl': '90rem'
       },
       spacing: {
         '7': '1.75rem',
