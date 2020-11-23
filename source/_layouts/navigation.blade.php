@@ -23,7 +23,7 @@
                         </x-menu-link>
                     @endif
 
-                    <x-menu-link href="{{ $page->route('docs.laravel', ['version' => $page->getCurrentVersion('laravel')]) }}" title="LdapRecord-Laravel Documentation Link">
+                    <x-menu-link href="{{ $page->route('docs.laravel', ['version' => $page->getLatestVersion('laravel')]) }}" title="LdapRecord-Laravel Documentation Link">
                         Laravel Docs
                     </x-menu-link>
 
