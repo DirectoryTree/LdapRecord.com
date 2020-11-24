@@ -9,7 +9,7 @@
         <div class="flex flex-1 justify-end items-center text-right md:pl-10 text-gray-800">
             <navigation api-key="{{ $page->docsearchApiKey }}" index="{{ $page->docsearchIndexName }}">
                 @if($page->isOnLaravel())
-                    <x-menu-link href="{{ $page->route('docs.core', ['version' => $page->getCurrentVersion('core')]) }}" title="LdapRecord Documentation Link">
+                    <x-menu-link href="{{ $page->route('docs.core', ['version' => $page->getLastestVersion('core')]) }}" title="LdapRecord Documentation Link">
                         {{ $page->isOnLaravel() ? 'Core Docs' : 'Docs' }}
                     </x-menu-link>
 
@@ -18,7 +18,7 @@
                     </a>
                 @else
                     @if($page->isHomePage())
-                        <x-menu-link href="{{ $page->route('docs.core', ['version' => $page->getCurrentVersion('core')]) }}" title="LdapRecord-Laravel Documentation Link">
+                        <x-menu-link href="{{ $page->route('docs.core', ['version' => $page->getLatestVersion('core')]) }}" title="LdapRecord-Laravel Documentation Link">
                             Docs
                         </x-menu-link>
                     @endif
