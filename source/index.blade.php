@@ -37,7 +37,7 @@
             <div class="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
                     <div class="rounded-lg bg-white grid grid-cols-1 sm:grid-cols-3 shadow">
-                        <a href="/docs/core/{{ $page->getLatestVersion('core') }}/laravel/quickstart" class="rounded-tl-lg rounded-bl-lg hover:bg-gray-100">
+                        <a href="/docs/laravel/{{ $page->getLatestVersion('laravel') }}/quickstart" class="rounded-tl-lg rounded-bl-lg hover:bg-gray-100">
                             <div class="border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r flex flex-col justify-between items-center h-full">
                                 <div>
                                     <svg fill="none" viewBox="0 0 50 52" stroke="url(#svg-grad1)" class="w-10 h-20 mx-auto">
