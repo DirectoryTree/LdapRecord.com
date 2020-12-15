@@ -29,7 +29,7 @@ $events->beforeBuild(function () {
 });
 
 $events->beforeBuild(function (Jigsaw $jigsaw) {
-    if ($jigsaw->getEnvironment() != 'production') {
+    if ($jigsaw->getEnvironment() !== 'production') {
         return;
     }
     

@@ -30,10 +30,12 @@ class VersionsCache
     public function __construct(Jigsaw $jigsaw)
     {
         $this->jigsaw = $jigsaw;
-        
-        if (! file_exists(static::$file)) {
-            file_put_contents(static::$file, '');
+
+        if (file_exists(static::$file)) {
+            unlink(static::$file);
         }
+        
+        file_put_contents(static::$file, '');
     }
 
     /**
