@@ -32,10 +32,11 @@ $events->beforeBuild(function (Jigsaw $jigsaw) {
     if ($jigsaw->getEnvironment() !== 'production') {
         return;
     }
-    
-    foreach (['core', 'laravel'] as $repo) {
-        (new VersionsCache($jigsaw))->store($repo);
-    }
+
+    $cache = new VersionsCache($jigsaw);
+
+    $cache->store('core');
+    $cache->store('laravel');
 });
 
 $events->afterBuild(BuildSiteMap::class);
