@@ -1,8 +1,6 @@
 <?php
 
 use App\Router;
-use App\VersionsCache;
-use TightenCo\Jigsaw\Jigsaw;
 use App\Listeners\BuildSiteMap;
 
 /** @var $container \Illuminate\Container\Container */
@@ -26,17 +24,6 @@ $events->beforeBuild(function () {
     $router->register('docs.laravel', '/docs/laravel/{version}');
     
     $router->register('docs.pr', 'https://github.com/DirectoryTree/LdapRecord-Docs/blob/master/{repository}/{version}/{file}');
-});
-
-$events->beforeBuild(function (Jigsaw $jigsaw) {
-    if ($jigsaw->getEnvironment() !== 'production') {
-        return;
-    }
-
-    $cache = new VersionsCache($jigsaw);
-
-    $cache->store('core');
-    $cache->store('laravel');
 });
 
 $events->afterBuild(BuildSiteMap::class);

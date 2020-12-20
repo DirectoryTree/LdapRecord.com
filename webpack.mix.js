@@ -10,6 +10,7 @@ mix.js('source/_assets/js/main.js', 'js')
         watch: [
             'app/**',
             'config.php',
+            'versions.php',
             'source/**/*.md',
             'source/**/*.php',
             'source/**/*.scss',

@@ -1,7 +1,7 @@
 <?php
 
 use App\Router;
-use App\VersionsCache;
+use App\Versions;
 use App\DocumentPaginator;
 use Illuminate\Support\Str;
 
@@ -14,9 +14,6 @@ return [
     // Algolia DocSearch credentials
     'docsearchApiKey' => 'bc526397341486f980ca0b7ee7a0fa61',
     'docsearchIndexName' => 'ldaprecord',
-
-    // GitHub API token for getting new release versions
-    'githubApiToken' => '12622c742b29bfdd5ef03f59d4856bf51db773da',
 
     'navigation' => [
         'core' => [
@@ -41,7 +38,7 @@ return [
     },
 
     'getVersions' => function ($page, $repository = null) {
-        return VersionsCache::get($repository ?? $page->getCurrentRepository());
+        return Versions::get($repository ?? $page->getCurrentRepository());
     },
 
     'getLatestVersion' => function ($page, $repository = null) {
