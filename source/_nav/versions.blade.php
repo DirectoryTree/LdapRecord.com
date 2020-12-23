@@ -1,3 +1,7 @@
+@php
+use Illuminate\Support\Str;
+@endphp
+
 <div class="mt-0 mr-0 mb-4 lg:mt-8 lg:mr-4 lg:mb-0">
     <p class="nav-menu__item text-gray-500 font-extrabold tracking-widest uppercase mb-2 mt-0 lg:mt-6">Version</p>
     
@@ -9,7 +13,11 @@
             @foreach($versions as $version)
                 <option
                     value="{{ $version['url'] }}"
-                    {{ \Illuminate\Support\Str::contains($version['url'], $page->getRelativePath()) ? 'selected' : '' }}
+                    {{ 
+                        Str::startsWith(
+                            Str::start($page->getRelativePath(), '/'), $version['url']
+                        ) ? 'selected' : '' 
+                    }}
                 >
                     {{ $version['name'] }}
                 </option>
