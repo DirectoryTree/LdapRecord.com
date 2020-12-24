@@ -22,7 +22,9 @@ $events->beforeBuild(function () {
 
     $router->register('docs.core', '/docs/core/{version}');
     $router->register('docs.laravel', '/docs/laravel/{version}');
-    
+
+    $router->register('docs.core.source', 'https://github.com/DirectoryTree/LdapRecord-Laravel');
+    $router->register('docs.laravel.source', 'https://github.com/DirectoryTree/LdapRecord-Laravel');
     $router->register('docs.pr', 'https://github.com/DirectoryTree/LdapRecord-Docs/blob/master/{repository}/{version}/{file}');
 });
 

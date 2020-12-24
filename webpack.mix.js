@@ -14,6 +14,7 @@ mix.js('source/_assets/js/main.js', 'js')
             'source/**/*.md',
             'source/**/*.php',
             'source/**/*.scss',
+            'versions/**/*.php',
         ],
     })
     .options({

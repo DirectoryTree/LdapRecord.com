@@ -22,10 +22,16 @@
                                 
                                 <p class="text-sm m-0">
                                     A new major version is available. Consider upgrading to
-
-                                    <strong>
-                                        <a href="/docs/core/{{ $latest }}/">LdapRecord {{ $latest }}</a>
-                                    </strong>.
+                                    
+                                    @if($page->getCurrentRepository() == 'laravel')
+                                        <strong>
+                                            <a href="/docs/laravel/{{ $latest }}/">LdapRecord-Laravel {{ $latest }}</a>
+                                        </strong>
+                                    @else
+                                        <strong>
+                                            <a href="/docs/core/{{ $latest }}/">LdapRecord {{ $latest }}</a>
+                                        </strong>.
+                                    @endif
                                 </p>
                             </div>
                         </div>
@@ -42,7 +48,7 @@
 
                     <div class="flex flex-col-reverse md:flex-row justify-between items-center">
                         <div class="flex flex-col items-center md:items-start">
-                            @if ($prev)
+                            @if($prev)
                                 <span class="font-bold text-gray-500 text-sm tracking-wider uppercase pb-1">← Previous Topic</span>
 
                                 <h4 class="font-bold underline m-0 text-blue-700">
@@ -52,7 +58,7 @@
                         </div>
                         
                         <div class="mb-8 md:mb-0 flex flex-col items-center md:items-end">
-                            @if ($next)
+                            @if($next)
                                 <span class="font-bold text-gray-500 text-sm tracking-wider uppercase pb-1">Next Topic →</span>
 
                                 <h4 class="font-bold underline m-0 text-blue-700">

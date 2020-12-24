@@ -22,10 +22,11 @@ return [
         ],
         'laravel' => [
             'v1' => require_once('versions/laravel/v1/navigation.php'),
+            'v2' => require_once('versions/laravel/v2/navigation.php'),
         ],
     ],
 
-    'route' => function ($page, $name, $params) {
+    'route' => function ($page, $name, $params = []) {
         return Router::instance()->get($name, $params);
     },
 
