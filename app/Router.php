@@ -70,13 +70,15 @@ class Router
     /**
      * Get the URL for the route.
      * 
-     * @param string $route
-     * @param array  $params
+     * @param string        $route
+     * @param string|array  $params
      * 
      * @return string
      */
-    public function get($route, array $params = [])
+    public function get($route, $params = [])
     {
+        $params = is_string($params) ? (array) $params : $params;
+
         if (! $url = $this->routes[$route]) {
             throw new \Exception("Route [$route] has not been registered.");
         }
