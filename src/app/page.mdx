@@ -1,0 +1,139 @@
+import { Button } from '@/components/Button';
+import { HeroPattern } from '@/components/HeroPattern';
+
+export const metadata = {
+    title: 'LdapRecord Documentation',
+    description:
+        'LdapRecord is a PHP package that provides you with a full ActiveRecord implementation for working with your LDAP server.',
+};
+
+export const sections = [
+    { title: 'Features', id: 'features' },
+    { title: 'Packages', id: 'packages' },
+    { title: 'Support', id: 'support' },
+];
+
+<HeroPattern />
+
+# LdapRecord
+
+A fully-featured Active Record ORM that makes working with LDAP directories a breeze.
+
+<div className="not-prose mt-6 mb-16 flex gap-3">
+    <Button href="/docs/core/v3" arrow="right">
+        <>Core Documentation</>
+    </Button>
+
+    <Button href="/docs/laravel/v3" variant="outline">
+        <>Laravel Integration</>
+    </Button>
+</div>
+
+## Features {{ id: 'features' }}
+
+<div className="not-prose mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+    <div className="group relative rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
+        <div className="flex items-start gap-4">
+            <div className="text-2xl">⏲</div>
+            <div>
+                <h3 className="font-semibold text-zinc-900 dark:text-white">
+                    Up and Running Fast
+                </h3>
+                <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                    Connect to your LDAP servers and start running queries in a matter of minutes.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div className="group relative rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
+        <div className="flex items-start gap-4">
+            <div className="text-2xl">💡</div>
+            <div>
+                <h3 className="font-semibold text-zinc-900 dark:text-white">
+                    Fluent Filter Builder
+                </h3>
+                <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                    Find the LDAP objects you're looking for with a fluent LDAP filter builder.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div className="group relative rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
+        <div className="flex items-start gap-4">
+            <div className="text-2xl">💼</div>
+            <div>
+                <h3 className="font-semibold text-zinc-900 dark:text-white">
+                    Multi-Domain Ready
+                </h3>
+                <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                    Built-in connection management allows you to access multiple domains without breaking a sweat.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div className="group relative rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
+        <div className="flex items-start gap-4">
+            <div className="text-2xl">🔥</div>
+            <div>
+                <h3 className="font-semibold text-zinc-900 dark:text-white">
+                    Supercharged Active Record
+                </h3>
+                <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                    Create and modify LDAP objects with minimal code.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+## Packages {{ id: 'packages' }}
+
+Choose the package that best fits your needs. If you're building a Laravel application, start with LdapRecord-Laravel. For other PHP frameworks or standalone applications, use the core LdapRecord package.
+
+<div className="not-prose mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <div className="group relative rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
+        <div>
+            <h3 className="font-semibold text-zinc-900 dark:text-white">
+                Other PHP Applications
+            </h3>
+
+            <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                New to LdapRecord or not using Laravel? Start here. The core package offers a full ActiveRecord implementation for interacting with your LDAP server in any PHP application. It’s the foundation of LdapRecord and works seamlessly outside of Laravel.
+            </div>
+        </div>
+
+        <div className="mt-4">
+            <Button href="/docs/core/v3" variant="text" arrow="right">
+                Get started with Core
+            </Button>
+        </div>
+    </div>
+
+    <div className="group relative rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
+        <div>
+            <h3 className="font-semibold text-zinc-900 dark:text-white">
+                Laravel Applications
+            </h3>
+
+            <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                Building a Laravel app? Start here. LdapRecord-Laravel integrates LDAP authentication, user synchronization, and directory operations directly into your Laravel application. It builds on the core package and offers seamless Laravel-specific support.
+            </div>
+        </div>
+
+        <div className="mt-4">
+            <Button href="/docs/laravel/v3" variant="text" arrow="right">
+                Get started with Laravel
+            </Button>
+        </div>
+    </div>
+
+</div>
+
+## Support
+
+If you require support or assistance getting set up, consider becoming a [sponsor](https://github.com/sponsors/stevebauman) to receive issue priority so you get up and running as fast as possible.
+
+If you encounter issues or need help, feel free to [create an issue](https://github.com/DirectoryTree/LdapRecord/issues/new) and we'll be happy to help you out.

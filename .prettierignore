@@ -1,0 +1,13 @@
+# Exclude docs directory from formatting
+app/docs/
+src/app/docs/
+
+# Common exclusions
+node_modules/
+.next/
+.git/
+dist/
+build/
+coverage/
+*.min.js
+*.min.css
