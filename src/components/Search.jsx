@@ -57,7 +57,6 @@ function useAutocomplete({ onNavigate }) {
             },
             getSources({ query }) {
                 return import('@/mdx/search.mjs').then(({ search }) => {
-                    // Get current package and version from URL at search time
                     const {
                         package: currentPackage,
                         version: currentVersion,
@@ -67,7 +66,6 @@ function useAutocomplete({ onNavigate }) {
                         {
                             sourceId: 'documentation',
                             getItems() {
-                                // Filter search results by current package and version
                                 return search(query, {
                                     limit: 5,
                                     packageName: currentPackage,

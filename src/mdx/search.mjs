@@ -152,9 +152,11 @@ export default function Search(nextConfig = {}) {
                     if (filterPackage && item.packageName !== filterPackage) {
                       return false
                     }
+                    
                     if (filterVersion && item.version !== filterVersion) {
                       return false
                     }
+                    
                     return true
                   })
                 }
