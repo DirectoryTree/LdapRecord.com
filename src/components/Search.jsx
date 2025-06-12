@@ -25,13 +25,17 @@ function useAutocomplete({ onNavigate }) {
     let router = useRouter();
     let pathname = usePathname();
     let pathnameRef = useRef(pathname);
+    let [autocompleteState, setAutocompleteState] = useState({});
+
+    // Track current package/version to detect changes
+    const currentPackageVersion = parsePackageAndVersion(pathname);
+    const previousPackageVersionRef = useRef(currentPackageVersion);
 
     // Keep the ref updated with the latest pathname so searches are scoped
     // to the currently viewed package/version after navigation.
     useEffect(() => {
         pathnameRef.current = pathname;
     }, [pathname]);
-    let [autocompleteState, setAutocompleteState] = useState({});
 
     function navigate({ itemUrl }) {
         if (itemUrl) {
@@ -82,6 +86,19 @@ function useAutocomplete({ onNavigate }) {
             },
         }),
     );
+
+    // Clear search when package or version changes
+    useEffect(() => {
+        const previous = previousPackageVersionRef.current;
+        const current = currentPackageVersion;
+
+        if (previous.package !== current.package || previous.version !== current.version) {
+            // Clear the autocomplete state
+            autocomplete.setQuery('');
+            autocomplete.refresh();
+            previousPackageVersionRef.current = current;
+        }
+    }, [currentPackageVersion.package, currentPackageVersion.version, autocomplete]);
 
     return { autocomplete, autocompleteState };
 }
