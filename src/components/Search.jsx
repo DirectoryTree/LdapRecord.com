@@ -24,6 +24,13 @@ function useAutocomplete({ onNavigate }) {
     let id = useId();
     let router = useRouter();
     let pathname = usePathname();
+    let pathnameRef = useRef(pathname);
+
+    // Keep the ref updated with the latest pathname so searches are scoped
+    // to the currently viewed package/version after navigation.
+    useEffect(() => {
+        pathnameRef.current = pathname;
+    }, [pathname]);
     let [autocompleteState, setAutocompleteState] = useState({});
 
     function navigate({ itemUrl }) {
@@ -49,16 +56,16 @@ function useAutocomplete({ onNavigate }) {
                 navigate,
             },
             getSources({ query }) {
-                return import('@/mdx/search.mjs').then(({ search }) => {
-                    // Get current package and version from URL at search time
-                    const { package: currentPackage, version: currentVersion } =
-                        parsePackageAndVersion(pathname);
+                return import('@/lib/search').then(({ search }) => {
+                    const {
+                        package: currentPackage,
+                        version: currentVersion,
+                    } = parsePackageAndVersion(pathnameRef.current);
 
                     return [
                         {
                             sourceId: 'documentation',
                             getItems() {
-                                // Filter search results by current package and version
                                 return search(query, {
                                     limit: 5,
                                     packageName: currentPackage,
