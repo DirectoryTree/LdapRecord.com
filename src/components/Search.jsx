@@ -56,7 +56,7 @@ function useAutocomplete({ onNavigate }) {
                 navigate,
             },
             getSources({ query }) {
-                return import('@/mdx/search.mjs').then(({ search }) => {
+                return import('@/lib/search').then(({ search }) => {
                     const {
                         package: currentPackage,
                         version: currentVersion,

@@ -3,8 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "npm run build:search && next dev",
-        "build": "npm run build:search && next build",
+        "dev": "next dev",
+        "build": "next build",
         "build:search": "node scripts/build-search-index.mjs",
         "start": "next start",
         "lint": "next lint"

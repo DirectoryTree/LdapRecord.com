@@ -111,8 +111,13 @@ async function buildSearchIndex() {
     console.log(`Output: ${outputPath}`);
 }
 
-// Run the build
-buildSearchIndex().catch((error) => {
-    console.error('Failed to build search index:', error);
-    process.exit(1);
-});
+// Export the function for use in Next.js config
+export { buildSearchIndex };
+
+// Run the build when executed directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+    buildSearchIndex().catch((error) => {
+        console.error('Failed to build search index:', error);
+        process.exit(1);
+    });
+}
