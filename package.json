@@ -3,8 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev",
-        "build": "next build",
+        "dev": "npm run build:search && next dev",
+        "build": "npm run build:search && next build",
+        "build:search": "node scripts/build-search-index.mjs",
         "start": "next start",
         "lint": "next lint"
     },
@@ -35,7 +36,6 @@
         "remark-gfm": "^4.0.0",
         "remark-mdx": "^3.0.0",
         "shiki": "^0.14.7",
-        "simple-functional-loader": "^1.2.1",
         "tailwindcss": "^4.1.7",
         "unist-util-filter": "^5.0.1",
         "unist-util-visit": "^5.0.0",
