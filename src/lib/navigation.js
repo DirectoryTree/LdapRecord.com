@@ -273,6 +273,87 @@ export const navigationConfig = {
                 ],
             },
         ],
+        v4: [
+            {
+                title: 'Prologue',
+                links: [
+                    { title: 'Release Notes', href: '/docs/core/v3/release-notes' },
+                    { title: 'Upgrade Guide', href: '/docs/core/v3/upgrading' },
+                ],
+            },
+            {
+                title: 'Introduction',
+                links: [
+                    { title: 'Quickstart', href: '/docs/core/v3/quickstart' },
+                    { title: 'Overview', href: '/docs/core/v3' },
+                    { title: 'Installation', href: '/docs/core/v3/installation' },
+                    { title: 'Configuration', href: '/docs/core/v3/configuration' },
+                    { title: 'Connections', href: '/docs/core/v3/connections' },
+                ],
+            },
+            {
+                title: 'Searching',
+                links: [
+                    { title: 'Query Builder', href: '/docs/core/v3/searching' },
+                    {
+                        title: 'API (Available Methods)',
+                        href: '/docs/core/v3/searching-api',
+                    },
+                ],
+            },
+            {
+                title: 'Models',
+                links: [
+                    { title: 'Getting Started', href: '/docs/core/v3/models' },
+                    { title: 'Scopes', href: '/docs/core/v3/model-scopes' },
+                    {
+                        title: 'Relationships',
+                        href: '/docs/core/v3/model-relationships',
+                    },
+                    {
+                        title: 'Accessors & Mutators',
+                        href: '/docs/core/v3/model-mutators',
+                    },
+                    {
+                        title: 'API (Available Methods)',
+                        href: '/docs/core/v3/model-api',
+                    },
+                    {
+                        title: 'Query API (Available Methods)',
+                        href: '/docs/core/v3/model-searching',
+                    },
+                ],
+            },
+            {
+                title: 'Active Directory',
+                links: [
+                    { title: 'Users', href: '/docs/core/v3/active-directory/users' },
+                    { title: 'Groups', href: '/docs/core/v3/active-directory/groups' },
+                ],
+            },
+            {
+                title: 'Other Features',
+                links: [
+                    { title: 'Authentication', href: '/docs/core/v3/authentication' },
+                    { title: 'Common Queries', href: '/docs/core/v3/common-queries' },
+                    { title: 'Filter Parser', href: '/docs/core/v3/filter-parser' },
+                    { title: 'Helpers', href: '/docs/core/v3/helpers' },
+                    { title: 'Caching', href: '/docs/core/v3/caching' },
+                    { title: 'Events', href: '/docs/core/v3/events' },
+                    { title: 'Logging', href: '/docs/core/v3/logging' },
+                    { title: 'Testing', href: '/docs/core/v3/testing' },
+                    { title: 'Testing API', href: '/docs/core/v3/testing-api' },
+                ],
+            },
+            {
+                title: 'Extra',
+                links: [
+                    { title: 'Versioning', href: '/docs/core/v3/versioning' },
+                    { title: 'Credits', href: '/docs/core/v3/credits' },
+                    { title: 'License', href: '/docs/core/v3/license' },
+                ],
+            },
+        ],
     },
     laravel: {
         v1: [
