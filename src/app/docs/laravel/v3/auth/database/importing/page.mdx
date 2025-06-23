@@ -35,12 +35,12 @@ The `sync_passwords` option you define inside your `config/auth.php` file is use
 importing and synchronizing users. However, there are some caveats you must be aware of:
 
 - **Passwords cannot be retrieved from users who are being imported from your LDAP server.**
-  <br/><br/>This would be a major security risk if this were possible. If a password is already
+  This would be a major security risk if this were possible. If a password is already
   set for the user being imported, it will be left untouched. This is to retain a
-  possible synchronized password that was set upon login.<br/><br/>
+  possible synchronized password that was set upon login.
 - **Passwords will always be set to a hashed 16 character string if not already present.**
-  <br/><br/>If the user being imported does not have a password, their password will be set to a
-  hashed 16 character random string using `Str::random`.<br/><br/>
+  If the user being imported does not have a password, their password will be set to a
+  hashed 16 character random string using `Str::random`.
 - **Passwords will not be set** if you have defined `false` for `password_column`.
 
 ## Running the command

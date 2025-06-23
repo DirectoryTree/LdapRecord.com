@@ -41,10 +41,9 @@ You will have to remove/alter the default `users` provider, or create your own.
 As you can see above, a `database` array is used to configure the association between your LDAP user and your Eloquent user.
 
 <Important>
-<br/><br/>
 If your application requires more than one LDAP connection, you
 must create a new provider for each connection.
-<br/><br/>
+
 This new provider must have its own unique `model` class which must use your
 [alternate configured connection](/docs/core/v3/models#connections) name
 using the `$connection` property.
