@@ -122,7 +122,7 @@ However, please be aware of the differences of the above methods as
 described in the [connection binding documentation](/docs/core/v1/connections/#binding):
 
 - `auth()->attempt()` will automatically rebind the user you have in your configuration,
-  unless you have specified `true` in the third parameter to stay bound. <br/><br/>
+  unless you have specified `true` in the third parameter to stay bound.
 - `auth()->bind()` **will not** automatically rebind the user you have in your configuration,
   and will allow `null` usernames and passwords (anonymous binds).
 </Note>
