@@ -13,7 +13,7 @@ All of [its methods](/docs/core/v2/searching-api) are available on model queries
 
 ## Method Listing
 
-#### `appliedScopes`
+### `appliedScopes`
 
 Get an array of the global scopes that were applied to the model query:
 
@@ -21,7 +21,7 @@ Get an array of the global scopes that were applied to the model query:
 $scopes = User::query()->appliedScopes();
 ```
 
-#### `findByAnr`
+### `findByAnr`
 
 Find the first matching model by [ambiguous naming resolution](https://social.technet.microsoft.com/wiki/contents/articles/22653.active-directory-ambiguous-name-resolution.aspx):
 
@@ -39,7 +39,7 @@ if ($user = User::findByAnr('John Doe')) {
 }
 ```
 
-#### `findByAnrOrFail`
+### `findByAnrOrFail`
 
 Find the first matching model by [ambiguous naming resolution](https://social.technet.microsoft.com/wiki/contents/articles/22653.active-directory-ambiguous-name-resolution.aspx) **or fail**:
 
@@ -57,7 +57,7 @@ try {
 }
 ```
 
-#### `findByGuid`
+### `findByGuid`
 
 Find a model by its string GUID:
 
@@ -73,7 +73,7 @@ if ($user = User::findByGuid($guid)) {
 }
 ```
 
-#### `findByGuidOrFail`
+### `findByGuidOrFail`
 
 Find a model by its string GUID **or fail**:
 
@@ -89,7 +89,7 @@ try {
 }
 ```
 
-#### `findManyByAnr`
+### `findManyByAnr`
 
 Find multiple models using [ambiguous naming resolution](https://social.technet.microsoft.com/wiki/contents/articles/22653.active-directory-ambiguous-name-resolution.aspx) **or fail**:.
 
@@ -99,7 +99,7 @@ use LdapRecord\Models\ActiveDirectory\User;
 $users = User::findManyByAnr(['Jane', 'John', 'Jack', 'Josh']);
 ```
 
-#### `removedScopes`
+### `removedScopes`
 
 Get an array of global scopes that were removed from the model query:
 
@@ -111,7 +111,7 @@ $scopes = User::query()->withoutGlobalScope(
 )->removedScopes();
 ```
 
-#### `withGlobalScope`
+### `withGlobalScope`
 
 Apply a new global scope on the model query:
 
@@ -129,7 +129,7 @@ $users = User::withGlobalScope(
 )->get();
 ```
 
-#### `withoutGlobalScope`
+### `withoutGlobalScope`
 
 Query a model without a registered global scope:
 
@@ -139,7 +139,7 @@ use LdapRecord\Models\ActiveDirectory\User;
 $users = User::withoutGlobalScope(Accountants::class)->get();
 ```
 
-#### `withoutGlobalScopes`
+### `withoutGlobalScopes`
 
 Query a model without all registered global scopes:
 

@@ -7,7 +7,7 @@ export const metadata = {
 
 ## Method Listing
 
-#### `addAttributeValue`
+### `addAttributeValue`
 
 Add a value into an array of attribute values:
 
@@ -24,7 +24,7 @@ $model->addAttributeValue('proxyaddresses', 'smtp:sbauman@local.com');
 var_dump($model->proxyaddresses);
 ```
 
-#### `addHidden`
+### `addHidden`
 
 Add an attribute to hide when encoding a model using `json_encode`:
 
@@ -37,7 +37,7 @@ $model->addHidden(['userpassword', 'mail']);
 $attributes = json_encode($model);
 ```
 
-#### `addModification`
+### `addModification`
 
 Add a batch modification to the model to be executed upon `save()`:
 
@@ -63,7 +63,7 @@ $model->addModification($mod);
 $model->save();
 ```
 
-#### `addVisible`
+### `addVisible`
 
 Add an attribute to include that is being hidden when encoding a model using `json_encode`:
 
@@ -73,7 +73,7 @@ $model->addVisible('userpassword');
 $model->addVisible(['userpassword', 'mail']);
 ```
 
-#### `ancestors`
+### `ancestors`
 
 Begin querying the direct ancestors of the model:
 
@@ -81,7 +81,7 @@ Begin querying the direct ancestors of the model:
 $ancestors = $model->ancestors()->get();
 ```
 
-#### `asDateTime`
+### `asDateTime`
 
 Convert an LDAP timestamp to a `Carbon\Carbon` instance:
 
@@ -93,7 +93,7 @@ $carbon = $model->asDateTime('20200508184533.0Z', 'windows');
 $carbon = $model->asDateTime(132334371140000000, 'windows-int');
 ```
 
-#### `attributesToArray`
+### `attributesToArray`
 
 Convert all the models attributes to their JSON encodable value:
 
@@ -105,7 +105,7 @@ $attributes = $model->attributesToArray();
 LDAP date attributes specified via the `$dates` model property will be converted in the returned array.
 </Important>
 
-#### `convert`
+### `convert`
 
 Convert a model into another by copying its attributes, connection and distinguished name:
 
@@ -120,7 +120,7 @@ $into = new \LdapRecord\Models\ActiveDirectory\User();
 $user = $model->convert($into);
 ```
 
-#### `countAttributes`
+### `countAttributes`
 
 Get the total number of attributes on a model:
 
@@ -138,7 +138,7 @@ $model->fill([
 $model->countAttributes();
 ```
 
-#### `createAttribute`
+### `createAttribute`
 
 Immediately inserts a new attribute value on the model.
 
@@ -152,7 +152,7 @@ This does not create attributes that do not exist on your LDAP schema for the ob
 $model->createAttribute('telephonenumber', '+1 555 555 1717');
 ```
 
-#### `delete`
+### `delete`
 
 Immediately delete an existing model instance:
 
@@ -169,7 +169,7 @@ To delete nested objects contained in the model recursively, pass in `true`:
 $model->delete($recursive = true);
 ```
 
-#### `deleteAttribute`
+### `deleteAttribute`
 
 Immediately delete an attribute on a model.
 
@@ -181,7 +181,7 @@ $model->deleteAttribute('telephonenumber');
 $model->telephonenumber; // Returns null
 ```
 
-#### `descendants`
+### `descendants`
 
 Begin querying the direct descendants of the model:
 
@@ -189,7 +189,7 @@ Begin querying the direct descendants of the model:
 $descendants = $model->descendants()->get();
 ```
 
-#### `escape`
+### `escape`
 
 Prepare a value to be escaped:
 
@@ -201,7 +201,7 @@ $escapedValue = $model->escape($value, $ignore = '', $flags = 0);
 $escapedValue = (string) $model->escape($value, $ignore = '', $flags = 0);
 ```
 
-#### `fill`
+### `fill`
 
 Fill a model with attributes and values:
 
@@ -214,7 +214,7 @@ $model->fill([
 $model->save();
 ```
 
-#### `fresh`
+### `fresh`
 
 Get a fresh **new** instance of the existing model.
 
@@ -224,7 +224,7 @@ The model will be re-retrieved from the LDAP directory. The existing model will 
 $fresh = $model->fresh();
 ```
 
-#### `fromDateTime`
+### `fromDateTime`
 
 Convert a `DateTime`, `Carbon` or `string` to the specified LDAP timestamp type:
 
@@ -238,7 +238,7 @@ $windowsTimestamp = $model->fromDateTime('windows', $date);
 $windowsIntTimestamp = $model->fromDateTime('windows-int', $date);
 ```
 
-#### `getAnrAttributes`
+### `getAnrAttributes`
 
 Get an array of ANR attributes defined on the model:
 
@@ -258,7 +258,7 @@ $attributes = $model->getAnrAttributes();
 var_dump($attributes);
 ```
 
-#### `getAppends`
+### `getAppends`
 
 Get the accessors being appended to the models array form:
 
@@ -272,7 +272,7 @@ $model->setAppends(['foo-bar']);
 var_dump($model->getAppends());
 ```
 
-#### `getAttribute`
+### `getAttribute`
 
 Get the value of the specified attribute.
 
@@ -295,11 +295,11 @@ $value = $model->getAttribute('cn')[0];
 $null = $model->getAttribute('non-existent');
 ```
 
-#### `getAttributeValue`
+### `getAttributeValue`
 
 Performs the same as above.
 
-#### `getAttributes`
+### `getAttributes`
 
 Get all the models raw attributes:
 
@@ -315,7 +315,7 @@ foreach ($attributes as $attribute => $values) {
 }
 ```
 
-#### `getConnection`
+### `getConnection`
 
 Resolve the underlying `LdapRecord\Connection`:
 
@@ -325,7 +325,7 @@ $connection = $model->getConnection();
 $config = $connection->getConfiguration();
 ```
 
-#### `getConnectionName`
+### `getConnectionName`
 
 Get the connection name from the model:
 
@@ -343,7 +343,7 @@ class Entry extends Model
 $connectionName = (new Entry)->getConnectionName();
 ```
 
-#### `getConvertedGuid`
+### `getConvertedGuid`
 
 Get the models string GUID:
 
@@ -352,7 +352,7 @@ Get the models string GUID:
 $guid = $model->getConvertedGuid();
 ```
 
-#### `getCreatableDn`
+### `getCreatableDn`
 
 Get the models creatable Distinguished Name:
 
@@ -368,7 +368,7 @@ $model->cn = 'Jane Doe';
 $creatableDn = $model->getCreatableDn();
 ```
 
-#### `getCreatableRdn`
+### `getCreatableRdn`
 
 Get the models creatable relative Distinguished Name:
 
@@ -384,7 +384,7 @@ $model->cn = 'Jane Doe';
 $creatableDn = $model->getCreatableRdn();
 ```
 
-#### `getDateFormat`
+### `getDateFormat`
 
 Get the format that dates are serialized to:
 
@@ -393,7 +393,7 @@ Get the format that dates are serialized to:
 $model->getDateFormat();
 ```
 
-#### `getDates`
+### `getDates`
 
 Get an array of attributes that should be mutated to dates:
 
@@ -408,7 +408,7 @@ $dates = $model->getDates();
 var_dump($dates);
 ```
 
-#### `getDirty`
+### `getDirty`
 
 Get the attributes that have been changed:
 
@@ -424,7 +424,7 @@ foreach ($model->getDirty() as $attribute => $values) {
 }
 ```
 
-#### `getDn`
+### `getDn`
 
 Get the models Distinguished Name:
 
@@ -433,7 +433,7 @@ Get the models Distinguished Name:
 echo $model->getDn();
 ```
 
-#### `getFirstAttribute`
+### `getFirstAttribute`
 
 Get the first value of an attribute:
 
@@ -444,7 +444,7 @@ $model->proxyaddresses = ['first', 'second'];
 $value = $model->getFirstAttribute('proxyaddresses');
 ```
 
-#### `getGlobalScopes`
+### `getGlobalScopes`
 
 Get the global scopes set on the model:
 
@@ -457,7 +457,7 @@ Model::addGlobalScope('my-scope', function () {
 $scopes = $model->getGlobalScopes();
 ```
 
-#### `getGuidKey`
+### `getGuidKey`
 
 Get the attribute key that contains the objects GUID:
 
@@ -466,7 +466,7 @@ Get the attribute key that contains the objects GUID:
 $model->getGuidKey();
 ```
 
-#### `getHidden`
+### `getHidden`
 
 Get the hidden attributes for the model:
 
@@ -477,7 +477,7 @@ $model->addHidden('cn');
 $model->getHidden();
 ```
 
-#### `getModifications`
+### `getModifications`
 
 Get the models batch modifications to be processed:
 
@@ -495,7 +495,7 @@ $model->cn = 'Changed';
 $mods = $model->getModifications();
 ```
 
-#### `getName`
+### `getName`
 
 Get the name of a model:
 
@@ -506,7 +506,7 @@ $model->setDn('cn=John Doe,dc=local,dc=com');
 $name = $model->getName();
 ```
 
-#### `getObjectGuid`
+### `getObjectGuid`
 
 Get the raw binary object GUID:
 
@@ -519,7 +519,7 @@ Get the raw binary object GUID:
 $rawBinary = $model->getObjectGuid();
 ```
 
-#### `getOriginal`
+### `getOriginal`
 
 Get the original, un-modified attributes on a model:
 
@@ -536,7 +536,7 @@ $model->cn = 'Changed';
 $model->getOriginal();
 ```
 
-#### `getParentDn`
+### `getParentDn`
 
 Get the direct parent Distinguished Name of a model:
 
@@ -550,7 +550,7 @@ $model->getParentDn();
 $model->getParentDn('cn=Steve Bauman,ou=Users,dc=local,dc=com');
 ```
 
-#### `getRdn`
+### `getRdn`
 
 Get the models Relative Distinguished Name:
 
@@ -564,7 +564,7 @@ $model->getRdn();
 $model->getRdn('cn=Steve Bauman,ou=Users,dc=local,dc=com');
 ```
 
-#### `getVisible`
+### `getVisible`
 
 Get the attributes that should be visible when encoding a model using `json_encode`:
 
@@ -575,7 +575,7 @@ $model->addVisible('cn', 'sn');
 $visibleAttributes = $model->getVisible();
 ```
 
-#### `hasAppended`
+### `hasAppended`
 
 Determine if the model has an accessor attribute being appended:
 
@@ -586,7 +586,7 @@ $model->setAppends(['foo-bar']);
 $model->hasAppended('foo-bar');
 ```
 
-#### `hasAttribute`
+### `hasAttribute`
 
 Determine if the model has an attribute with a value:
 
@@ -600,7 +600,7 @@ $model->hasAttribute('cn');
 $model->hasAttribute('non-existent');
 ```
 
-#### `hasGetMutator`
+### `hasGetMutator`
 
 Determine if the model has a 'get' mutator for the given attribute:
 
@@ -619,7 +619,7 @@ $model = new Entry();
 $model->hasGetMutator('cn');
 ```
 
-#### `hasSetMutator`
+### `hasSetMutator`
 
 Determine if the model has a 'set' mutator for the given attribute:
 
@@ -638,7 +638,7 @@ $model = new Entry();
 $model->hasSetAttribute('cn');
 ```
 
-#### `inside`
+### `inside`
 
 Set the container that the model should be **created** inside:
 
@@ -657,7 +657,7 @@ $model->inside('ou=Container,dc=local,dc=com');
 $model->save();
 ```
 
-#### `is`
+### `is`
 
 Determine if a model is the same by comparing their Distinguished Names and connections:
 
@@ -666,7 +666,7 @@ Determine if a model is the same by comparing their Distinguished Names and conn
 $model->is($another);
 ```
 
-#### `isAncestorOf`
+### `isAncestorOf`
 
 Determine if a model is an ancestor of another:
 
@@ -678,7 +678,7 @@ $ou = OrganizationalUnit::find('ou=Accounts,dc=local,dc=com');
 $ou->isAncestorOf($user);
 ```
 
-#### `isChildOf`
+### `isChildOf`
 
 Determine if a model is an **immediate** child of another:
 
@@ -690,7 +690,7 @@ $user = User::find('cn=John Doe,ou=Accounts,dc=local,dc=com');
 $user->isChildOf($ou);
 ```
 
-#### `isDateAttribute`
+### `isDateAttribute`
 
 Determine if given attribute is a date attribute on the model:
 
@@ -706,7 +706,7 @@ $model = new Entry();
 $model->isDateAttribute('whenchanged');
 ```
 
-#### `isDescendantOf`
+### `isDescendantOf`
 
 Determine if a model is a descendent of another:
 
@@ -718,7 +718,7 @@ $user = User::find('cn=John Doe,ou=Accounting,ou=Accounts,dc=local,dc=com');
 $user->isDescendantOf($ou);
 ```
 
-#### `isDirty`
+### `isDirty`
 
 Determine if the given attribute has been changed:
 
@@ -734,7 +734,7 @@ $model->cn = 'Changed';
 $model->isDirty('cn');
 ```
 
-#### `isParentOf`
+### `isParentOf`
 
 Determine if a model is an **immediate** parent of another:
 
@@ -746,7 +746,7 @@ $user = User::find('cn=John Doe,ou=Accounts,dc=local,dc=com');
 $ou->isParentOf($user);
 ```
 
-#### `makeHidden`
+### `makeHidden`
 
 Make the given, typically visible, attributes hidden on the model:
 
@@ -760,7 +760,7 @@ class Entry extends Model
 $model->makeHidden('cn');
 ```
 
-#### `makeVisible`
+### `makeVisible`
 
 Make the given, typically hidden, attributes visible on the model:
 
@@ -774,7 +774,7 @@ class Entry extends Model
 $model->makeVisible('cn');
 ```
 
-#### `move`
+### `move`
 
 Move a model into the specified container:
 
@@ -789,7 +789,7 @@ $user->move($ou);
 $user->getDn();
 ```
 
-#### `newBatchModification`
+### `newBatchModification`
 
 Create a new `LdapRecord\Models\BatchModification` instance:
 
@@ -800,7 +800,7 @@ $mod = $model->newBatchModification(
 );
 ```
 
-#### `newCollection`
+### `newCollection`
 
 Create a new `Tightenco\Collect\Support\Collection`:
 
@@ -808,7 +808,7 @@ Create a new `Tightenco\Collect\Support\Collection`:
 $collection = $model->newCollection($items = []);
 ```
 
-#### `newInstance`
+### `newInstance`
 
 Create a **new** model instance:
 
@@ -818,7 +818,7 @@ $model = Model::findByAnr('sbauman');
 $new = $model->newInstance();
 ```
 
-#### `newQuery`
+### `newQuery`
 
 Create a **new** model query:
 
@@ -830,7 +830,7 @@ Global scopes and object classes **will be applied** to this query.
 $results = $model->newQuery()->where('cn', 'contains', 'Steve')->get();
 ```
 
-#### `newQueryWithoutScopes`
+### `newQueryWithoutScopes`
 
 Create a new model query **without** global scopes:
 
@@ -842,7 +842,7 @@ Global scopes and object classes **will not be applied** to this query.
 $results = $model->newQueryWithoutScopes()->get();
 ```
 
-#### `refresh`
+### `refresh`
 
 Refresh a models attributes by re-retrieving them from your LDAP directory.
 
@@ -852,7 +852,7 @@ This will affect the current model instance:
 $model->refresh();
 ```
 
-#### `rename`
+### `rename`
 
 Rename a model and keep it's container location:
 
@@ -871,7 +871,7 @@ $user->rename('Jane Doe');
 $user->getDn();
 ```
 
-#### `save`
+### `save`
 
 Persist the new or existing model to the directory:
 
@@ -895,7 +895,7 @@ You may also pass an array of attributes to persist to your LDAP directory:
 $model->save(['cn' => 'Steve Bauman']);
 ```
 
-#### `setAppends`
+### `setAppends`
 
 Set the accessors to append to model arrays:
 
@@ -909,7 +909,7 @@ $model->setAppends(['foo-bar']);
 var_dump($model->getAppends());
 ```
 
-#### `setAttribute`
+### `setAttribute`
 
 Set the value of an existing or non-existing attribute:
 
@@ -919,7 +919,7 @@ $model->setAttribute('attribute', 'value');
 $model->setAttribute('attribute', ['foo', 'bar']);
 ```
 
-#### `setConnection`
+### `setConnection`
 
 Set the name of the connection for the model to use:
 
@@ -934,7 +934,7 @@ $model->setConnection('domain-b');
 $model->save();
 ```
 
-#### `setDateFormat`
+### `setDateFormat`
 
 Set the date format to use when serializing LDAP dates:
 
@@ -946,7 +946,7 @@ $model->setDateFormat('Y-m-d H:i');
 $attributes = json_encode($model);
 ```
 
-#### `setDn`
+### `setDn`
 
 Set the Distinguished Name of the model to be created with:
 
@@ -958,7 +958,7 @@ $model->setDn('cn=John Doe,dc=local,dc=com');
 $model->save();
 ```
 
-#### `setFirstAttribute`
+### `setFirstAttribute`
 
 Set the first value of an existing or non-existing attribute:
 
@@ -976,7 +976,7 @@ $model->proxyaddresses = ['foo', 'bar'];
 $model->setFirstAttribute('proxyaddresses', ['baz']);
 ```
 
-#### `setHidden`
+### `setHidden`
 
 Clear defined hidden attributes and set the attributes
 that should be hidden during serialization:
@@ -988,7 +988,7 @@ $model->setHidden(['cn', 'sn']);
 $attributes = json_encode($model);
 ```
 
-#### `setModifications`
+### `setModifications`
 
 Set the models batch modifications to be processed upon save:
 
@@ -1006,7 +1006,7 @@ $model->setModifications($mods);
 $model->save();
 ```
 
-#### `setVisible`
+### `setVisible`
 
 Clear defined visible attributes and set the attributes
 that should be visible during serialization:
@@ -1018,7 +1018,7 @@ $model->setVisible(['cn', 'sn']);
 $attributes = json_encode($model);
 ```
 
-#### `siblings`
+### `siblings`
 
 Create a new query to retrieve a models siblings:
 
@@ -1030,7 +1030,7 @@ The existing model instance will be included in the query results.
 $siblings = $model->siblings()->get();
 ```
 
-#### `update`
+### `update`
 
 Persist the changes of a model to the LDAP directory.
 
@@ -1052,7 +1052,7 @@ You may also provide an array of attributes to persist to your LDAP directory:
 $model->update(['cn' => 'John Doe']);
 ```
 
-#### `updateAttribute`
+### `updateAttribute`
 
 Immediately updates an attribute value on the model.
 
