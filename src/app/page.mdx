@@ -1,5 +1,6 @@
 import { Button } from '@/components/Button';
 import { HeroPattern } from '@/components/HeroPattern';
+import { SponsorPlaceholder } from '@/components/SponsorPlaceholder';
 
 export const metadata = {
     title: 'LdapRecord Documentation',
@@ -10,6 +11,7 @@ export const metadata = {
 export const sections = [
     { title: 'Features', id: 'features' },
     { title: 'Packages', id: 'packages' },
+    { title: 'Featured Sponsors', id: 'featured-sponsors' },
     { title: 'Support', id: 'support' },
 ];
 
@@ -89,6 +91,18 @@ A fully-featured Active Record ORM that makes working with LDAP directories a br
     </div>
 </div>
 
+## Featured Sponsors {{ id: 'featured-sponsors' }}
+
+LdapRecord is made possible by the generous support of our sponsors. Their contributions help us maintain and improve this open-source project.
+
+<div className="not-prose mt-8">
+    <div className="flex justify-center gap-6">
+        <SponsorPlaceholder />
+        <SponsorPlaceholder faded />
+    </div>
+</div>
+
+
 ## Packages {{ id: 'packages' }}
 
 Choose the package that best fits your needs. If you're building a Laravel application, start with LdapRecord-Laravel. For other PHP frameworks or standalone applications, use the core LdapRecord package.
@@ -132,8 +146,8 @@ Choose the package that best fits your needs. If you're building a Laravel appli
 
 </div>
 
-## Support
+## Support {{ id: 'support' }}
 
-If you require support or assistance getting set up, consider becoming a [sponsor](https://github.com/sponsors/stevebauman) to receive issue priority so you get up and running as fast as possible.
+If you require support or assistance getting set up, consider becoming a [sponsor](https://github.com/DirectoryTree/LdapRecord?sponsor=1) to receive issue priority so you get up and running as fast as possible.
 
 If you encounter issues or need help, feel free to [create an issue](https://github.com/DirectoryTree/LdapRecord/issues/new) and we'll be happy to help you out.

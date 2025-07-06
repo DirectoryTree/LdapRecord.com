@@ -47,7 +47,7 @@ $connection = new Connection([
 ]);
 ```
 
-### Hosts
+## Hosts
 
 The hosts option is an array of IP addresses or host names located on your network that serve an LDAP directory.
 
@@ -65,7 +65,7 @@ This automated fail-over process will continue for each host address, until a su
 - Do not prepend your protocol (`ldap://` or `ldaps://`) to your hosts. <br/> Use the `use_ssl` configuration option instead.
 </Important>
 
-### Base Distinguished Name
+## Base Distinguished Name
 
 A 'Distinguished Name' is a string based identifier in LDAP that is used to indicate hierarchy.
 
@@ -94,7 +94,7 @@ as the root. This would allow all objects _below_ it to be retrieved from result
 - Your base DN is **case-insensitive**. You do not need to worry about incorrect casing.
 </Important>
 
-### Username & Password
+## Username & Password
 
 To connect to your LDAP server, you must provide a username and password to be able to query and run operations on your server(s).
 
@@ -106,7 +106,7 @@ To connect to your LDAP server, you must provide a username and password to be a
 - To run administration level operations, such as resetting passwords, this account **must** have the permissions to do so on your directory.
 </Important>
 
-### Port
+## Port
 
 The port option is used for opening a connection and binding to your LDAP server.
 
@@ -119,7 +119,7 @@ Only insert a port if your LDAP server uses a unique port.
 - If enabling TLS, you must use the default port for your LDAP server (`389`). SSL ports cannot be used.
 </Important>
 
-### SSL & TLS
+## SSL & TLS
 
 These boolean options enable an TLS or SSL connection to your LDAP server:
 
@@ -139,7 +139,7 @@ It is recommended to use _one_ of these options if you have the ability to. This
 - **TLS is recommended over SSL**. SSL is labelled as a deprecated mechanism for securely running LDAP operations.
 </Important>
 
-### SASL
+## SASL
 
 This boolean option enables connecting to your LDAP server using SASL (Simple Authentication and Security Layer) via `ldap_sasl_bind`:
 
@@ -152,7 +152,7 @@ $config = [
 
 SASL allows you to authenticate a user with various mechanisms, such as `DIGEST-MD5`, `CRAM-MD5`, `GSSAPI`, etc.
 
-#### SASL Options
+### SASL Options
 
 **`mech`** (string): This specifies the SASL mechanism to use for authentication. Common 
 mechanisms include `DIGEST-MD5`, `CRAM-MD5`, and `GSSAPI`. If not specified, the server 
@@ -234,7 +234,7 @@ $config = [
 ];
 ```
 
-#### Debugging
+### Debugging
 
 If you're having connectivity issues over SSL or TLS, you may have to
 create an `ldap.conf` file and add the following inside:
@@ -291,7 +291,7 @@ TLS_CACERT /etc/ssl/certs/ca.pem
 TLS_REQCERT hard
 ```
 
-### Timeout
+## Timeout
 
 The timeout option allows you to configure the amount of seconds to wait
 until your application receives a response from your LDAP server.
@@ -308,7 +308,7 @@ them do not respond (or fail), the operation will take ten (10) seconds +
 the amount of time the third (3rd) host takes to respond.
 </Important>
 
-### Version
+## Version
 
 The LDAP version to use for your connection.
 
@@ -318,7 +318,7 @@ Must be an integer, and can either be two (`2`) or three (`3`).
 It's heavily recommended to use version three (`3`). You may experience issues using version two (`2`).
 </Important>
 
-### Follow Referrals
+## Follow Referrals
 
 The follow referrals option is a boolean to tell Active Directory to
 follow a referral to another server on your network if the server
@@ -333,7 +333,7 @@ Disable this option if you're experiencing search / connectivity issues.
 For more information, visit: [Microsoft Docs - LDAP Referrals](https://technet.microsoft.com/en-us/library/cc978014.aspx)
 </Important>
 
-### Options
+## Options
 
 Arbitrary options can be set for the connection to fine-tune TLS and connection behavior.
 

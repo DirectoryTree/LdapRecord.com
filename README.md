@@ -99,7 +99,7 @@ This documentation site is built with modern web technologies:
 - **[LdapRecord-Laravel Repository](https://github.com/DirectoryTree/LdapRecord-Laravel)**
 - **[Documentation Website](https://ldaprecord.com)**
 - **[Issue Tracker](https://github.com/DirectoryTree/LdapRecord/issues)**
-- **[Sponsor the Project](https://github.com/sponsors/stevebauman)**
+- **[Sponsor the Project](https://github.com/DirectoryTree/LdapRecord?sponsor=1)**
 
 ## License
 
