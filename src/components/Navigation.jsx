@@ -4,14 +4,14 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { AnimatePresence, motion, useIsPresent } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { Tag } from '@/components/Tag';
 import { remToPx } from '@/lib/remToPx';
 import { Button } from '@/components/Button';
 import { CloseButton } from '@headlessui/react';
 import { getNavigation } from '@/lib/navigation';
-import { useSectionStore } from '@/components/SectionProvider';
+
 import { useIsInsideMobileNavigation } from '@/components/MobileNavigation';
 import {
     VersionSelector,
@@ -68,41 +68,7 @@ function NavLink({
     );
 }
 
-function VisibleSectionHighlight({ group, pathname }) {
-    let [sections, visibleSections] = useInitialValue(
-        [
-            useSectionStore((s) => s.sections),
-            useSectionStore((s) => s.visibleSections),
-        ],
-        useIsInsideMobileNavigation(),
-    );
 
-    let isPresent = useIsPresent();
-    let firstVisibleSectionIndex = Math.max(
-        0,
-        [{ id: '_top' }, ...sections].findIndex(
-            (section) => section.id === visibleSections[0],
-        ),
-    );
-    let itemHeight = remToPx(2);
-    let height = isPresent
-        ? Math.max(1, visibleSections.length) * itemHeight
-        : itemHeight;
-    let top =
-        group.links.findIndex((link) => link.href === pathname) * itemHeight +
-        firstVisibleSectionIndex * itemHeight;
-
-    return (
-        <motion.div
-            layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { delay: 0.2 } }}
-            exit={{ opacity: 0 }}
-            className="absolute inset-x-0 top-0 bg-zinc-800/2.5 will-change-transform dark:bg-white/2.5"
-            style={{ borderRadius: 8, height, top }}
-        />
-    );
-}
 
 function ActivePageMarker({ group, pathname }) {
     let itemHeight = remToPx(2);
@@ -129,10 +95,7 @@ function NavigationGroup({ group, className }) {
     // state, so that the state does not change during the close animation.
     // The state will still update when we re-open (re-render) the navigation.
     let isInsideMobileNavigation = useIsInsideMobileNavigation();
-    let [pathname, sections] = useInitialValue(
-        [usePathname(), useSectionStore((s) => s.sections)],
-        isInsideMobileNavigation,
-    );
+    let pathname = useInitialValue(usePathname(), isInsideMobileNavigation);
 
     let isActiveGroup =
         group.links.findIndex((link) => link.href === pathname) !== -1;
@@ -147,15 +110,6 @@ function NavigationGroup({ group, className }) {
             </motion.h2>
 
             <div className="relative mt-3 pl-2">
-                <AnimatePresence initial={!isInsideMobileNavigation}>
-                    {isActiveGroup && (
-                        <VisibleSectionHighlight
-                            group={group}
-                            pathname={pathname}
-                        />
-                    )}
-                </AnimatePresence>
-
                 <motion.div
                     layout
                     className="absolute inset-y-0 left-2 w-px bg-zinc-900/10 dark:bg-white/5"
@@ -180,36 +134,6 @@ function NavigationGroup({ group, className }) {
                             >
                                 {link.title}
                             </NavLink>
-
-                            <AnimatePresence mode="popLayout" initial={false}>
-                                {link.href === pathname &&
-                                    sections.length > 0 && (
-                                        <motion.ul
-                                            role="list"
-                                            initial={{ opacity: 0 }}
-                                            animate={{
-                                                opacity: 1,
-                                                transition: { delay: 0.1 },
-                                            }}
-                                            exit={{
-                                                opacity: 0,
-                                                transition: { duration: 0.15 },
-                                            }}
-                                        >
-                                            {sections.map((section) => (
-                                                <li key={section.id}>
-                                                    <NavLink
-                                                        href={`${link.href}#${section.id}`}
-                                                        tag={section.tag}
-                                                        isAnchorLink
-                                                    >
-                                                        {section.title}
-                                                    </NavLink>
-                                                </li>
-                                            ))}
-                                        </motion.ul>
-                                    )}
-                            </AnimatePresence>
                         </motion.li>
                     ))}
                 </ul>
