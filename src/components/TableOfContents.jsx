@@ -93,7 +93,7 @@ export function TableOfContents() {
                             target="_blank"
                             className="block text-center w-full"
                             subtitle="Sponsor this project"
-                            href="https://github.com/sponsors/stevebauman"
+                            href="https://github.com/DirectoryTree/LdapRecord?sponsor=1"
                         />
                     </div>
                 </div>

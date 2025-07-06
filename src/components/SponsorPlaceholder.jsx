@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 
 export function SponsorPlaceholder({
-    href = "https://github.com/sponsors/stevebauman",
+    href = "https://github.com/DirectoryTree/LdapRecord?sponsor=1",
     className,
     faded = false,
     children = "Your Logo Here",
