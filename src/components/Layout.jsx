@@ -10,6 +10,7 @@ import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { Navigation } from '@/components/Navigation';
 import { SectionProvider } from '@/components/SectionProvider';
+import { TableOfContents } from '@/components/TableOfContents';
 import {
     VersionSelector,
     parsePackageAndVersion,
@@ -115,8 +116,13 @@ export function Layout({ children, allSections }) {
                 </motion.header>
 
                 <div className={`relative flex h-full flex-col px-4 sm:px-6 lg:px-8 ${isHomePage ? 'pt-0' : 'pt-14'}`}>
-                    <main className="flex-auto">{children}</main>
-                    <Footer />
+                    <div className="mx-auto flex w-full max-w-8xl flex-auto justify-center sm:px-2 lg:px-8 xl:px-12">
+                        <div className="min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-none lg:pl-8 lg:pr-0 xl:px-16">
+                            <main className="flex-auto">{children}</main>
+                            <Footer />
+                        </div>
+                        {isDocsPage && <TableOfContents />}
+                    </div>
                 </div>
             </div>
         </SectionProvider>
