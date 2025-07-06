@@ -104,5 +104,3 @@ This documentation site is built with modern web technologies:
 ## License
 
 The LdapRecord packages are open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-This documentation website is built using the Protocol template from [Tailwind Plus](https://tailwindcss.com/plus).
