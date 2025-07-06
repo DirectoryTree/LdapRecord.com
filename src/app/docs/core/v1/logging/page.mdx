@@ -44,79 +44,79 @@ try {
 
 After enabling LdapRecord logging, the following events are logged:
 
-### `LdapRecord\Auth\Events\Attempting`
+#### `LdapRecord\Auth\Events\Attempting`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: LdapRecord\Auth\Events\Attempting - Username: CN=Steve Bauman,OU=Users,DC=local,DC=com
 ```
 
-### `LdapRecord\Auth\Events\Binding`
+#### `LdapRecord\Auth\Events\Binding`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: LdapRecord\Auth\Events\Binding - Username: CN=Steve Bauman,OU=Users,DC=local,DC=com
 ```
 
-### `LdapRecord\Auth\Events\Bound`
+#### `LdapRecord\Auth\Events\Bound`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: LdapRecord\Auth\Events\Bound - Username: CN=Steve Bauman,OU=Users,DC=local,DC=com
 ```
 
-### `LdapRecord\Auth\Events\Passed`
+#### `LdapRecord\Auth\Events\Passed`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: LdapRecord\Auth\Events\Passed - Username: CN=Steve Bauman,OU=Users,DC=local,DC=com
 ```
 
-### `LdapRecord\Auth\Events\Failed`
+#### `LdapRecord\Auth\Events\Failed`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: LdapRecord\Auth\Events\Failed - Username: CN=Steve Bauman,OU=Users,DC=local,DC=com - Result: Invalid Credentials
 ```
 
-### `LdapRecord\Models\Events\Saving`
+#### `LdapRecord\Models\Events\Saving`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: Saving - On: LdapRecord\Models\Entry - Distinguished Name: cn=John Doe,DC=local,DC=com
 ```
 
-### `LdapRecord\Models\Events\Saved`
+#### `LdapRecord\Models\Events\Saved`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: Saved - On: LdapRecord\Models\Entry - Distinguished Name: cn=John Doe,DC=local,DC=com
 ```
 
-### `LdapRecord\Models\Events\Creating`
+#### `LdapRecord\Models\Events\Creating`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: Creating - On: LdapRecord\Models\Entry - Distinguished Name: cn=John Doe,DC=local,DC=com
 ```
 
-### `LdapRecord\Models\Events\Created`
+#### `LdapRecord\Models\Events\Created`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: Created - On: LdapRecord\Models\Entry - Distinguished Name: cn=John Doe,DC=local,DC=com
 ```
 
-### `LdapRecord\Models\Events\Updating`
+#### `LdapRecord\Models\Events\Updating`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: Updating - On: LdapRecord\Models\Entry - Distinguished Name: cn=John Doe,DC=local,DC=com
 ```
 
-### `LdapRecord\Models\Events\Updated`
+#### `LdapRecord\Models\Events\Updated`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: Updated - On: LdapRecord\Models\Entry - Distinguished Name: cn=John Doe,DC=local,DC=com
 ```
 
-### `LdapRecord\Models\Events\Deleting`
+#### `LdapRecord\Models\Events\Deleting`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: Deleting - On: LdapRecord\Models\Entry - Distinguished Name: cn=John Doe,DC=local,DC=com
 ```
 
-### `LdapRecord\Models\Events\Deleted`
+#### `LdapRecord\Models\Events\Deleted`
 
 ```text
 LDAP (ldap://192.168.1.1:389) - Operation: Deleted - On: LdapRecord\Models\Entry - Distinguished Name: cn=John Doe,DC=local,DC=com

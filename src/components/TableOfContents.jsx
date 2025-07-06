@@ -53,7 +53,7 @@ export function TableOfContents() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
-            className="hidden xl:sticky xl:top-[4.75rem] xl:block xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pl-8"
+            className="hidden xl:sticky xl:top-0 xl:block xl:h-screen xl:flex-none xl:overflow-y-auto xl:py-16 xl:pl-8"
         >
             <nav aria-labelledby="on-this-page-title" className="w-56">
                 <h2
@@ -62,6 +62,7 @@ export function TableOfContents() {
                 >
                     On this page
                 </h2>
+
                 <ol role="list" className="mt-4 space-y-2 text-sm">
                     {tocSections.map((section, index) => {
                         const prevSection = tocSections[index - 1];
