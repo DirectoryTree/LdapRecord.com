@@ -14,7 +14,7 @@ import {
 } from '@headlessui/react';
 
 // Package and version configuration
-const packages = {
+export const packages = {
     core: {
         name: 'LdapRecord Core',
         versions: [
