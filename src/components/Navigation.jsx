@@ -25,20 +25,6 @@ function useInitialValue(value, condition = true) {
     return condition ? initialValue : value;
 }
 
-function TopLevelNavItem({ href, children }) {
-    return (
-        <li className="md:hidden">
-            <CloseButton
-                as={Link}
-                href={href}
-                className="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-            >
-                {children}
-            </CloseButton>
-        </li>
-    );
-}
-
 function NavLink({
     href,
     children,
@@ -225,13 +211,6 @@ export function Navigation(props) {
     return (
         <nav {...props}>
             <ul role="list">
-                <TopLevelNavItem href="/">Home</TopLevelNavItem>
-                <TopLevelNavItem href="/docs/core/v4">
-                    Core Docs
-                </TopLevelNavItem>
-                <TopLevelNavItem href="/docs/laravel/v3">
-                    Laravel Docs
-                </TopLevelNavItem>
                 {isDocsPage && (
                     <li className="md:hidden">
                         <PackageSelector

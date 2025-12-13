@@ -12,11 +12,11 @@ Using the LdapRecord query builder makes building LDAP queries feel effortless.
 It allows you to generate LDAP filters using a fluent and
 convenient interface, similar to Eloquent in Laravel.
 
-<Important>
+<Note>
 The LdapRecord query builder escapes all fields & values
 given to its `where()` methods. There is no need to clean or
 escape strings before passing them into the query builder.
-</Important>
+</Note>
 
 ## Creating a new Query
 
@@ -32,18 +32,18 @@ Or you can chain all your methods if you'd prefer:
 $results = $connection->query()->where('cn', '=', 'John Doe')->get();
 ```
 
-<Important>
+<Note>
 Querying your LDAP connection manually will return raw LDAP results
 in an array. You must query using [models](/docs/core/v4/models#retrieving-models)
 themselves if you would like them to be returned instead.
-</Important>
+</Note>
 
 ## Selects
 
-<Important>
+<Note>
 Fields are case in-sensitive. For example, you can
 insert `CN`, `cn` or `cN`, they will return the same result.
-</Important>
+</Note>
 
 Selecting only the LDAP attributes you need will increase the speed of your queries.
 
