@@ -241,7 +241,7 @@ This method accepts the same parameters as the built in PHP
 $query = $connection->query();
 
 // Returns instance of:
-// LdapRecord\Models\Attributes\EscapedValue
+// LdapRecord\Query\EscapedValue
 $value = $query->escape('value', $ignore = '', $flags = 0);
 
 // Prepare the value to be escaped for use in a distinguished name:
@@ -433,38 +433,38 @@ $query->setDn('ou=Users,dc=local,dc=com');
 $base = $query->getDn();
 ```
 
-#### `getFilters`
+#### `getFilter`
 
-Get the filters that have been added to the query:
+Get the filter that has been added to the query:
 
 ```php
 $query = $connection->query();
 
 $query->where('company', '=', 'Acme');
 
-// array:3 [▼
-//   "and" => array:1 [▼
-//     0 => array:3 [▼
-//       "field" => "company"
-//       "operator" => "="
-//       "value" => LdapRecord\Models\Attributes\EscapedValue
-//     ]
-//   ]
-//   "or" => []
-//   "raw" => []
-// ]
-var_dump($query->getFilters());
+// Returns LdapRecord\Query\Filter\Equals or null:
+$filter = $query->getFilter();
+
+$filter->getAttribute(); // "company"
+$filter->getOperator(); // "="
+$filter->getValue(); // "Acme"
+(string) $filter; // "(company=Acme)"
 ```
 
-#### `getGrammar`
-
-Get the underlying query grammar instance:
+When multiple conditions are added, the filter will be a group filter:
 
 ```php
 $query = $connection->query();
 
-// Returns instance of LdapRecord\Query\Grammar:
-$grammar = $query->getGrammar();
+$query->where('company', '=', 'Acme')
+      ->where('department', '=', 'Sales');
+
+// Returns LdapRecord\Query\Filter\AndGroup:
+$filter = $query->getFilter();
+
+$filter->getOperator(); // "&"
+$filter->getFilters(); // [Equals, Equals]
+(string) $filter; // "(&(company=Acme)(department=Sales))"
 ```
 
 #### `getQuery`
@@ -1163,22 +1163,6 @@ $query = $connection->query();
 
 // Get all entries below the 'Users' OU:
 $query->setDn('ou=Users,dc=local,dc=com')->get();
-```
-
-#### `setGrammar`
-
-Set the underlying query `Grammar` instance:
-
-<Note>
-The given instance must extend the built-in `LdapRecord\Query\Grammar`.
-</Note>
-
-```php
-$query = $connection->query();
-
-$myGrammarInstance = new Grammar();
-
-$query->setGrammar($myGrammarInstance);
 ```
 
 #### `slice`

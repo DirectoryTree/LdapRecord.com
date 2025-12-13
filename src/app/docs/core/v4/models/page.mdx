@@ -8,7 +8,7 @@ export const metadata = {
 ## Introduction
 
 <Note>
-Before getting started, ensure you've added at least one connection to the [container](/docs/core/v3/connections#container).
+Before getting started, ensure you've added at least one connection to the [container](/docs/core/v4/connections#container).
 </Note>
 
 The LdapRecord ORM provides a beautiful and simple ActiveRecord implementation for working with your LDAP server.
@@ -110,7 +110,7 @@ Don't see a model for the LDAP server you're using? [Create a pull request!](htt
 ### Connections
 
 By default, all models you create will try to use your `default` LDAP connection that resides in the connection
-[container](/docs/core/v3/connections#container). To set your model to use an alternate connection,
+[container](/docs/core/v4/connections#container). To set your model to use an alternate connection,
 define a `$connection` property equal to the name of your other connection.
 
 ```php
@@ -277,7 +277,7 @@ $users = User::whereStartsWith('cn', 'John')
 
 <Note>
 Since models are query builders, it's a good idea to review the
-[query builder](/docs/core/v3/searching) methods so you can utilize
+[query builder](/docs/core/v4/searching) methods so you can utilize
 them to their full potential.
 </Note>
 
@@ -288,7 +288,7 @@ Models can be queried for inside organizational units by calling the `in` method
 You may pass a distinguished name, or a model instance:
 
 <Note>
-We're using [base DN substitution](/docs/core/v3/searching/#automatic-base-dn-substitution) 
+We're using [base DN substitution](/docs/core/v4/searching/#automatic-base-dn-substitution) 
 in the below example, to automatically swap the `{base}` placeholder with the 
 configured `base_dn` in the connection's configuration.
 </Note>
@@ -1027,7 +1027,7 @@ if ($userAccountsOu->isParentOf($officeOu)) {
 
 ## Events
 
-LdapRecord models fire several different [events](/docs/core/v3/events) during the creation,
+LdapRecord models fire several different [events](/docs/core/v4/events) during the creation,
 updating and deletion. Here is a list of all the events you can listen for:
 
 | Event                               |

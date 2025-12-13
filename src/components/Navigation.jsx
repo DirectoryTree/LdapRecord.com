@@ -291,7 +291,7 @@ export function Navigation(props) {
         <nav {...props}>
             <ul role="list">
                 <TopLevelNavItem href="/">Home</TopLevelNavItem>
-                <TopLevelNavItem href="/docs/core/v3">
+                <TopLevelNavItem href="/docs/core/v4">
                     Core Docs
                 </TopLevelNavItem>
                 <TopLevelNavItem href="/docs/laravel/v3">
