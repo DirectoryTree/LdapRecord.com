@@ -128,7 +128,9 @@ function CodePanelHeader({ tag, label }) {
 }
 
 function CodePanel({ children, tag, label, code }) {
-    let child = Children.only(children);
+    // Filter out non-element children (like whitespace text nodes)
+    let childArray = Children.toArray(children).filter(isValidElement);
+    let child = childArray.length === 1 ? childArray[0] : children;
 
     if (isValidElement(child)) {
         tag = child.props.tag ?? tag;
