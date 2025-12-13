@@ -14,11 +14,12 @@ import {
 } from '@headlessui/react';
 
 // Package and version configuration
-const packages = {
+export const packages = {
     core: {
         name: 'LdapRecord Core',
         versions: [
-            { id: 'v3', name: 'v3.0', description: 'Latest' },
+            { id: 'v4', name: 'v4.0', description: 'Latest' },
+            { id: 'v3', name: 'v3.0', description: 'Legacy' },
             { id: 'v2', name: 'v2.0', description: 'Legacy' },
             { id: 'v1', name: 'v1.0', description: 'Legacy' },
         ],
@@ -45,16 +46,16 @@ export function parsePackageAndVersion(pathname) {
         };
     }
 
-    // Default to core v3 for non-docs pages (like home page)
+    // Default to core v4 for non-docs pages (like home page)
     return {
         package: 'core',
-        version: 'v3',
+        version: 'v4',
     };
 }
 
 export const useVersionStore = create((set) => ({
     currentPackage: 'core',
-    currentVersion: 'v3',
+    currentVersion: 'v4',
     setPackageAndVersion: (pkg, version) =>
         set({ currentPackage: pkg, currentVersion: version }),
 }));

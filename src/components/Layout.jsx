@@ -14,6 +14,7 @@ import { TableOfContents } from '@/components/TableOfContents';
 import {
     VersionSelector,
     parsePackageAndVersion,
+    packages,
 } from '@/components/VersionSelector';
 
 // Package selector component for desktop
@@ -74,8 +75,18 @@ export function Layout({ children, allSections }) {
     const isHomePage = pathname === '/';
 
     const handlePackageChange = (newPackage) => {
-        // Navigate to the new package with the same version
-        router.push(`/docs/${newPackage}/${currentVersion}`);
+        // Check if the current version exists in the target package
+        const targetPackageVersions = packages[newPackage]?.versions || [];
+        const versionExists = targetPackageVersions.some(
+            (v) => v.id === currentVersion,
+        );
+
+        // Use current version if it exists, otherwise use the latest (first) version
+        const targetVersion = versionExists
+            ? currentVersion
+            : targetPackageVersions[0]?.id || 'v1';
+
+        router.push(`/docs/${newPackage}/${targetVersion}`);
     };
 
     return (

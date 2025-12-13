@@ -16,26 +16,13 @@ import { useIsInsideMobileNavigation } from '@/components/MobileNavigation';
 import {
     VersionSelector,
     parsePackageAndVersion,
+    packages,
 } from '@/components/VersionSelector';
 
 function useInitialValue(value, condition = true) {
     let initialValue = useRef(value).current;
 
     return condition ? initialValue : value;
-}
-
-function TopLevelNavItem({ href, children }) {
-    return (
-        <li className="md:hidden">
-            <CloseButton
-                as={Link}
-                href={href}
-                className="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-            >
-                {children}
-            </CloseButton>
-        </li>
-    );
 }
 
 function NavLink({
@@ -207,20 +194,23 @@ export function Navigation(props) {
     );
 
     const handlePackageChange = (newPackage) => {
-        // Navigate to the new package with the same version
-        router.push(`/docs/${newPackage}/${currentVersion}`);
+        // Check if the current version exists in the target package
+        const targetPackageVersions = packages[newPackage]?.versions || [];
+        const versionExists = targetPackageVersions.some(
+            (v) => v.id === currentVersion,
+        );
+
+        // Use current version if it exists, otherwise use the latest (first) version
+        const targetVersion = versionExists
+            ? currentVersion
+            : targetPackageVersions[0]?.id || 'v1';
+
+        router.push(`/docs/${newPackage}/${targetVersion}`);
     };
 
     return (
         <nav {...props}>
             <ul role="list">
-                <TopLevelNavItem href="/">Home</TopLevelNavItem>
-                <TopLevelNavItem href="/docs/core/v3">
-                    Core Docs
-                </TopLevelNavItem>
-                <TopLevelNavItem href="/docs/laravel/v3">
-                    Laravel Docs
-                </TopLevelNavItem>
                 {isDocsPage && (
                     <li className="md:hidden">
                         <PackageSelector

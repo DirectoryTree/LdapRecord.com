@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Cache Next.js build output for faster builds
+[[build.processing.css]]
+  bundle = true
+  minify = true
+
+[[build.processing.js]]
+  bundle = true
+  minify = true
+
