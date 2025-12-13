@@ -34,7 +34,7 @@ export const homeNavigation = [
             },
             {
                 title: 'Support & Sponsorship',
-                href: 'https://github.com/sponsors/stevebauman',
+                href: 'https://github.com/DirectoryTree/LdapRecord?sponsor=1',
             },
             {
                 title: 'Report Issues',

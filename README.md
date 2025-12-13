@@ -99,10 +99,8 @@ This documentation site is built with modern web technologies:
 - **[LdapRecord-Laravel Repository](https://github.com/DirectoryTree/LdapRecord-Laravel)**
 - **[Documentation Website](https://ldaprecord.com)**
 - **[Issue Tracker](https://github.com/DirectoryTree/LdapRecord/issues)**
-- **[Sponsor the Project](https://github.com/sponsors/stevebauman)**
+- **[Sponsor the Project](https://github.com/DirectoryTree/LdapRecord?sponsor=1)**
 
 ## License
 
 The LdapRecord packages are open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-This documentation website is built using the Protocol template from [Tailwind Plus](https://tailwindcss.com/plus).

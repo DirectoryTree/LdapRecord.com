@@ -21,7 +21,7 @@ function createSectionStore(sections) {
                     ? {}
                     : { visibleSections },
             ),
-        registerHeading: ({ id, ref, offsetRem }) =>
+        registerHeading: ({ id, ref, offsetRem, level }) =>
             set((state) => {
                 return {
                     sections: state.sections.map((section) => {
@@ -30,6 +30,7 @@ function createSectionStore(sections) {
                                 ...section,
                                 headingRef: ref,
                                 offsetRem,
+                                level,
                             };
                         }
                         return section;
