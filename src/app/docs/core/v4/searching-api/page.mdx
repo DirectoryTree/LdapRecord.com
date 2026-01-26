@@ -669,18 +669,6 @@ $query = $connection->query();
 $groups = $query->in('ou=Groups,dc=local,dc=com')->list()->get();
 ```
 
-#### `model`
-
-Create a new query builder instance for the given model:
-
-```php
-use LdapRecord\Models\ActiveDirectory\User;
-
-$query = $connection->query();
-
-$modelQuery = $query->model(new User);
-```
-
 #### `nested`
 
 Whether to mark the current query as nested:
