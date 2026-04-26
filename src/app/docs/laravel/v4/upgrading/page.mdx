@@ -1,0 +1,131 @@
+export const metadata = {
+    title: 'Upgrade to LdapRecord-Laravel v4',
+    description: 'Upgrading from LdapRecord-Laravel v3',
+}
+
+# Upgrading to Version 4
+
+We strive to record all potential breaking changes. However, as some of
+these changes occur in lesser-known areas of the library, only a
+fraction of them might have an impact on your application.
+
+If you encounter any changes not documented here that have affected you,
+please create a bug report on the [LdapRecord-Docs repository](https://github.com/DirectoryTree/LdapRecord-Docs/issues/new)
+so that we can address the issue promptly.
+
+## High Impact Changes
+
+### Updating Dependencies
+
+#### LdapRecord v4
+
+The core [LdapRecord](/docs/core/v4) repository has been updated to version 4.
+
+Please visit the [core upgrade guide](/docs/core/v4/upgrading) to review the
+changes that may have an impact on your application, especially the SSL/TLS
+configuration rename and query builder changes.
+
+#### Composer Dependencies
+
+You should update the following dependency in your application's `composer.json` file:
+
+```json
+"directorytree/ldaprecord-laravel": "^4.0"
+```
+
+Then run:
+
+```bash
+composer update directorytree/ldaprecord-laravel directorytree/ldaprecord
+```
+
+### SSL/TLS Configuration Options Renamed
+
+LdapRecord-Laravel v4 uses the new SSL/TLS configuration option names from
+LdapRecord v4. These names clarify the difference between LDAPS and STARTTLS.
+
+| v3 Usage | v3 Option / Env | v4 Option / Env |
+|----------|-----------------|-----------------|
+| LDAPS / TLS connection | `use_ssl` / `LDAP_SSL` | `use_tls` / `LDAP_TLS` |
+| STARTTLS upgrade | `use_tls` / `LDAP_TLS` | `use_starttls` / `LDAP_STARTTLS` |
+
+If you have published `config/ldap.php`, update each connection:
+
+```diff
+'connections' => [
+    'default' => [
+        // ...
+-       'use_ssl' => env('LDAP_SSL', false),
+        'use_tls' => env('LDAP_TLS', false),
++       'use_starttls' => env('LDAP_STARTTLS', false),
+    ],
+],
+```
+
+If you configure LDAP connections only through your `.env` file, update the
+environment variable names instead:
+
+```diff
+- LDAP_DEFAULT_SSL=true
++ LDAP_DEFAULT_TLS=true
+```
+
+```diff
+- LDAP_DEFAULT_TLS=true
++ LDAP_DEFAULT_STARTTLS=true
+```
+
+The same rename applies to all named connections. For example,
+`LDAP_ALPHA_SSL` becomes `LDAP_ALPHA_TLS`, and `LDAP_ALPHA_TLS` becomes
+`LDAP_ALPHA_STARTTLS`.
+
+## Medium Impact Changes
+
+### Directory Emulator Query Internals Updated
+
+The Directory Emulator has been updated for the LdapRecord v4 query builder.
+It now works with the new `LdapRecord\Query\Filter` objects and the renamed
+query builder `$selects` state.
+
+Most applications that use `DirectoryEmulator::setup()` in tests should not
+need to make any changes. However, if you extend or call the emulator builder
+classes directly, review any overrides for these changes:
+
+- `findOrFail` now accepts `$selects` instead of `$columns`.
+- Base emulated query results now return arrays for raw query builder methods.
+- `paginate` returns an array.
+- The emulator no longer relies on the removed core query grammar or array-based
+  filter state.
+
+### Custom Emulated Model Builders
+
+If you extend the emulated model query builders under
+`LdapRecord\Laravel\Testing\Emulated`, update your custom builders for the
+LdapRecord v4 model builder constructor changes.
+
+The emulator now creates new model builder instances from the model and a fresh
+base query instance, instead of creating a builder from only the connection and
+then setting the model afterward.
+
+## Low Impact Changes
+
+### EscapedValue Namespace Changed
+
+The testing `UnescapedValue` helper now extends `LdapRecord\Query\EscapedValue`
+instead of `LdapRecord\Models\Attributes\EscapedValue`.
+
+If your tests import or extend the old class directly, update the namespace:
+
+```diff
+- use LdapRecord\Models\Attributes\EscapedValue;
++ use LdapRecord\Query\EscapedValue;
+```
+
+### Directory Emulator Write Operations
+
+The Directory Emulator now implements the LdapRecord v4 LDAP write operation
+methods for adding, updating, replacing, and removing attribute values.
+
+This should be backward compatible for normal emulator usage, but custom test
+doubles that implement the same low-level LDAP methods may need their method
+signatures reviewed against LdapRecord v4.
