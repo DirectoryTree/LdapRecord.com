@@ -14,14 +14,14 @@ export const homeNavigation = [
     {
         title: 'LdapRecord Laravel',
         links: [
-            { title: 'Laravel Overview', href: '/docs/laravel/v3' },
+            { title: 'Laravel Overview', href: '/docs/laravel/v4' },
             {
                 title: 'Laravel Installation',
-                href: '/docs/laravel/v3/installation',
+                href: '/docs/laravel/v4/installation',
             },
             {
-                title: 'Laravel Quickstart',
-                href: '/docs/laravel/v3/quickstart',
+                title: 'Laravel Usage',
+                href: '/docs/laravel/v4/usage',
             },
         ],
     },
@@ -480,6 +480,83 @@ export const navigationConfig = {
                 links: [
                     { title: 'Versioning', href: '/docs/laravel/v2/versioning' },
                     { title: 'License', href: '/docs/laravel/v2/license' },
+                ],
+            },
+        ],
+        v4: [
+            {
+                title: 'Prologue',
+                links: [
+                    { title: 'Release Notes', href: '/docs/laravel/v4/release-notes' },
+                    { title: 'Upgrade Guide', href: '/docs/laravel/v4/upgrading' },
+                ],
+            },
+            {
+                title: 'Introduction',
+                links: [
+                    { title: 'Overview', href: '/docs/laravel/v4' },
+                    { title: 'Installation', href: '/docs/laravel/v4/installation' },
+                    { title: 'Configuration', href: '/docs/laravel/v4/configuration' },
+                    { title: 'Usage', href: '/docs/laravel/v4/usage' },
+                ],
+            },
+            {
+                title: 'Authentication',
+                links: [
+                    { title: 'Overview', href: '/docs/laravel/v4/auth' },
+                    { title: 'Multi-Domain', href: '/docs/laravel/v4/auth/multi-domain' },
+                    { title: 'Restricting Login', href: '/docs/laravel/v4/auth/restricting-login' },
+                    { title: 'Testing', href: '/docs/laravel/v4/auth/testing' },
+                ],
+            },
+            {
+                title: 'Plain Auth',
+                links: [
+                    { title: 'Overview', href: '/docs/laravel/v4/auth/plain' },
+                    { title: 'Configuration', href: '/docs/laravel/v4/auth/plain/configuration' },
+                    { title: 'Logging In', href: '/docs/laravel/v4/auth/plain/logging-in' },
+                    { title: 'Laravel UI', href: '/docs/laravel/v4/auth/plain/laravel-ui' },
+                    { title: 'Laravel Breeze', href: '/docs/laravel/v4/auth/plain/laravel-breeze' },
+                    { title: 'Laravel Jetstream', href: '/docs/laravel/v4/auth/plain/laravel-jetstream' },
+                ],
+            },
+            {
+                title: 'Database Auth',
+                links: [
+                    { title: 'Overview', href: '/docs/laravel/v4/auth/database' },
+                    { title: 'Installation', href: '/docs/laravel/v4/auth/database/installation' },
+                    { title: 'Configuration', href: '/docs/laravel/v4/auth/database/configuration' },
+                    { title: 'Logging In', href: '/docs/laravel/v4/auth/database/logging-in' },
+                    { title: 'Importing Users', href: '/docs/laravel/v4/auth/database/importing' },
+                    { title: 'Laravel UI', href: '/docs/laravel/v4/auth/database/laravel-ui' },
+                    { title: 'Laravel Breeze', href: '/docs/laravel/v4/auth/database/laravel-breeze' },
+                    { title: 'Laravel Jetstream', href: '/docs/laravel/v4/auth/database/laravel-jetstream' },
+                    { title: 'Laravel Sanctum', href: '/docs/laravel/v4/auth/database/laravel-sanctum' },
+                ],
+            },
+            {
+                title: 'SSO Auth',
+                links: [
+                    { title: 'Overview', href: '/docs/laravel/v4/auth/sso' },
+                    { title: 'Setup', href: '/docs/laravel/v4/auth/sso/setup' },
+                ],
+            },
+            {
+                title: 'Other Features',
+                links: [
+                    { title: 'Lumen', href: '/docs/laravel/v4/lumen' },
+                    { title: 'Events', href: '/docs/laravel/v4/events' },
+                    { title: 'Testing', href: '/docs/laravel/v4/testing' },
+                    { title: 'Extending', href: '/docs/laravel/v4/extending' },
+                    { title: 'Debugging', href: '/docs/laravel/v4/debugging' },
+                    { title: 'Importing Objects', href: '/docs/laravel/v4/importing' },
+                ],
+            },
+            {
+                title: 'Extra',
+                links: [
+                    { title: 'Versioning', href: '/docs/laravel/v4/versioning' },
+                    { title: 'License', href: '/docs/laravel/v4/license' },
                 ],
             },
         ],

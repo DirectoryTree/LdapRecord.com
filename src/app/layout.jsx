@@ -16,10 +16,14 @@ export default async function RootLayout({ children }) {
     let pages = await glob('**/*.mdx', { cwd: 'src/app' });
 
     let allSectionsEntries = await Promise.all(
-        pages.map(async (filename) => [
-            '/' + filename.replace(/(^|\/)page\.mdx$/, ''),
-            (await import(`./${filename}`)).sections,
-        ]),
+        pages.map(async (filename) => {
+            let pagePath = filename.replace(/\.mdx$/, '');
+
+            return [
+                '/' + filename.replace(/(^|\/)page\.mdx$/, ''),
+                (await import(`./${pagePath}.mdx`)).sections,
+            ];
+        }),
     );
 
     let allSections = Object.fromEntries(allSectionsEntries);

@@ -1,0 +1,3 @@
+[submodule "src/app/docs"]
+	path = src/app/docs
+	url = https://github.com/DirectoryTree/LdapRecord-Docs.git

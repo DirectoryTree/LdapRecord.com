@@ -1,9 +1,9 @@
-import { slugifyWithCounter } from '@sindresorhus/slugify';
+import shiki from 'shiki';
 import * as acorn from 'acorn';
+import { visit } from 'unist-util-visit';
 import { toString } from 'mdast-util-to-string';
 import { mdxAnnotations } from 'mdx-annotations';
-import shiki from 'shiki';
-import { visit } from 'unist-util-visit';
+import { slugifyWithCounter } from '@sindresorhus/slugify';
 
 function rehypeParseCodeBlocks() {
     return (tree) => {
@@ -47,6 +47,9 @@ function rehypeShiki() {
                     const languageMap = {
                         dotenv: 'bash',
                         env: 'bash',
+                        'git-diff': 'diff',
+                        gitdiff: 'diff',
+                        patch: 'diff',
                     };
 
                     if (languageMap[language]) {
@@ -54,6 +57,8 @@ function rehypeShiki() {
                     }
 
                     try {
+                        let lines = textNode.value.split('\n');
+                        let lineIndex = 0;
                         let tokens = highlighter.codeToThemedTokens(
                             textNode.value,
                             language,
@@ -63,8 +68,40 @@ function rehypeShiki() {
                             elements: {
                                 pre: ({ children }) => children,
                                 code: ({ children }) => children,
-                                line: ({ children }) =>
-                                    `<span>${children}</span>`,
+                                line: ({ children }) => {
+                                    let line = lines[lineIndex++] ?? '';
+
+                                    if (language !== 'diff') {
+                                        return `<span>${children}</span>`;
+                                    }
+
+                                    if (
+                                        !line &&
+                                        lineIndex === lines.length
+                                    ) {
+                                        return '';
+                                    }
+
+                                    let className = 'diff-line';
+
+                                    if (
+                                        line.startsWith('@@') ||
+                                        line.startsWith('diff ') ||
+                                        line.startsWith('index ') ||
+                                        line.startsWith('---') ||
+                                        line.startsWith('+++')
+                                    ) {
+                                        className += ' diff-line-meta';
+                                    } else if (line.startsWith('+')) {
+                                        className += ' diff-line-add';
+                                    } else if (line.startsWith('-')) {
+                                        className += ' diff-line-remove';
+                                    }
+
+
+
+                                    return `<span class="${className}">${children}</span>`;
+                                },
                             },
                         });
                     } catch (error) {

@@ -27,7 +27,8 @@ export const packages = {
     laravel: {
         name: 'LdapRecord Laravel',
         versions: [
-            { id: 'v3', name: 'v3.0', description: 'Latest' },
+            { id: 'v4', name: 'v4.0', description: 'Latest' },
+            { id: 'v3', name: 'v3.0', description: 'Legacy' },
             { id: 'v2', name: 'v2.0', description: 'Legacy' },
             { id: 'v1', name: 'v1.0', description: 'Legacy' },
         ],
