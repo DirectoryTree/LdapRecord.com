@@ -1,6 +1,11 @@
+# Cloudflare Pages configuration for Next.js
+# This file is primarily for local development and CI/CD reference
+# Actual Pages deployment is configured via the Cloudflare Dashboard
+
 name = "ldaprecord"
 compatibility_date = "2024-01-01"
-pages_build_output_dir = ".next"
 
-# Cloudflare Pages configuration for Next.js
-# No service bindings needed for a standard documentation site
+# Pages-specific configuration
+[pages]
+# Build output directory for Next.js
+build_output_dir = ".next"
