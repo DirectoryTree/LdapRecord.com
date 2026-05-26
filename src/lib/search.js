@@ -1,7 +1,27 @@
 import FlexSearch from 'flexsearch';
 
+// Cache for the full search index data
+let searchDataCache = null;
+
 // Cache for search indices by package/version combination
 let searchIndexCache = new Map();
+
+// Fetch the full search index once and cache it
+async function fetchSearchData() {
+    if (searchDataCache) {
+        return searchDataCache;
+    }
+
+    const response = await fetch('/search-index.json');
+
+    if (!response.ok) {
+        throw new Error(`Failed to fetch search data: ${response.status}`);
+    }
+
+    searchDataCache = await response.json();
+
+    return searchDataCache;
+}
 
 // Initialize the search index for a specific package and version
 async function initializeSearch(packageName, version) {
@@ -12,25 +32,22 @@ async function initializeSearch(packageName, version) {
     }
 
     try {
-        // Build URL with query parameters for filtering
-        const url = new URL('/api/search-data', window.location.origin);
+        const allData = await fetchSearchData();
 
-        if (packageName) {
-            url.searchParams.set('packageName', packageName);
-        }
+        // Filter search data based on package and version if provided
+        const searchData = (packageName || version)
+            ? allData.filter((item) => {
+                if (packageName && item.packageName !== packageName) {
+                    return false;
+                }
 
-        if (version) {
-            url.searchParams.set('version', version);
-        }
+                if (version && item.version !== version) {
+                    return false;
+                }
 
-        // Import the filtered search index data
-        const response = await fetch(url.toString());
-
-        if (!response.ok) {
-            throw new Error(`Failed to fetch search data: ${response.status}`);
-        }
-
-        const searchData = await response.json();
+                return true;
+            })
+            : allData;
 
         // Create FlexSearch index
         const sectionIndex = new FlexSearch.Document({

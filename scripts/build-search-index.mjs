@@ -49,7 +49,7 @@ async function buildSearchIndex() {
     console.log('Building search index...');
     
     const appDir = path.resolve(__dirname, '../src/app');
-    const outputPath = path.resolve(__dirname, '../src/data/search-index.json');
+    const outputPath = path.resolve(__dirname, '../public/search-index.json');
     
     // Ensure output directory exists
     const outputDir = path.dirname(outputPath);

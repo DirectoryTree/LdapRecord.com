@@ -56,9 +56,10 @@ class SearchIndexPlugin {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: 'export',
     pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
-    outputFileTracingIncludes: {
-        '/**/*': ['./src/app/**/*.mdx'],
+    images: {
+        unoptimized: true,
     },
     webpack: (config, { dev, isServer }) => {
         // Only add the plugin on the server side to avoid duplicate builds

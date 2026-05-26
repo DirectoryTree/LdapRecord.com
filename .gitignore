@@ -24,4 +24,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/src/data/search-index.json
+/public/search-index.json
