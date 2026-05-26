@@ -5,6 +5,7 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
+        "build:cloudflare": "npx @cloudflare/next-on-pages",
         "build:search": "node scripts/build-search-index.mjs",
         "start": "next start",
         "lint": "next lint"
@@ -42,6 +43,7 @@
         "zustand": "^4.3.2"
     },
     "devDependencies": {
+        "@cloudflare/next-on-pages": "^1.13.16",
         "eslint": "^8.56.0",
         "eslint-config-next": "^14.0.4",
         "prettier": "^3.3.2",
