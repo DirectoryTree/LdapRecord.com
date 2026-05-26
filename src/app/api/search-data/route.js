@@ -1,19 +1,11 @@
 import { NextResponse } from 'next/server';
-import * as fs from 'fs';
-import * as path from 'path';
+import searchData from '@/data/search-index.json';
+
+// Use Edge Runtime for Cloudflare Pages compatibility
+export const runtime = 'edge';
 
 export async function GET(request) {
     try {
-        const searchIndexPath = path.resolve(process.cwd(), 'src/data/search-index.json');
-
-        if (!fs.existsSync(searchIndexPath)) {
-            return NextResponse.json(
-                { error: 'Search index not found. Please run the build script.' },
-                { status: 404 }
-            );
-        }
-
-        const searchData = JSON.parse(fs.readFileSync(searchIndexPath, 'utf8'));
 
         // Get query parameters for filtering
         const { searchParams } = new URL(request.url);
