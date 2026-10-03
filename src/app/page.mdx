@@ -1,149 +1,106 @@
 import { Button } from '@/components/Button';
-import { HeroPattern } from '@/components/HeroPattern';
 import { AutomatticSponsor } from '@/components/AutomatticSponsor';
+import { PackageLanding, PackageHero, PackageCards } from '@/components/PackageLanding';
+import { ArrowRightIcon, CodeBracketIcon, CubeIcon } from '@heroicons/react/24/outline';
 
 export const metadata = {
-    title: 'LdapRecord Documentation',
-    description:
-        'LdapRecord is a PHP package that provides you with a full ActiveRecord implementation for working with your LDAP server.',
+    title: 'LdapRecord — LDAP for PHP and Laravel',
+    description: 'Query your directory, manage users and groups, and bring LDAP authentication to your PHP and Laravel applications.',
 };
 
 export const sections = [
-    { title: 'Features', id: 'features' },
     { title: 'Packages', id: 'packages' },
-    { title: 'Featured Sponsors', id: 'featured-sponsors' },
+    { title: 'Features', id: 'features' },
+    { title: 'Sponsors', id: 'sponsors' },
     { title: 'Support', id: 'support' },
 ];
 
-<HeroPattern />
+<PackageLanding>
+<PackageHero>
+<div>
+<div className="mb-4 text-sm font-medium text-purple-600 dark:text-purple-400">LdapRecord · LDAP for PHP &amp; Laravel</div>
 
-# LdapRecord
+# LDAP that feels familiar.
 
-A fully-featured Active Record ORM that makes working with LDAP directories a breeze.
+Query your directory, manage users and groups, and bring LDAP authentication to your PHP applications. Get started with expressive models and a readable query builder.
 
-<div className="not-prose mt-6 mb-16 flex gap-3">
-    <Button href="/docs/core/v4" arrow="right">
-        <>Core Documentation</>
-    </Button>
-
-    <Button href="/docs/laravel/v4" variant="outline">
-        <>Laravel Integration</>
-    </Button>
+<div className="mt-7 flex flex-wrap gap-3">
+    <Button href="#packages" arrow="right" className="px-4 py-2.5">Choose your package</Button>
+    <Button href="https://github.com/DirectoryTree/LdapRecord" variant="outline" className="px-4 py-2.5">View on GitHub</Button>
 </div>
-
-## Features {{ id: 'features' }}
-
-<div className="not-prose mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
-    <div className="group relative rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
-        <div className="flex items-start gap-4">
-            <div className="text-2xl">⏲</div>
-            <div>
-                <h3 className="font-semibold text-zinc-900 dark:text-white">
-                    Up and Running Fast
-                </h3>
-                <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    Connect to your LDAP servers and start running queries in a matter of minutes.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div className="group relative rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
-        <div className="flex items-start gap-4">
-            <div className="text-2xl">💡</div>
-            <div>
-                <h3 className="font-semibold text-zinc-900 dark:text-white">
-                    Fluent Filter Builder
-                </h3>
-                <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    Find the LDAP objects you're looking for with a fluent LDAP filter builder.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div className="group relative rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
-        <div className="flex items-start gap-4">
-            <div className="text-2xl">💼</div>
-            <div>
-                <h3 className="font-semibold text-zinc-900 dark:text-white">
-                    Multi-Domain Ready
-                </h3>
-                <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    Built-in connection management allows you to access multiple domains without breaking a sweat.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div className="group relative rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
-        <div className="flex items-start gap-4">
-            <div className="text-2xl">🔥</div>
-            <div>
-                <h3 className="font-semibold text-zinc-900 dark:text-white">
-                    Supercharged Active Record
-                </h3>
-                <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    Create and modify LDAP objects with minimal code.
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+<div>
+<CodeGroup>
 
-## Featured Sponsors {{ id: 'featured-sponsors' }}
+```php
+use LdapRecord\Models\ActiveDirectory\User;
 
-LdapRecord is made possible by the generous support of our sponsors. Their contributions help us maintain and improve this open-source project.
+$user = User::query()
+    ->where('mail', 'jane@example.com')
+    ->firstOrFail();
 
-<div className="not-prose mt-8 flex flex-col items-center gap-6 sm:flex-row sm:flex-wrap sm:justify-center">
-    <AutomatticSponsor className="w-full max-w-sm" />
+foreach ($user->groups()->get() as $group) {
+    echo $group->getName();
+}
+```
+
+</CodeGroup>
+<div className="text-sm leading-6">Find a user and explore their groups. <a href="/docs/core/v4/quickstart" className="text-purple-600 underline underline-offset-4 dark:text-purple-400">Start with an LDAP connection.</a></div>
 </div>
+</PackageHero>
 
-## Packages {{ id: 'packages' }}
+<section className="mt-10">
 
-Choose the package that best fits your needs. If you're building a Laravel application, start with LdapRecord-Laravel. For other PHP frameworks or standalone applications, use the core LdapRecord package.
+## Choose your package {{ id: 'packages' }}
 
-<div className="not-prose mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
-    <div className="group relative rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
-        <div>
-            <h3 className="font-semibold text-zinc-900 dark:text-white">
-                Other PHP Applications
-            </h3>
+<p className="mt-3 max-w-2xl text-sm leading-6">Start with Core for any PHP application, or use the Laravel integration for authentication and user synchronization.</p>
 
-            <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                New to LdapRecord or not using Laravel? Start here. The core package offers a full ActiveRecord implementation for interacting with your LDAP server in any PHP application. It’s the foundation of LdapRecord and works seamlessly outside of Laravel.
-            </div>
-        </div>
-
-        <div className="mt-4">
-            <Button href="/docs/core/v4" variant="text" arrow="right">
-                Get started with Core
-            </Button>
-        </div>
-    </div>
-
-    <div className="group relative rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
-        <div>
-            <h3 className="font-semibold text-zinc-900 dark:text-white">
-                Laravel Applications
-            </h3>
-
-            <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                Building a Laravel app? Start here. LdapRecord-Laravel integrates LDAP authentication, user synchronization, and directory operations directly into your Laravel application. It builds on the core package and offers seamless Laravel-specific support.
-            </div>
-        </div>
-
-        <div className="mt-4">
-            <Button href="/docs/laravel/v4" variant="text" arrow="right">
-                Get started with Laravel
-            </Button>
-        </div>
-    </div>
-
+<div className="mt-6 grid gap-4 md:grid-cols-2">
+    <a href="/docs/core/v4" className="group flex flex-col rounded-2xl border border-zinc-200 p-6 transition hover:border-purple-300 hover:bg-purple-50/40 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500 sm:p-8 dark:border-zinc-800 dark:hover:border-purple-500/50 dark:hover:bg-purple-500/5">
+        <CodeBracketIcon aria-hidden="true" className="mb-5 h-7 w-7 text-purple-600 dark:text-purple-400" />
+        <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">For any PHP application</span>
+        <h3 className="mt-2 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-white">LdapRecord Core</h3>
+        <p className="mt-3 flex-1 text-sm leading-6">Query your directory and manage LDAP entries through PHP models. Work with users, groups, and their relationships.</p>
+        <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-purple-600 dark:text-purple-400">Explore Core <ArrowRightIcon aria-hidden="true" className="h-5 w-5 transition group-hover:translate-x-1" /></span>
+    </a>
+    <a href="/docs/laravel/v4" className="group flex flex-col rounded-2xl border border-zinc-200 p-6 transition hover:border-purple-300 hover:bg-purple-50/40 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500 sm:p-8 dark:border-zinc-800 dark:hover:border-purple-500/50 dark:hover:bg-purple-500/5">
+        <CubeIcon aria-hidden="true" className="mb-5 h-7 w-7 text-purple-600 dark:text-purple-400" />
+        <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">For Laravel applications</span>
+        <h3 className="mt-2 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-white">LdapRecord Laravel</h3>
+        <p className="mt-3 flex-1 text-sm leading-6">Authenticate users with LDAP credentials, sync their database records, and query your directory from Laravel.</p>
+        <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-purple-600 dark:text-purple-400">Explore Laravel <ArrowRightIcon aria-hidden="true" className="h-5 w-5 transition group-hover:translate-x-1" /></span>
+    </a>
 </div>
+<p className="mt-4 text-sm leading-6">The Laravel integration includes Core, so you get the same directory models and query builder with either package.</p>
+</section>
 
-## Support {{ id: 'support' }}
+<section className="mt-12">
 
-If you require support or assistance getting set up, consider becoming a [sponsor](https://github.com/DirectoryTree/LdapRecord?sponsor=1) to receive issue priority so you get up and running as fast as possible.
+## Work with your directory {{ id: 'features' }}
 
-If you encounter issues or need help, feel free to [create an issue](https://github.com/DirectoryTree/LdapRecord/issues/new) and we'll be happy to help you out.
+<PackageCards items={[
+    { icon: 'search', title: 'Query your directory', description: 'Find entries by email, department, or any other LDAP attribute using readable query methods.', href: '/docs/core/v4/searching' },
+    { icon: 'users', title: 'Manage users and groups', description: 'Update user profiles and manage Active Directory group memberships from your application.', href: '/docs/core/v4/active-directory/groups' },
+    { icon: 'authentication', title: 'Authenticate your users', description: 'Let users sign in to Laravel with their existing directory credentials.', href: '/docs/laravel/v4/auth' },
+]} />
+</section>
+
+<section className="mt-12 flex flex-col gap-6 border-t border-zinc-900/10 pt-8 sm:flex-row sm:items-center sm:justify-between dark:border-white/10">
+    <div>
+
+## Supported by our sponsors {{ id: 'sponsors' }}
+
+<p className="mt-3 max-w-lg text-sm leading-6">Thank you to Automattic for supporting LdapRecord and its continued development.</p>
+    </div>
+    <AutomatticSponsor className="w-full max-w-56 shrink-0" />
+</section>
+
+<section className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-zinc-900/10 pt-6 text-sm dark:border-white/10" id="support" aria-label="Support">
+    <span>Need a hand getting started?</span>
+    <div className="flex flex-wrap gap-5">
+        <a href="https://github.com/DirectoryTree/LdapRecord/issues/new" className="hover:text-purple-600 dark:hover:text-purple-400">Get help</a>
+        <a href="https://github.com/DirectoryTree/LdapRecord" className="hover:text-purple-600 dark:hover:text-purple-400">GitHub</a>
+        <a href="https://github.com/sponsors/stevebauman" className="hover:text-purple-600 dark:hover:text-purple-400">Become a sponsor</a>
+    </div>
+</section>
+</PackageLanding>

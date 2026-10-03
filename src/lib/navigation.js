@@ -6,9 +6,9 @@ export const homeNavigation = [
     {
         title: 'LdapRecord Core',
         links: [
-            { title: 'Core Overview', href: '/docs/core/v3' },
-            { title: 'Core Installation', href: '/docs/core/v3/installation' },
-            { title: 'Core Quickstart', href: '/docs/core/v3/quickstart' },
+            { title: 'Core Overview', href: '/docs/core/v4' },
+            { title: 'Core Installation', href: '/docs/core/v4/installation' },
+            { title: 'Core Quickstart', href: '/docs/core/v4/quickstart' },
         ],
     },
     {

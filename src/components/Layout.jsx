@@ -72,7 +72,6 @@ export function Layout({ children, allSections }) {
     const isDocsPage =
         pathname.startsWith('/docs/core/') ||
         pathname.startsWith('/docs/laravel/');
-    const isHomePage = pathname === '/';
 
     const handlePackageChange = (newPackage) => {
         // Check if the current version exists in the target package
@@ -103,7 +102,7 @@ export function Layout({ children, allSections }) {
                             </Link>
                         </div>
 
-                        {!isHomePage && <Header />}
+                        <Header />
 
                         {isDocsPage && (
                             <div className="hidden lg:mt-6 lg:block">
@@ -126,7 +125,7 @@ export function Layout({ children, allSections }) {
                     </div>
                 </motion.header>
 
-                <div className={`relative flex h-full flex-col px-4 sm:px-6 lg:px-8 ${isHomePage ? 'pt-0' : 'pt-14'}`}>
+                <div className="relative flex h-full flex-col px-4 pt-14 sm:px-6 lg:px-8">
                     <div className="mx-auto flex w-full max-w-8xl flex-auto justify-center 2xl:px-12">
                         <div className="min-w-0 max-w-2xl flex-auto py-4 2xl:py-16 lg:max-w-none lg:pr-0 2xl:px-16">
                             <main className="flex-auto">{children}</main>
