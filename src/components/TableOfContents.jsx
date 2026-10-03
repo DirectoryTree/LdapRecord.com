@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 import { useSectionStore } from '@/components/SectionProvider';
-import { SponsorPlaceholder } from '@/components/SponsorPlaceholder';
+import { AutomatticSponsor } from '@/components/AutomatticSponsor';
 
 function TableOfContentsLink({ section, isActive }) {
     const isH3 = section.level === 3;
@@ -87,15 +87,7 @@ export function TableOfContents() {
                         Featured Sponsors
                     </h3>
 
-                    <div className="mt-4">
-                        <SponsorPlaceholder
-                            size="small"
-                            target="_blank"
-                            className="block text-center w-full"
-                            subtitle="Sponsor this project"
-                            href="https://github.com/DirectoryTree/LdapRecord?sponsor=1"
-                        />
-                    </div>
+                    <AutomatticSponsor className="mt-4 w-full" />
                 </div>
             </div>
         </motion.div>
